@@ -20,24 +20,30 @@
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #3c4049; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #112344; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #175cdd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+:root {
+  /* =========================
+     Global Website Colors
+     ========================= */
+
+  --background-color: #FFFFFF;        /* Main website background */
+  --default-color: #1F2D33;           /* Primary text color */
+  --heading-color: #0E4968;           /* Headings & titles */
+  --accent-color: #107A7C;            /* Buttons, links, highlights */
+  --surface-color: #F5F7F8;           /* Cards, sections, boxes */
+  --contrast-color: #FFFFFF;          /* Text on dark backgrounds */
+
+  /* =========================
+     Navigation Menu Colors
+     ========================= */
+
+  --nav-color: #0E4968;                /* Default nav links */
+  --nav-hover-color: #107A7C;          /* Hover / active links */
+  --nav-mobile-background-color: #FFFFFF;
+  --nav-dropdown-background-color: #FFFFFF;
+  --nav-dropdown-color: #1F2D33;
+  --nav-dropdown-hover-color: #107A7C;
 }
 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
-:root {
-  --nav-color: #3c4049;  /* The default color of the main navmenu links */
-  --nav-hover-color: #175cdd; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #3c4049; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #175cdd; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
-}
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
@@ -370,8 +376,14 @@ h6 {
   }
 }
 
-/* Mobile Navigation */
+/* Tablet & Mobile Navigation */
 @media (max-width: 1199px) {
+  .branding .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   .mobile-nav-toggle {
     color: var(--nav-color);
     font-size: 28px;
@@ -1667,6 +1679,10 @@ section,
   .home-about .about-content .stats-grid {
     margin: 2rem 0;
   }
+}
+.home-about {
+  padding: 100px 0;
+  background-color: #b3e0ff; /* light gray */
 }
 
 /*--------------------------------------------------------------
@@ -6216,4 +6232,125 @@ section,
   padding-top: 60px;
   padding-bottom: 60px;
   /* Add your styles here */
+}
+.logo-img {
+    width: 300px;  
+    height: 1200px;   
+}
+
+/* Logo Title Styling */
+.logo-title {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+
+  /* Brand gradient */
+  background: linear-gradient(90deg, #0E4968, #107A7C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  position: relative;
+  white-space: nowrap;
+}
+
+/* Subtle brand underline */
+.logo-title::after {
+  content: "";
+  display: block;
+  width: 45%;
+  height: 3px;
+  margin-top: 4px;
+  background: linear-gradient(90deg, #0E4968, #107A7C);
+  border-radius: 2px;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .logo-title {
+    font-size: 18px;
+  }
+}
+
+/* =====================DASHBOAD SLIDERING==================== */
+/* Slider wrapper */
+.image-slider {
+  position: relative;
+  overflow: visible;
+}
+
+.main-image {
+  position: relative;
+  min-height: 420px;
+}
+
+.image-slider .slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.image-slider .slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+
+/* ========================= crack / pop =================*/
+.hero { 
+  position: relative; 
+  overflow: hidden; 
+} 
+ 
+.hero-popper { 
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  width: 400px; 
+  height: 400px; 
+  transform: translate(-50%, -50%); 
+  pointer-events: none; 
+  z-index: 20;
+  /* Remove the animation from here - it will be controlled by JS */
+} 
+ 
+.hero-popper iframe { 
+  width: 100%; 
+  height: 100%; 
+  border: none; 
+} 
+ 
+/* Smooth disappear */ 
+@keyframes popperFade { 
+  0% { 
+    opacity: 1; 
+    transform: translate(-50%, -50%) scale(1); 
+  } 
+  80% { 
+    opacity: 1; 
+  } 
+  100% { 
+    opacity: 0; 
+    transform: translate(-50%, -50%) scale(1.2); 
+  } 
+}
+/* Left popper position */
+.popper-left {
+  left: 0;
+  transform: translate(-30%, -50%);
+}
+
+/* Right popper position */
+.popper-right {
+  left: auto;
+  right: 0;
+  transform: translate(30%, -50%);
 }

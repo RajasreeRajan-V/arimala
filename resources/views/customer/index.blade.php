@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Clinic Bootstrap Template</title>
+  <title>Arimala Hospital - Kanhangad</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -20,15 +20,15 @@
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ asset('vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Clinic
@@ -46,10 +46,19 @@
     <div class="topbar d-flex align-items-center dark-background">
       <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center"><a
-              href="mailto:contact@example.com">contact@example.com</a></i>
-          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+          <i class="bi bi-envelope d-flex align-items-center me-3">
+            <a href="mailto:arimalahospital@gmail.com">arimalahospital@gmail.com</a>
+          </i>
+
+          <i class="bi bi-envelope d-flex align-items-center">
+            <a href="mailto:hrarimala@gmail.com">hrarimala@gmail.com</a>
+          </i>
+
+          <i class="bi bi-phone d-flex align-items-center ms-4">
+            <span>+91 8281 240 560</span>
+          </i>
         </div>
+
         <div class="social-links d-none d-md-flex align-items-center">
           <a href="#!" class="twitter"><i class="bi bi-twitter-x"></i></a>
           <a href="#!" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -62,36 +71,41 @@
     <div class="branding d-flex align-items-cente">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.webp" alt=""> -->
-          <h1 class="sitename">Clinic</h1>
+        <a href="index.html" class="logo d-flex align-items-center gap-2">
+          <img src="{{ asset('img/back-logo.png') }}" alt="Arimala Hospital" class="logo-img">
+          {{-- <span class="logo-title">
+            Arimala Hospital
+          </span> --}}
         </a>
+
 
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="departments.html">Departments</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="doctors.html">Doctors</a></li>
-            <li class="dropdown"><a href="#"><span>More Pages</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="department-details.html">Department Details</a></li>
-              <li><a href="service-details.html">Service Details</a></li>
-              <li><a href="appointment.html">Appointment</a></li>
-              <li><a href="testimonials.html">Testimonials</a></li>
-              <li><a href="faq.html">Frequently Asked Questions</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="terms.html">Terms</a></li>
-              <li><a href="privacy.html">Privacy</a></li>
-              <li><a href="404.html">404</a></li>
-            </ul>
+            <li><a href="{{ route('dashboard') }}" class="active">Home</a></li>
+            <li><a href="{{ route('about') }}">About</a></li>
+            <li><a href="{{ route('departments') }}">Departments</a></li>
+            <li><a href="{{ route('service') }}">Services</a></li>
+            <li><a href="{{ route('doctors') }}">Doctors</a></li>
+            <li class="dropdown"><a href="#"><span>More Pages</span> <i
+                  class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="department-details.html">Department Details</a></li>
+                <li><a href="service-details.html">Service Details</a></li>
+                <li><a href="appointment.html">Appointment</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="faq.html">Frequently Asked Questions</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="404.html">404</a></li>
+              </ul>
             </li>
-            <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <li class="dropdown"><a href="#"><span>Dropdown</span> <i
+                  class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
                 <li><a href="#">Dropdown 1</a></li>
-                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                      class="bi bi-chevron-down toggle-dropdown"></i></a>
                   <ul>
                     <li><a href="#">Deep Dropdown 1</a></li>
                     <li><a href="#">Deep Dropdown 2</a></li>
@@ -105,7 +119,7 @@
                 <li><a href="#">Dropdown 4</a></li>
               </ul>
             </li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="{{ route('contact') }}">Contact</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
@@ -113,7 +127,6 @@
       </div>
 
     </div>
-
   </header>
 
   <main class="main">
@@ -126,6 +139,7 @@
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="hero-content">
+              
               <div class="trust-badges mb-4" data-aos="fade-right" data-aos-delay="200">
                 <div class="badge-item">
                   <i class="bi bi-shield-check"></i>
@@ -146,13 +160,14 @@
               </h1>
 
               <p class="hero-description" data-aos="fade-right" data-aos-delay="400">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                Providing compassionate, patient-centered healthcare with advanced medical technology and a team of
+                experienced specialists. We are committed to delivering safe, reliable, and personalized treatment to
+                support your health and well-being at every stage of life.
               </p>
 
               <div class="hero-stats mb-4" data-aos="fade-right" data-aos-delay="500">
                 <div class="stat-item">
-                  <h3><span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="2"
+                  <h3><span data-purecounter-start="0" data-purecounter-end="67" data-purecounter-duration="2"
                       class="purecounter"></span>+</h3>
                   <p>Years Experience</p>
                 </div>
@@ -168,13 +183,7 @@
                 </div>
               </div>
 
-              <div class="hero-actions" data-aos="fade-right" data-aos-delay="600">
-                <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
-                <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-outline glightbox">
-                  <i class="bi bi-play-circle me-2"></i>
-                  Watch Our Story
-                </a>
-              </div>
+              
 
               <div class="emergency-contact" data-aos="fade-right" data-aos-delay="700">
                 <div class="emergency-icon">
@@ -182,7 +191,7 @@
                 </div>
                 <div class="emergency-info">
                   <small>Emergency Hotline</small>
-                  <strong>+1 (555) 911-2468</strong>
+                  <strong>+91 8281 240 560</strong>
                 </div>
               </div>
             </div>
@@ -190,44 +199,41 @@
 
           <div class="col-lg-6">
             <div class="hero-visual" data-aos="fade-left" data-aos-delay="400">
-              <div class="main-image">
-                <img src="assets/img/health/staff-10.webp" alt="Modern Healthcare Facility" class="img-fluid">
-                <div class="floating-card appointment-card">
-                  <div class="card-icon">
-                    <i class="bi bi-calendar-check"></i>
-                  </div>
-                  <div class="card-content">
-                    <h6>Next Available</h6>
-                    <p>Today 2:30 PM</p>
-                    <small>Dr. Sarah Johnson</small>
-                  </div>
-                </div>
-                <div class="floating-card rating-card">
-                  <div class="card-content">
-                    <div class="rating-stars">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                    </div>
-                    <h6>4.9/5</h6>
-                    <small>1,234 Reviews</small>
-                  </div>
-                </div>
+
+              <div class="main-image image-slider">
+                <!-- Slide 1 -->
+                <img src="{{ asset('img/arimala-slide.jpg') }}" alt="Modern Healthcare Facility"
+                  class="img-fluid slide active">
+
+                <!-- Slide 2 -->
+                <img src="{{ asset('img/arimalee.png') }}" alt="Advanced Hospital Infrastructure"
+                  class="img-fluid slide">
               </div>
               <div class="background-elements">
                 <div class="element element-1"></div>
                 <div class="element element-2"></div>
                 <div class="element element-3"></div>
               </div>
+
             </div>
           </div>
         </div>
-
+      </div>
+      <!-- Hero Popper Animation -->
+      <!-- Left Hero Popper -->
+      <div class="hero-popper popper-left" id="heroPopperLeft">
+        <iframe src="https://lottie.host/embed/36c5a82a-fa2c-4b1f-bbd8-415e665b23f6/2435EIhn07.lottie" frameborder="0"
+          allowfullscreen>
+        </iframe>
       </div>
 
-    </section><!-- /Hero Section -->
+      <!-- Right Hero Popper -->
+      <div class="hero-popper popper-right" id="heroPopperRight">
+        <iframe src="https://lottie.host/embed/36c5a82a-fa2c-4b1f-bbd8-415e665b23f6/2435EIhn07.lottie" frameborder="0"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
 
     <!-- Home About Section -->
     <section id="home-about" class="home-about section">
@@ -238,13 +244,18 @@
           <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-delay="200">
             <div class="about-content">
               <h2 class="section-heading">Compassionate Care, Advanced Medicine</h2>
-              <p class="lead-text">For over two decades, we've been dedicated to providing exceptional healthcare that
-                combines cutting-edge medical technology with the personal touch our patients deserve.</p>
-
-              <p>Our multidisciplinary team of specialists works collaboratively to ensure every patient receives
-                comprehensive care tailored to their unique needs. From preventive services to complex procedures, we
-                maintain the highest standards of medical excellence while fostering an environment of trust and
-                healing.</p>
+              <p class="lead-text">
+                For more than two decades, Arimala Hospital has been dedicated to providing trusted healthcare by
+                combining
+                advanced medical technology with compassionate, personalized patient care.
+              </p>
+              <p>
+                Our team of experienced doctors, nurses, and healthcare professionals work together to deliver complete,
+                patient-centered care. From preventive health services to advanced treatments, we are committed to
+                maintaining
+                the highest standards of medical excellence while ensuring comfort, safety, and trust at every step of
+                care.
+              </p>
 
               <div class="stats-grid">
                 <div class="stat-item">
@@ -273,7 +284,7 @@
           <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
             <div class="about-visual">
               <div class="main-image">
-                <img src="assets/img/health/facilities-9.webp" alt="Modern medical facility" class="img-fluid">
+                <img src="{{ asset('img/arimalalabel.png') }}" alt="Modern medical facility" class="img-fluid">
               </div>
               <div class="floating-card">
                 <div class="card-content">
@@ -288,7 +299,7 @@
               </div>
               <div class="experience-badge">
                 <div class="badge-content">
-                  <span class="years">25+</span>
+                  <span class="years">67+</span>
                   <span class="text">Years of Trusted Care</span>
                 </div>
               </div>
@@ -331,7 +342,7 @@
                 </a>
               </div>
               <div class="specialty-visual">
-                <img src="assets/img/health/cardiology-1.webp" alt="Cardiovascular Medicine" class="img-fluid">
+                <img src="{{ asset('img/arimalalabel.png') }}" alt="Cardiovascular Medicine" class="img-fluid">
                 <div class="visual-overlay">
                   <i class="bi bi-heart-pulse"></i>
                 </div>
@@ -357,7 +368,7 @@
                 </a>
               </div>
               <div class="specialty-visual">
-                <img src="assets/img/health/neurology-4.webp" alt="Neurological Sciences" class="img-fluid">
+                <img src="{{ asset('img/health/neurology-4.webp') }}" alt="Neurological Sciences" class="img-fluid">
                 <div class="visual-overlay">
                   <i class="bi bi-cpu"></i>
                 </div>
@@ -456,8 +467,8 @@
           <div class="col-lg-8" data-aos="fade-right" data-aos-delay="200">
             <div class="featured-service-main">
               <div class="service-image-wrapper">
-                <img src="assets/img/health/consultation-4.webp" alt="Premier Healthcare Services" class="img-fluid"
-                  loading="lazy">
+                <img src="{{ asset('img/health/consultation-4.webp') }}" alt="Premier Healthcare Services"
+                  class="img-fluid" loading="lazy">
                 <div class="service-overlay">
                   <div class="service-badge">
                     <i class="bi bi-heart-pulse"></i>
@@ -523,7 +534,8 @@
             <div class="col-lg-3 col-md-6">
               <div class="specialty-card">
                 <div class="specialty-image">
-                  <img src="assets/img/health/maternal-2.webp" alt="Maternal Care" class="img-fluid" loading="lazy">
+                  <img src="{{ asset('img/health/maternal-2.webp') }}" alt="Maternal Care" class="img-fluid"
+                    loading="lazy">
                 </div>
                 <div class="specialty-content">
                   <h5>Maternal Care</h5>
@@ -535,7 +547,8 @@
             <div class="col-lg-3 col-md-6">
               <div class="specialty-card">
                 <div class="specialty-image">
-                  <img src="assets/img/health/vaccination-3.webp" alt="Vaccination" class="img-fluid" loading="lazy">
+                  <img src="{{ asset('img/health/vaccination-3.webp') }}" alt="Vaccination" class="img-fluid"
+                    loading="lazy">
                 </div>
                 <div class="specialty-content">
                   <h5>Vaccination</h5>
@@ -547,7 +560,8 @@
             <div class="col-lg-3 col-md-6">
               <div class="specialty-card">
                 <div class="specialty-image">
-                  <img src="assets/img/health/emergency-1.webp" alt="Emergency Care" class="img-fluid" loading="lazy">
+                  <img src="{{ asset('img/health/emergency-1.webp') }}" alt="Emergency Care" class="img-fluid"
+                    loading="lazy">
                 </div>
                 <div class="specialty-content">
                   <h5>Emergency Care</h5>
@@ -559,7 +573,8 @@
             <div class="col-lg-3 col-md-6">
               <div class="specialty-card">
                 <div class="specialty-image">
-                  <img src="assets/img/health/facilities-6.webp" alt="Advanced Tech" class="img-fluid" loading="lazy">
+                  <img src="{{ asset('img/health/facilities-6.webp') }}" alt="Advanced Tech" class="img-fluid"
+                    loading="lazy">
                 </div>
                 <div class="specialty-content">
                   <h5>Advanced Technology</h5>
@@ -624,7 +639,7 @@
           <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="100">
             <div class="profile-header">
               <div class="doctor-avatar">
-                <img src="assets/img/health/staff-2.webp" alt="Dr. Amanda Foster" class="img-fluid">
+                <img src="{{ asset('img/health/staff-2.webp') }}" alt="Dr. Amanda Foster" class="img-fluid">
                 <div class="status-indicator available"></div>
               </div>
               <div class="doctor-details">
@@ -656,7 +671,7 @@
           <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="200">
             <div class="profile-header">
               <div class="doctor-avatar">
-                <img src="assets/img/health/staff-6.webp" alt="Dr. Marcus Johnson" class="img-fluid">
+                <img src="{{ asset('img/health/staff-6.webp') }}" alt="Dr. Marcus Johnson" class="img-fluid">
                 <div class="status-indicator busy"></div>
               </div>
               <div class="doctor-details">
@@ -688,7 +703,7 @@
           <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="300">
             <div class="profile-header">
               <div class="doctor-avatar">
-                <img src="assets/img/health/staff-4.webp" alt="Dr. Rachel Williams" class="img-fluid">
+                <img src="{{ asset('img/health/staff-4.webp') }}" alt="Dr. Rachel Williams" class="img-fluid">
                 <div class="status-indicator available"></div>
               </div>
               <div class="doctor-details">
@@ -720,7 +735,7 @@
           <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="400">
             <div class="profile-header">
               <div class="doctor-avatar">
-                <img src="assets/img/health/staff-8.webp" alt="Dr. David Chen" class="img-fluid">
+                <img src="{{ asset('img/health/staff-8.webp') }}" alt="Dr. David Chen" class="img-fluid">
                 <div class="status-indicator offline"></div>
               </div>
               <div class="doctor-details">
@@ -784,7 +799,7 @@
           <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="600">
             <div class="profile-header">
               <div class="doctor-avatar">
-                <img src="assets/img/health/staff-14.webp" alt="Dr. Benjamin Lee" class="img-fluid">
+                <img src="{{ asset('img/health/staff-14.webp') }}" alt="Dr. Benjamin Lee" class="img-fluid">
                 <div class="status-indicator available"></div>
               </div>
               <div class="doctor-details">
@@ -837,8 +852,14 @@
             <div class="col-lg-6">
               <div class="content-wrapper" data-aos="fade-up" data-aos-delay="200">
                 <h1>Excellence in Medical Care, Every Day</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                <p>
+                  Arimala Hospital is committed to delivering compassionate, high-quality healthcare with a
+                  patient-first approach.
+                  Our team of experienced doctors and medical professionals use advanced technology to provide accurate
+                  diagnosis,
+                  effective treatment, and comprehensive care for every patient.
+                </p>
+
 
                 <div class="cta-wrapper">
                   <a href="appointment.html" class="primary-cta">
@@ -855,7 +876,7 @@
 
             <div class="col-lg-6">
               <div class="image-container" data-aos="fade-left" data-aos-delay="300">
-                <img src="assets/img/health/facilities-9.webp" alt="Medical Excellence" class="img-fluid">
+                <img src="{{ asset('img/health/facilities-9.webp') }}" alt="Medical Excellence" class="img-fluid">
               </div>
             </div>
 
@@ -943,8 +964,9 @@
           <div class="col-lg-5">
             <div class="brand-section">
               <a href="index.html" class="logo d-flex align-items-center mb-4">
-                <span class="sitename">Clinic</span>
+                <img src="{{ asset("img/logo1.jpg") }}" alt="Clinic Logo" class="me-2" height="40">
               </a>
+
               <p class="brand-description">Crafting exceptional digital experiences through thoughtful design and
                 innovative solutions that elevate your brand presence.</p>
 
@@ -1051,7 +1073,8 @@
                   <!-- You can delete the links only if you've purchased the pro version. -->
                   <!-- Licensing information: https://bootstrapmade.com/license/ -->
                   <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                  Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>. Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                  Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>. Distributed by <a
+                    href="https://themewagon.com" target="_blank">ThemeWagon</a>
                 </div>
               </div>
             </div>
@@ -1071,15 +1094,27 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ asset('vendor/aos/aos.js') }}"></script>
+  <script src="{{ asset('vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ asset('vendor/purecounter/purecounter_vanilla.js') }}"></script>
+  <script src="{{ asset('vendor/swiper/swiper-bundle.min.js') }}"></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="{{ asset('js/main.js') }}"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const slides = document.querySelectorAll(".image-slider .slide");
+      let currentIndex = 0;
+
+      setInterval(() => {
+        slides[currentIndex].classList.remove("active");
+        currentIndex = (currentIndex + 1) % slides.length;
+        slides[currentIndex].classList.add("active");
+      }, 4000);
+    });
+  </script>
 
 </body>
 

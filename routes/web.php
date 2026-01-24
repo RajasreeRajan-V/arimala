@@ -2,19 +2,25 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+// Route::get('/', function () {
+//     return view('customer.index');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboardS');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+
+
+Route::get('/about', [UserController::class, 'about'])->name('about');
+Route::get('/', [UserController::class, 'dashboard'])->name('dashboard');
+Route::get('/service', [UserController::class, 'service'])->name('service');
+Route::get('/gallery', [UserController::class, 'gallery'])->name('gallery');
+Route::get('/contact', [UserController::class, 'contact'])->name('contact');
+Route::get('/doctors', [UserController::class, 'doctors'])->name('doctors');
+Route::get('/departments', [UserController::class, 'departments'])->name('departments');
 
 require __DIR__.'/auth.php';

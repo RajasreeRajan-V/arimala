@@ -144,4 +144,29 @@
     });
   });
 
+  
+document.addEventListener("DOMContentLoaded", function () {
+  const leftPopper = document.getElementById("heroPopperLeft");
+  const rightPopper = document.getElementById("heroPopperRight");
+
+  if (!leftPopper || !rightPopper) return;
+
+  function triggerPopper(popper) {
+    popper.style.animation = "none";
+    void popper.offsetWidth; // force reflow
+    popper.style.animation = "popperFade 3.5s ease-out forwards";
+  }
+
+  function triggerBoth() {
+    triggerPopper(leftPopper);
+    triggerPopper(rightPopper);
+  }
+
+  // Initial crack
+  triggerBoth();
+
+  // Repeat every 5 seconds
+  setInterval(triggerBoth, 5000);
+});
+
 })();
