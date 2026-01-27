@@ -19,6 +19,9 @@
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
     rel="stylesheet">
 
+  <!-- Make sure Font Awesome is loaded -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <!-- Vendor CSS Files -->
   <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -27,8 +30,12 @@
   <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
   <!-- Main CSS File -->
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/get_in_touch.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/chatbot.css') }}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Clinic
@@ -38,6 +45,45 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+<!-- MODAL HTML -->
+<!-- ===== MODAL ===== -->
+<div class="modal-overlay" id="modal">
+  <div class="custom-modal">
+    <span class="close-btn" id="closeModal">&times;</span>
+
+    <div class="hospital-brand">
+      <img src="img/back-logo.png" alt="Arimala Hospital Logo">
+      <p class="hospital-desc">
+        Arimala Hospital is committed to delivering compassionate,
+        patient-centered healthcare with advanced medical facilities
+        and experienced specialists you can trust.
+      </p>
+    </div>
+
+    <h2>Get in Touch</h2>
+    <p class="modal-subtitle">We’d love to hear from you</p>
+
+    <form id="contactModalForm">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Your Name" required>
+      </div>
+
+      <div class="form-group">
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="subject" placeholder="Subject" required>
+      </div>
+
+      <div class="form-group">
+        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+  </div>
+</div>
 
 <body class="index-page">
 
@@ -128,6 +174,8 @@
 
     </div>
   </header>
+  <!-- Lottie container -->
+
 
   <main class="main">
 
@@ -139,7 +187,7 @@
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="hero-content">
-              
+
               <div class="trust-badges mb-4" data-aos="fade-right" data-aos-delay="200">
                 <div class="badge-item">
                   <i class="bi bi-shield-check"></i>
@@ -183,7 +231,7 @@
                 </div>
               </div>
 
-              
+
 
               <div class="emergency-contact" data-aos="fade-right" data-aos-delay="700">
                 <div class="emergency-icon">
@@ -269,7 +317,7 @@
                   <div class="stat-label">Years of Excellence</div>
                 </div>
                 <div class="stat-item">
-                  <div class="stat-number purecounter" data-purecounter-start="0" data-purecounter-end="50"
+                  <div class="stat-number purecounter" data-purecounter-start="0" data-purecounter-end="15"
                     data-purecounter-duration="1"></div>
                   <div class="stat-label">Medical Specialists</div>
                 </div>
@@ -1093,6 +1141,42 @@
   <!-- Preloader -->
   <div id="preloader"></div>
 
+<div id="chatFloatingWrap">
+  
+  <!-- Social Icons FIRST (so they appear above the chat button) -->
+  <div class="social-icons">
+    <a href="https://wa.me/919XXXXXXXXX" target="_blank" class="whatsapp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <a href="https://instagram.com/your_instagram" target="_blank" class="instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+  </div>
+
+  <!-- Lottie Chat Button -->
+  <div id="lottieChatBtn">
+    <iframe src="https://lottie.host/embed/7ed012d7-ed41-492b-8ac8-82c35cc06a6e/oBxttvF3cs.lottie"></iframe>
+  </div>
+
+</div>
+
+<!-- Chatbox (separate, outside the floating wrap) -->
+<div id="chatBox">
+  <div class="chat-header">
+    <span>Chatbot</span>
+    <button id="closeChat">✖</button>
+  </div>
+
+  <div id="chatMessages" class="chat-body"></div>
+
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Type your message..." />
+    <button id="sendBtn" aria-label="Send message">
+      <i class="fa-solid fa-paper-plane"></i>
+    </button>
+  </div>
+</div>
   <!-- Vendor JS Files -->
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
@@ -1101,8 +1185,10 @@
   <script src="{{ asset('vendor/purecounter/purecounter_vanilla.js') }}"></script>
   <script src="{{ asset('vendor/swiper/swiper-bundle.min.js') }}"></script>
 
+
   <!-- Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
+  <script src="{{ asset('js/chatbot.js') }}"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const slides = document.querySelectorAll(".image-slider .slide");

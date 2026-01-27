@@ -1,0 +1,163 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== MODAL OVERLAY ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ===== MODAL BOX ===== */
+.custom-modal {
+  width: 420px;
+  max-width: 90%;
+  padding: 35px;
+  background: rgba(245, 247, 248, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(16, 122, 124, 0.3);
+  box-shadow: 0 8px 32px rgba(14, 73, 104, 0.3);
+  color: #0E4968;
+  position: relative;
+  animation: modalSlideIn 0.4s ease-out;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-30px) scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== CLOSE BUTTON ===== */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 18px;
+  font-size: 26px;
+  cursor: pointer;
+  color: #0E4968;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(16, 122, 124, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.close-btn:hover {
+  background: rgba(16, 122, 124, 0.2);
+  transform: rotate(90deg);
+}
+
+/* ===== HOSPITAL BRANDING ===== */
+.hospital-brand {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.hospital-brand img {
+  max-width: 140px;
+  margin-bottom: 10px;
+}
+
+.hospital-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(14, 73, 104, 0.85);
+  padding: 0 10px;
+}
+
+/* ===== TITLE ===== */
+.custom-modal h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #0E4968;
+}
+
+/* ===== SUBTITLE ===== */
+.modal-subtitle {
+  font-size: 0.95rem;
+  opacity: 0.75;
+  margin-bottom: 25px;
+}
+
+/* ===== FORM ===== */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(16, 122, 124, 0.3);
+  background: rgba(255, 255, 255, 0.75);
+  color: #0E4968;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(14, 73, 104, 0.5);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #107A7C;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(16, 122, 124, 0.12);
+}
+
+/* ===== SUBMIT BUTTON ===== */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #107A7C, #0E4968);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(16, 122, 124, 0.3);
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 122, 124, 0.4);
+}

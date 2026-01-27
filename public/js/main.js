@@ -169,4 +169,51 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(triggerBoth, 5000);
 });
 
+ 
+window.addEventListener('load', function () {
+  const modal = document.getElementById("modal");
+  const closeBtn = document.getElementById("closeModal");
+  const form = document.getElementById("contactModalForm");
+
+  if (!modal || !closeBtn || !form) return;
+
+  function openModal() {
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+
+  setTimeout(openModal, 5000);
+
+ 
+  closeBtn.addEventListener("click", closeModal);
+
+
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) closeModal();
+  });
+
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
+      closeModal();
+    }
+  });
+
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert("Thank you for your message! We'll get back to you soon.");
+    closeModal();
+    form.reset();
+  });
+});
+
+
+
 })();
