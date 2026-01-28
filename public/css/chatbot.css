@@ -28,8 +28,8 @@
 ========================= */
 #chatBox {
     position: fixed;
-    bottom: 140px;
-    right: 24 px;
+    bottom: 120px;
+    right: 24px;
     width: 340px;
     height: 420px;
     background: #ffffff;
