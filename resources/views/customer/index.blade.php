@@ -487,9 +487,9 @@
               </div>
             </div>
             <div class="col-lg-4 text-lg-end">
-              <a href="tel:+15551234567" class="emergency-btn">
+              <a href="tel:918281240560" class="emergency-btn">
                 <i class="bi bi-telephone-fill"></i>
-                Call Emergency: (555) 123-4567
+                Call Emergency: +91 8281 240 560
               </a>
             </div>
           </div>
@@ -712,7 +712,7 @@
             </div>
             <div class="action-buttons">
               <a href="#!" class="btn-secondary">View Details</a>
-              <a href="#!" class="btn-primary">Book Now</a>
+              
             </div>
           </div><!-- End Doctor Profile -->
 
@@ -744,7 +744,7 @@
             </div>
             <div class="action-buttons">
               <a href="#!" class="btn-secondary">View Details</a>
-              <a href="#!" class="btn-primary">Schedule</a>
+         
             </div>
           </div><!-- End Doctor Profile -->
 
@@ -776,7 +776,7 @@
             </div>
             <div class="action-buttons">
               <a href="#!" class="btn-secondary">View Details</a>
-              <a href="#!" class="btn-primary">Book Now</a>
+             
             </div>
           </div><!-- End Doctor Profile -->
 
@@ -808,7 +808,7 @@
             </div>
             <div class="action-buttons">
               <a href="#!" class="btn-secondary">View Details</a>
-              <a href="#!" class="btn-primary">Schedule</a>
+              
             </div>
           </div><!-- End Doctor Profile -->
 
@@ -840,7 +840,7 @@
             </div>
             <div class="action-buttons">
               <a href="#!" class="btn-secondary">View Details</a>
-              <a href="#!" class="btn-primary">Book Now</a>
+             
             </div>
           </div><!-- End Doctor Profile -->
 
@@ -872,7 +872,7 @@
             </div>
             <div class="action-buttons">
               <a href="#!" class="btn-secondary">View Details</a>
-              <a href="#!" class="btn-primary">Schedule</a>
+              
             </div>
           </div><!-- End Doctor Profile -->
 
@@ -985,9 +985,9 @@
 
             <div class="col-lg-4">
               <div class="contact-actions" data-aos="fade-up" data-aos-delay="300">
-                <a href="tel:5551234567" class="emergency-call">
+                <a href="tel:918281240560" class="emergency-call">
                   <i class="bi bi-telephone"></i>
-                  <span>(555) 123-4567</span>
+                  <span>+91 8281 240 560</span>
                 </a>
                 <a href="contact.html" class="contact-link">Find Location</a>
               </div>
@@ -1025,11 +1025,11 @@
                 </div>
                 <div class="contact-item">
                   <i class="bi bi-telephone"></i>
-                  <span>+1 (555) 987-6543</span>
+                  <span>+91 8281 240 560</span>
                 </div>
                 <div class="contact-item">
                   <i class="bi bi-envelope"></i>
-                  <span>hello@designstudio.com</span>
+                  <span>arimalahospital@gmail.com</span>
                 </div>
               </div>
             </div>

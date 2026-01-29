@@ -46,10 +46,19 @@
     <div class="topbar d-flex align-items-center dark-background">
       <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center"><a
-              href="mailto:contact@example.com">contact@example.com</a></i>
-          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+          <i class="bi bi-envelope d-flex align-items-center me-3">
+            <a href="mailto:arimalahospital@gmail.com">arimalahospital@gmail.com</a>
+          </i>
+
+          <i class="bi bi-envelope d-flex align-items-center">
+            <a href="mailto:hrarimala@gmail.com">hrarimala@gmail.com</a>
+          </i>
+
+          <i class="bi bi-phone d-flex align-items-center ms-4">
+            <span>+91 8281 240 560</span>
+          </i>
         </div>
+
         <div class="social-links d-none d-md-flex align-items-center">
           <a href="#!" class="twitter"><i class="bi bi-twitter-x"></i></a>
           <a href="#!" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -62,13 +71,15 @@
     <div class="branding d-flex align-items-cente">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.webp" alt=""> -->
-          <h1 class="sitename">Clinic</h1>
+        <a href="index.html" class="logo d-flex align-items-center gap-2">
+          <img src="{{ asset('img/back-logo.png') }}" alt="Arimala Hospital" class="logo-img">
+          {{-- <span class="logo-title">
+            Arimala Hospital
+          </span> --}}
         </a>
 
-         <nav id="navmenu" class="navmenu">
+
+        <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href="{{ route('dashboard') }}">Home</a></li>
             <li><a href="{{ route('about') }}">About</a></li>
@@ -116,7 +127,6 @@
       </div>
 
     </div>
-
   </header>
 
   <main class="main">
@@ -129,11 +139,12 @@
             <div class="col-lg-8">
               <h1 class="heading-title">Departments</h1>
               <p class="mb-0">
-                Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo
-                odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum
-                debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat
-                ipsum dolorem.
+                At Arimala Hospital, your health and comfort are our top priorities.
+                Our experienced team provides compassionate care, advanced treatments,
+                and a supportive environment to ensure every patient and family feels valued
+                and cared for.
               </p>
+
             </div>
           </div>
         </div>
@@ -187,7 +198,7 @@
                   <div class="row department-layout">
                     <div class="col-lg-4 order-lg-2">
                       <div class="department-image">
-                        <img src="assets/img/health/neurology-3.webp" alt="Neurology Department" class="img-fluid">
+                        <img src="{{ asset('/img/health/neurology-3.webp') }}" alt="Neurology Department" class="img-fluid">
                       </div>
                     </div>
                     <div class="col-lg-8 order-lg-1">
@@ -252,7 +263,7 @@
                   <div class="row department-layout">
                     <div class="col-lg-4 order-lg-2">
                       <div class="department-image">
-                        <img src="assets/img/health/surgery-2.webp" alt="Surgery Department" class="img-fluid">
+                        <img src="{{ asset('/img/health/surgery-2.webp') }}" alt="Surgery Department" class="img-fluid">
                       </div>
                     </div>
                     <div class="col-lg-8 order-lg-1">
@@ -317,7 +328,7 @@
                   <div class="row department-layout">
                     <div class="col-lg-4 order-lg-2">
                       <div class="department-image">
-                        <img src="assets/img/health/dermatology-1.webp" alt="Dental Care Department" class="img-fluid">
+                        <img src="{{ asset('/img/health/dermatology-1.webp') }}" alt="Dental Care Department" class="img-fluid">
                       </div>
                     </div>
                     <div class="col-lg-8 order-lg-1">
@@ -383,7 +394,7 @@
                   <div class="row department-layout">
                     <div class="col-lg-4 order-lg-2">
                       <div class="department-image">
-                        <img src="assets/img/health/pediatrics-4.webp" alt="Ophthalmology Department" class="img-fluid">
+                        <img src="{{ asset('/img/health/pediatrics-4.webp') }}" alt="Ophthalmology Department" class="img-fluid">
                       </div>
                     </div>
                     <div class="col-lg-8 order-lg-1">
@@ -448,7 +459,7 @@
                   <div class="row department-layout">
                     <div class="col-lg-4 order-lg-2">
                       <div class="department-image">
-                        <img src="assets/img/health/cardiology-3.webp" alt="Cardiology Department" class="img-fluid">
+                        <img src="{{ asset('/img/health/cardiology-3.webp') }}" alt="Cardiology Department" class="img-fluid">
                       </div>
                     </div>
                     <div class="col-lg-8 order-lg-1">
@@ -530,7 +541,7 @@
                 <i class="fas fa-heartbeat"></i>
               </div>
               <div class="department-image">
-                <img src="assets/img/health/cardiology-3.webp" alt="Cardiology Department" class="img-fluid">
+                <img src="{{ asset('/img/health/cardiology-3.webp') }}" alt="Cardiology Department" class="img-fluid">
               </div>
               <div class="department-content">
                 <h3>Cardiology</h3>
@@ -550,7 +561,7 @@
                 <i class="fas fa-brain"></i>
               </div>
               <div class="department-image">
-                <img src="assets/img/health/neurology-2.webp" alt="Neurology Department" class="img-fluid">
+                <img src="{{ asset('/img/health/neurology-2.webp') }}" alt="Neurology Department" class="img-fluid">
               </div>
               <div class="department-content">
                 <h3>Neurology</h3>
@@ -570,7 +581,7 @@
                 <i class="fas fa-bone"></i>
               </div>
               <div class="department-image">
-                <img src="assets/img/health/orthopedics-4.webp" alt="Orthopedics Department" class="img-fluid">
+                <img src="{{ asset('/img/health/orthopedics-4.webp') }}" alt="Orthopedics Department" class="img-fluid">
               </div>
               <div class="department-content">
                 <h3>Orthopedics</h3>
@@ -590,7 +601,7 @@
                 <i class="fas fa-child"></i>
               </div>
               <div class="department-image">
-                <img src="assets/img/health/pediatrics-3.webp" alt="Pediatrics Department" class="img-fluid">
+                <img src="{{ asset('/img/health/pediatrics-3.webp') }}" alt="Pediatrics Department" class="img-fluid">
               </div>
               <div class="department-content">
                 <h3>Pediatrics</h3>
@@ -630,7 +641,7 @@
                 <i class="fas fa-ribbon"></i>
               </div>
               <div class="department-image">
-                <img src="assets/img/health/oncology-2.webp" alt="Oncology Department" class="img-fluid">
+                <img src="{{ asset('/img/health/oncology-2.webp') }}" alt="Oncology Department" class="img-fluid">
               </div>
               <div class="department-content">
                 <h3>Oncology</h3>
@@ -662,8 +673,9 @@
           <div class="col-lg-5">
             <div class="brand-section">
               <a href="index.html" class="logo d-flex align-items-center mb-4">
-                <span class="sitename">Clinic</span>
+                <img src="{{ asset("img/logo1.jpg") }}" alt="Clinic Logo" class="me-2" height="40">
               </a>
+
               <p class="brand-description">Crafting exceptional digital experiences through thoughtful design and
                 innovative solutions that elevate your brand presence.</p>
 
@@ -674,11 +686,11 @@
                 </div>
                 <div class="contact-item">
                   <i class="bi bi-telephone"></i>
-                  <span>+1 (555) 987-6543</span>
+                  <span>+91 8281 240 560</span>
                 </div>
                 <div class="contact-item">
                   <i class="bi bi-envelope"></i>
-                  <span>hello@designstudio.com</span>
+                  <span>arimalahospital@gmail.com</span>
                 </div>
               </div>
             </div>

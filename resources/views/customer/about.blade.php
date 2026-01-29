@@ -41,15 +41,24 @@
 
 <body class="about-page">
 
-  <header id="header" class="header fixed-top">
+ <header id="header" class="header fixed-top">
 
     <div class="topbar d-flex align-items-center dark-background">
       <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center"><a
-              href="mailto:contact@example.com">contact@example.com</a></i>
-          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+          <i class="bi bi-envelope d-flex align-items-center me-3">
+            <a href="mailto:arimalahospital@gmail.com">arimalahospital@gmail.com</a>
+          </i>
+
+          <i class="bi bi-envelope d-flex align-items-center">
+            <a href="mailto:hrarimala@gmail.com">hrarimala@gmail.com</a>
+          </i>
+
+          <i class="bi bi-phone d-flex align-items-center ms-4">
+            <span>+91 8281 240 560</span>
+          </i>
         </div>
+
         <div class="social-links d-none d-md-flex align-items-center">
           <a href="#!" class="twitter"><i class="bi bi-twitter-x"></i></a>
           <a href="#!" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -62,11 +71,13 @@
     <div class="branding d-flex align-items-cente">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.webp" alt=""> -->
-          <h1 class="sitename">Clinic</h1>
+        <a href="index.html" class="logo d-flex align-items-center gap-2">
+          <img src="{{ asset('img/back-logo.png') }}" alt="Arimala Hospital" class="logo-img">
+          {{-- <span class="logo-title">
+            Arimala Hospital
+          </span> --}}
         </a>
+
 
         <nav id="navmenu" class="navmenu">
           <ul>
@@ -116,7 +127,6 @@
       </div>
 
     </div>
-
   </header>
 
   <main class="main">
@@ -128,12 +138,13 @@
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
               <h1 class="heading-title">About</h1>
-              <p class="mb-0">
-                Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo
-                odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum
-                debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat
-                ipsum dolorem.
+              <p>
+                At Arimala Hospital, we prioritize the well-being of every patient. Our dedicated team
+                works tirelessly to provide personalized care, advanced treatments, and a supportive
+                environment. We believe in healing with compassion and building lasting trust with
+                the families we serve.
               </p>
+
             </div>
           </div>
         </div>
@@ -156,14 +167,20 @@
         <div class="row align-items-center">
           <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
             <div class="about-content">
-              <h2>Compassionate Care for Every Family</h2>
-              <p class="lead">For over two decades, we have been dedicated to providing exceptional healthcare services
-                to our community. Our commitment goes beyond medical treatment—we believe in building lasting
-                relationships with our patients and their families.</p>
+              <h2>Compassionate Care for Every Family at Arimala Hospital</h2>
+              <p class="lead">
+                At Arimala Hospital, we are committed to delivering trusted and compassionate healthcare
+                for every stage of life. With years of dedicated service, we focus on treating patients
+                with care, dignity, and respect.
+              </p>
 
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
+              <p>
+                Our approach goes beyond medical treatment. We strive to create a supportive environment
+                where patients and their families feel heard, understood, and confident in the care they
+                receive. Guided by experienced professionals and modern facilities, Arimala Hospital
+                stands as a place of healing and hope for our community.
+              </p>
+
 
               <div class="stats-grid">
                 <div class="stat-item">
@@ -187,7 +204,8 @@
 
           <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
             <div class="image-wrapper">
-              <img src="{{ asset('img/health/facilities-6.webp') }}" class="img-fluid main-image" alt="Healthcare facility">
+              <img src="{{ asset('img/health/facilities-6.webp') }}" class="img-fluid main-image"
+                alt="Healthcare facility">
               <div class="floating-image" data-aos="zoom-in" data-aos-delay="400">
                 <img src="{{ asset('img/health/staff-8.webp') }}" class="img-fluid" alt="Medical team">
               </div>
@@ -247,44 +265,6 @@
           </div><!-- End Values Row -->
         </div><!-- End Values Section -->
 
-        <div class="certifications-section" data-aos="fade-up" data-aos-delay="400">
-          <div class="row">
-            <div class="col-lg-12 text-center">
-              <h3>Accreditations &amp; Certifications</h3>
-              <p class="section-description">Recognized by leading healthcare organizations for our commitment to
-                quality care</p>
-            </div>
-          </div>
-
-          <div class="row justify-content-center">
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6" data-aos="zoom-in" data-aos-delay="100">
-              <div class="certification-item">
-                <img src="{{ asset('img/clients/clients-1.webp') }}" class="img-fluid" alt="Healthcare certification">
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6" data-aos="zoom-in" data-aos-delay="200">
-              <div class="certification-item">
-                <img src="{{ asset('img/clients/clients-2.webp') }}" class="img-fluid" alt="Medical accreditation">
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6" data-aos="zoom-in" data-aos-delay="300">
-              <div class="certification-item">
-                <img src="{{ asset('img/clients/clients-3.webp') }}" class="img-fluid" alt="Healthcare certification">
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6" data-aos="zoom-in" data-aos-delay="400">
-              <div class="certification-item">
-                <img src="{{ asset('img/clients/clients-4.webp') }}" class="img-fluid" alt="Medical certification">
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6" data-aos="zoom-in" data-aos-delay="500">
-              <div class="certification-item">
-                <img src="{{ asset('img/clients/clients-5.webp') }}" class="img-fluid" alt="Healthcare accreditation">
-              </div>
-            </div>
-          </div><!-- End Certifications Row -->
-        </div><!-- End Certifications Section -->
-
       </div>
 
     </section><!-- /About Section -->
@@ -301,8 +281,9 @@
           <div class="col-lg-5">
             <div class="brand-section">
               <a href="index.html" class="logo d-flex align-items-center mb-4">
-                <span class="sitename">Clinic</span>
+                <img src="{{ asset("img/logo1.jpg") }}" alt="Clinic Logo" class="me-2" height="40">
               </a>
+
               <p class="brand-description">Crafting exceptional digital experiences through thoughtful design and
                 innovative solutions that elevate your brand presence.</p>
 
@@ -313,11 +294,11 @@
                 </div>
                 <div class="contact-item">
                   <i class="bi bi-telephone"></i>
-                  <span>+1 (555) 987-6543</span>
+                  <span>+91 8281 240 560</span>
                 </div>
                 <div class="contact-item">
                   <i class="bi bi-envelope"></i>
-                  <span>hello@designstudio.com</span>
+                  <span>arimalahospital@gmail.com</span>
                 </div>
               </div>
             </div>

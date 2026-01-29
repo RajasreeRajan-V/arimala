@@ -46,10 +46,19 @@
     <div class="topbar d-flex align-items-center dark-background">
       <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center"><a
-              href="mailto:contact@example.com">contact@example.com</a></i>
-          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+          <i class="bi bi-envelope d-flex align-items-center me-3">
+            <a href="mailto:arimalahospital@gmail.com">arimalahospital@gmail.com</a>
+          </i>
+
+          <i class="bi bi-envelope d-flex align-items-center">
+            <a href="mailto:hrarimala@gmail.com">hrarimala@gmail.com</a>
+          </i>
+
+          <i class="bi bi-phone d-flex align-items-center ms-4">
+            <span>+91 8281 240 560</span>
+          </i>
         </div>
+
         <div class="social-links d-none d-md-flex align-items-center">
           <a href="#!" class="twitter"><i class="bi bi-twitter-x"></i></a>
           <a href="#!" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -62,15 +71,17 @@
     <div class="branding d-flex align-items-cente">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.webp" alt=""> -->
-          <h1 class="sitename">Clinic</h1>
+        <a href="index.html" class="logo d-flex align-items-center gap-2">
+          <img src="{{ asset('img/back-logo.png') }}" alt="Arimala Hospital" class="logo-img">
+          {{-- <span class="logo-title">
+            Arimala Hospital
+          </span> --}}
         </a>
 
-         <nav id="navmenu" class="navmenu">
+
+        <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="{{ route('dashboard') }}" >Home</a></li>
+            <li><a href="{{ route('dashboard') }}">Home</a></li>
             <li><a href="{{ route('about') }}">About</a></li>
             <li><a href="{{ route('departments') }}">Departments</a></li>
             <li><a href="{{ route('service') }}">Services</a></li>
@@ -116,7 +127,6 @@
       </div>
 
     </div>
-
   </header>
 
   <main class="main">
@@ -129,10 +139,10 @@
             <div class="col-lg-8">
               <h1 class="heading-title">Contact</h1>
               <p class="mb-0">
-                Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo
-                odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum
-                debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat
-                ipsum dolorem.
+                At Arimala Hospital, we are dedicated to providing comprehensive healthcare with
+                compassion and expertise. Our experienced medical team ensures that every patient
+                receives personalized attention, advanced treatments, and support for a healthier,
+                happier life.
               </p>
             </div>
           </div>
@@ -171,8 +181,8 @@
                 </div>
                 <div class="info-content">
                   <h3>Email Address</h3>
-                  <p>info@example.com</p>
-                  <p>contact@example.com</p>
+                  <p>arimalahospital@gmail.com</p>
+                  <p>hrarimala@gmail.com</p>
                 </div>
               </div>
 
@@ -182,8 +192,8 @@
                 </div>
                 <div class="info-content">
                   <h3>Hours of Operation</h3>
-                  <p>Sunday-Fri: 9 AM - 6 PM</p>
-                  <p>Saturday: 9 AM - 4 PM</p>
+                  <p>Open 24/7</p>
+
                 </div>
               </div>
             </div>
@@ -254,8 +264,9 @@
           <div class="col-lg-5">
             <div class="brand-section">
               <a href="index.html" class="logo d-flex align-items-center mb-4">
-                <span class="sitename">Clinic</span>
+                <img src="{{ asset("img/logo1.jpg") }}" alt="Clinic Logo" class="me-2" height="40">
               </a>
+
               <p class="brand-description">Crafting exceptional digital experiences through thoughtful design and
                 innovative solutions that elevate your brand presence.</p>
 
@@ -266,11 +277,11 @@
                 </div>
                 <div class="contact-item">
                   <i class="bi bi-telephone"></i>
-                  <span>+1 (555) 987-6543</span>
+                  <span>+91 8281 240 560</span>
                 </div>
                 <div class="contact-item">
                   <i class="bi bi-envelope"></i>
-                  <span>hello@designstudio.com</span>
+                  <span>arimalahospital@gmail.com</span>
                 </div>
               </div>
             </div>
