@@ -14,62 +14,162 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        :root {
-            --heading-color: #0E4968;
-            --accent-color: #107A7C;
-        }
+      :root {
+    --background-color: #FFFFFF;
+    --default-color: #1F2D33;
+    --heading-color: #0E4968;
+    --accent-color: #107A7C;
+    --sidebar-bg: #0E4968;
+    --sidebar-hover: #107A7C;
+}
 
-        body {
-            font-family: 'Figtree', sans-serif;
-            background-color: #f5f7f9;
-        }
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #107A7C 0%, #0E4968 100%);
+    border-right: none;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.08);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+}
 
-        .heading-color {
-            color: var(--heading-color);
-        }
+/* Sidebar heading */
+.sidebar h5 {
+    color: #ffffff;
+    font-weight: 600;
+    padding: 24px 20px 16px;
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.1rem;
+    letter-spacing: 0.3px;
+}
 
-        .btn-accent {
-            background-color: var(--accent-color);
-            color: #fff;
-        }
+/* Sidebar navigation container */
+.sidebar .nav {
+    padding: 16px 12px;
+}
 
-        .btn-accent:hover {
-            background-color: #0c6466;
-        }
+/* Sidebar links */
+.sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 6px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    border: 1px solid transparent;
+}
 
-        .navbar-brand,
-        .nav-link.active {
-            color: #0E4968;
-        }
+/* Icon spacing (if you add icons) */
+.sidebar .nav-link i,
+.sidebar .nav-link svg {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
 
-        .nav-link:hover {
-            color: #107A7C;
-        }
+/* Hover */
+.sidebar .nav-link:hover {
+    background-color: var(--sidebar-hover);
+    color: #ffffff;
+    transform: translateX(4px);
+    border-color: rgba(255, 255, 255, 0.1);
+}
 
-        .text-heading {
-            color: #0E4968;
-        }
+/* Active link */
+.sidebar .nav-link.active {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(16, 122, 124, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+}
 
-        .sidebar {
-            width: 240px;
-            min-height: 100vh;
-        }
+/* Logout button */
+.sidebar .nav-link.text-danger {
+    color: #ff6b6b !important;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 16px;
+}
 
-        .sidebar .nav-link {
-            color: #333;
-            padding: 10px 14px;
-            border-radius: 6px;
-        }
+.sidebar .nav-link.text-danger:hover {
+    background-color: rgba(255, 107, 107, 0.15);
+    color: #ff5252 !important;
+    transform: translateX(4px);
+}
 
-        .sidebar .nav-link:hover {
-            background-color: #f1f7f7;
-            color: #107A7C;
-        }
+/* Content adjustment for fixed sidebar */
+body {
+    margin-left: 260px;
+}
 
-        .sidebar .nav-link.active {
-            background-color: #107A7C;
-            color: #ffffff;
-        }
+/* Smooth scrollbar for sidebar */
+.sidebar {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive */
+/* ===== Mobile Sidebar ===== */
+@media (max-width: 768px) {
+    body {
+        margin-left: 0;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -260px; /* hidden */
+        width: 260px;
+        height: 100vh;
+        transition: left 0.3s ease;
+        z-index: 1050;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    /* Overlay */
+    .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1040;
+        display: none;
+    }
+
+    .sidebar-overlay.show {
+        display: block;
+    }
+}
+
+
     </style>
 </head>
 
@@ -77,10 +177,6 @@
 
     @include('layouts.navigation')
     @include('layouts.sidebar')
-
-    <main class="container py-4">
-        @yield('content')
-    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
