@@ -37,13 +37,6 @@
   <link href="{{ asset('css/get_in_touch.css') }}" rel="stylesheet">
   <link href="{{ asset('css/chatbot.css') }}" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Clinic
-  * Template URL: https://bootstrapmade.com/clinic-bootstrap-template/
-  * Updated: Jul 23 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 <!-- MODAL HTML -->
 <!-- ===== MODAL ===== -->
@@ -101,15 +94,16 @@
           </i>
 
           <i class="bi bi-phone d-flex align-items-center ms-4">
-            <span>+91 8281 240 560</span>
+            <span>+91 8281 240 560</span></i>
+          <i class="bi bi-telephone d-flex align-items-center ms-4"><span>0467 220 4560</span>
           </i>
         </div>
-
         <div class="social-links d-none d-md-flex align-items-center">
-          <a href="#!" class="twitter"><i class="bi bi-twitter-x"></i></a>
-          <a href="#!" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#!" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
           <a href="#!" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#!" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          <a href="#!" class="youtube"><i class="bi bi-youtube"></i></a>
+          <a href="#!" class="mail"><i class="bi bi-envelope"></i></a>
+          <a href="#!" class="location"><i class="bi bi-geo-alt"></i></a>
         </div>
       </div>
     </div><!-- End Top Bar -->
@@ -117,13 +111,12 @@
     <div class="branding d-flex align-items-cente">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center gap-2">
+        <a href="{{ route('dashboard') }}" class="logo d-flex align-items-center gap-2">
           <img src="{{ asset('img/back-logo.png') }}" alt="Arimala Hospital" class="logo-img">
           {{-- <span class="logo-title">
             Arimala Hospital
           </span> --}}
         </a>
-
 
         <nav id="navmenu" class="navmenu">
           <ul>
@@ -176,18 +169,16 @@
   </header>
   <!-- Lottie container -->
 
-
   <main class="main">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section">
-
+    <section id="hero" class="hero section" >
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="hero-content">
-
+              <br><br><br>
               <div class="trust-badges mb-4" data-aos="fade-right" data-aos-delay="200">
                 <div class="badge-item">
                   <i class="bi bi-shield-check"></i>
@@ -240,6 +231,7 @@
                 <div class="emergency-info">
                   <small>Emergency Hotline</small>
                   <strong>+91 8281 240 560</strong>
+
                 </div>
               </div>
             </div>
@@ -284,10 +276,16 @@
     </section>
 
     <!-- Home About Section -->
-    <section id="home-about" class="home-about section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
+    <section id="home-about" class="home-about section" style="
+  position: relative;
+  background-image:
+    linear-gradient(rgba(16, 122, 124, 0.45), rgba(16, 122, 124, 0.45)),
+    url('{{ asset('img/background/BACKG.png') }}');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+">
+      <div class="container glassy-box" data-aos="fade-up" data-aos-delay="100">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-delay="200">
             <div class="about-content">
@@ -360,8 +358,15 @@
     </section><!-- /Home About Section -->
 
     <!-- Featured Departments Section -->
-    <section id="featured-departments" class="featured-departments section">
-
+    <section id="featured-departments" class="featured-departments section" style="
+  position: relative;
+  background-image:
+    linear-gradient(rgba(16, 122, 124, 0.35), rgba(16, 122, 124, 0.35)),
+    url('{{ asset('img/background/heart-doc.png') }}');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+">
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Featured Departments</h2>
@@ -390,7 +395,7 @@
                 </a>
               </div>
               <div class="specialty-visual">
-                <img src="{{ asset('img/arimalalabel.png') }}" alt="Cardiovascular Medicine" class="img-fluid">
+                <img src="{{ asset('img/Arimala-img1.png') }}" alt="Cardiovascular Medicine" class="img-fluid">
                 <div class="visual-overlay">
                   <i class="bi bi-heart-pulse"></i>
                 </div>
@@ -639,7 +644,13 @@
     </section><!-- /Featured Services Section -->
 
     <!-- Find A Doctor Section -->
-    <section id="find-a-doctor" class="find-a-doctor section">
+    <section id="find-a-doctor" class="find-a-doctor section" style="
+    position: relative;
+    background-image: url('{{ asset('img/background/bluely1.jpg') }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  ">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -712,7 +723,7 @@
             </div>
             <div class="action-buttons">
               <a href="#!" class="btn-secondary">View Details</a>
-              
+
             </div>
           </div><!-- End Doctor Profile -->
 
@@ -744,7 +755,7 @@
             </div>
             <div class="action-buttons">
               <a href="#!" class="btn-secondary">View Details</a>
-         
+
             </div>
           </div><!-- End Doctor Profile -->
 
@@ -776,7 +787,7 @@
             </div>
             <div class="action-buttons">
               <a href="#!" class="btn-secondary">View Details</a>
-             
+
             </div>
           </div><!-- End Doctor Profile -->
 
@@ -808,7 +819,7 @@
             </div>
             <div class="action-buttons">
               <a href="#!" class="btn-secondary">View Details</a>
-              
+
             </div>
           </div><!-- End Doctor Profile -->
 
@@ -840,7 +851,7 @@
             </div>
             <div class="action-buttons">
               <a href="#!" class="btn-secondary">View Details</a>
-             
+
             </div>
           </div><!-- End Doctor Profile -->
 
@@ -872,7 +883,7 @@
             </div>
             <div class="action-buttons">
               <a href="#!" class="btn-secondary">View Details</a>
-              
+
             </div>
           </div><!-- End Doctor Profile -->
 
@@ -1012,24 +1023,26 @@
           <div class="col-lg-5">
             <div class="brand-section">
               <a href="index.html" class="logo d-flex align-items-center mb-4">
-                <img src="{{ asset("img/logo1.jpg") }}" alt="Clinic Logo" class="me-2" height="40">
+                <img src="{{ asset('img/logo1.jpg') }}" alt="Clinic Logo" class="me-2 styled-logo">
               </a>
 
-              <p class="brand-description">Crafting exceptional digital experiences through thoughtful design and
-                innovative solutions that elevate your brand presence.</p>
+              <p class="brand-description">Committed to delivering trusted healthcare services with modern facilities,
+                experienced doctors, and a patient-first approach at Arimala Hospital.</p>
 
               <div class="contact-info mt-5">
                 <div class="contact-item">
                   <i class="bi bi-geo-alt"></i>
-                  <span>123 Creative Boulevard, Design District, NY 10012</span>
+                  <span>Arimala Hospital, Near Railway Station, Kanhangad, Kerala 671315</span>
                 </div>
                 <div class="contact-item">
                   <i class="bi bi-telephone"></i>
                   <span>+91 8281 240 560</span>
+                  <span>0467 220 4560</span>
                 </div>
                 <div class="contact-item">
                   <i class="bi bi-envelope"></i>
                   <span>arimalahospital@gmail.com</span>
+                  <span>hrarimala@gmail.com</span>
                 </div>
               </div>
             </div>
@@ -1107,26 +1120,13 @@
 
             <div class="col-lg-6">
               <div class="copyright">
-                <p>© <span class="sitename">Clinic</span>. All rights reserved.</p>
+                <p>
+                  Crafted &amp; Designed by
+                  <span class="sitename" style="color: #ffccff;">Astra Software Solutions</span>
+                </p>
+
               </div>
             </div>
-
-            <div class="col-lg-6">
-              <div class="legal-links">
-                <a href="#!">Privacy Policy</a>
-                <a href="#!">Terms of Service</a>
-                <a href="#!">Cookie Policy</a>
-                <div class="credits">
-                  <!-- All the links in the footer should remain intact. -->
-                  <!-- You can delete the links only if you've purchased the pro version. -->
-                  <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                  <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                  Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>. Distributed by <a
-                    href="https://themewagon.com" target="_blank">ThemeWagon</a>
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
@@ -1141,42 +1141,43 @@
   <!-- Preloader -->
   <div id="preloader"></div>
 
-<div id="chatFloatingWrap">
-  
-  <!-- Social Icons FIRST (so they appear above the chat button) -->
-  <div class="social-icons">
-    <a href="https://wa.me/919XXXXXXXXX" target="_blank" class="whatsapp">
-      <i class="fa-brands fa-whatsapp"></i>
-    </a>
+  <div id="chatFloatingWrap">
 
-    <a href="https://instagram.com/your_instagram" target="_blank" class="instagram">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
+    <!-- Social Icons FIRST (so they appear above the chat button) -->
+    <div class="social-icons">
+      <a href="https://wa.me/919XXXXXXXXX" target="_blank" class="whatsapp">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+
+      <a href="https://instagram.com/your_instagram" target="_blank" class="instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+    </div>
+
+    <!-- Lottie Chat Button -->
+    <div id="lottieChatBtn">
+      <iframe src="https://lottie.host/embed/7ed012d7-ed41-492b-8ac8-82c35cc06a6e/oBxttvF3cs.lottie"></iframe>
+    </div>
+
   </div>
 
-  <!-- Lottie Chat Button -->
-  <div id="lottieChatBtn">
-    <iframe src="https://lottie.host/embed/7ed012d7-ed41-492b-8ac8-82c35cc06a6e/oBxttvF3cs.lottie"></iframe>
+  <!-- Chatbox (separate, outside the floating wrap) -->
+  <div id="chatBox">
+    <div class="chat-header">
+      <span>Chatbot</span>
+      <button id="closeChat">✖</button>
+    </div>
+
+    <div id="chatMessages" class="chat-body"></div>
+
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Type your message..." />
+      <button id="sendBtn" aria-label="Send message">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
   </div>
 
-</div>
-
-<!-- Chatbox (separate, outside the floating wrap) -->
-<div id="chatBox">
-  <div class="chat-header">
-    <span>Chatbot</span>
-    <button id="closeChat">✖</button>
-  </div>
-
-  <div id="chatMessages" class="chat-body"></div>
-
-  <div class="chat-input">
-    <input type="text" id="userInput" placeholder="Type your message..." />
-    <button id="sendBtn" aria-label="Send message">
-      <i class="fa-solid fa-paper-plane"></i>
-    </button>
-  </div>
-</div>
   <!-- Vendor JS Files -->
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
@@ -1203,5 +1204,4 @@
   </script>
 
 </body>
-
 </html>

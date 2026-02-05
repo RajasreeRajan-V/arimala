@@ -271,24 +271,26 @@
           <div class="col-lg-5">
             <div class="brand-section">
               <a href="index.html" class="logo d-flex align-items-center mb-4">
-                <img src="{{ asset("img/logo1.jpg") }}" alt="Clinic Logo" class="me-2" height="40">
+                <img src="{{ asset('img/logo1.jpg') }}" alt="Clinic Logo" class="me-2 styled-logo">
               </a>
 
-              <p class="brand-description">Crafting exceptional digital experiences through thoughtful design and
-                innovative solutions that elevate your brand presence.</p>
+              <p class="brand-description">Committed to delivering trusted healthcare services with modern facilities,
+                experienced doctors, and a patient-first approach at Arimala Hospital.</p>
 
               <div class="contact-info mt-5">
                 <div class="contact-item">
                   <i class="bi bi-geo-alt"></i>
-                  <span>123 Creative Boulevard, Design District, NY 10012</span>
+                  <span>Arimala Hospital, Near Railway Station, Kanhangad, Kerala 671315</span>
                 </div>
                 <div class="contact-item">
                   <i class="bi bi-telephone"></i>
                   <span>+91 8281 240 560</span>
+                  <span>0467 220 4560</span>
                 </div>
                 <div class="contact-item">
                   <i class="bi bi-envelope"></i>
                   <span>arimalahospital@gmail.com</span>
+                  <span>hrarimala@gmail.com</span>
                 </div>
               </div>
             </div>
@@ -366,26 +368,13 @@
 
             <div class="col-lg-6">
               <div class="copyright">
-                <p>© <span class="sitename">Clinic</span>. All rights reserved.</p>
+                <p>
+                  Crafted &amp; Designed by
+                  <span class="sitename" style="color: #ffccff;">Astra Software Solutions</span>
+                </p>
+
               </div>
             </div>
-
-            <div class="col-lg-6">
-              <div class="legal-links">
-                <a href="#!">Privacy Policy</a>
-                <a href="#!">Terms of Service</a>
-                <a href="#!">Cookie Policy</a>
-                <div class="credits">
-                  <!-- All the links in the footer should remain intact. -->
-                  <!-- You can delete the links only if you've purchased the pro version. -->
-                  <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                  <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                  Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>. Distributed by <a
-                    href="https://themewagon.com" target="_blank">ThemeWagon</a>
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>

@@ -157,6 +157,7 @@ h6 {
   z-index: 997;
   background-color: var(--background-color);
   box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
+  /* padding: 20px 0; */
 }
 
 .header .topbar {
@@ -217,8 +218,8 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 36px;
-  margin-right: 8px;
+  max-height: 100px;
+  margin-right: 10px;
 }
 
 .header .logo h1 {
@@ -512,11 +513,11 @@ h6 {
 # Global Footer
 --------------------------------------------------------------*/
 .footer-16 {
-  background: var(--background-color);
-  color: var(--default-color);
+  background: var(--accent-color);
+  color: var(--background-color);
   font-size: 15px;
   padding: 100px 0 0;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  border-top: 1px solid color-mix(in srgb, var(--background-color), transparent 92%);
 }
 
 .footer-16 .footer-main {
@@ -538,7 +539,7 @@ h6 {
 .footer-16 .brand-section .brand-description {
   font-size: 18px;
   line-height: 1.7;
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  color: color-mix(in srgb, var(--background-color), transparent 25%);
   font-weight: 300;
   max-width: 380px;
   margin: 0;
@@ -549,7 +550,7 @@ h6 {
   align-items: flex-start;
   margin-bottom: 16px;
   font-size: 15px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: color-mix(in srgb, var(--background-color), transparent 20%);
 }
 
 .footer-16 .brand-section .contact-info .contact-item i {
@@ -583,7 +584,7 @@ h6 {
   font-family: var(--heading-font);
   font-size: 16px;
   font-weight: 400;
-  color: var(--heading-color);
+  color: var(--surface-color);
   margin-bottom: 24px;
   letter-spacing: 0.3px;
 }
@@ -595,7 +596,7 @@ h6 {
 }
 
 .footer-16 .nav-column .footer-nav a {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: color-mix(in srgb, var(--background-color), transparent 30%);
   text-decoration: none;
   font-size: 15px;
   font-weight: 300;
@@ -604,14 +605,14 @@ h6 {
 }
 
 .footer-16 .nav-column .footer-nav a:hover {
-  color: var(--accent-color);
+  color: #9999ff;
   transform: translateX(4px);
 }
 
 .footer-16 .footer-social {
   padding: 50px 0;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 94%);
-  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 94%);
+  border-top: 1px solid color-mix(in srgb, var(--background-color), transparent 94%);
+  border-bottom: 1px solid color-mix(in srgb, var(--background-color), transparent 94%);
 }
 
 .footer-16 .footer-social .newsletter-section h5 {
@@ -625,7 +626,7 @@ h6 {
 
 .footer-16 .footer-social .newsletter-section p {
   font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 35%);
+  color: color-mix(in srgb, var(--background-color), transparent 35%);
   margin: 0;
   line-height: 1.6;
   max-width: 340px;
@@ -661,7 +662,7 @@ h6 {
   align-items: center;
   gap: 8px;
   text-decoration: none;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  color: color-mix(in srgb, var(--background-color), transparent 40%);
   font-size: 14px;
   font-weight: 400;
   transition: all 0.3s ease;
@@ -692,7 +693,7 @@ h6 {
 .footer-16 .footer-bottom .copyright p {
   margin: 0;
   font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 45%);
+  color: color-mix(in srgb, var(--background-color), transparent 45%);
   font-weight: 300;
 }
 
@@ -718,7 +719,7 @@ h6 {
 
 .footer-16 .footer-bottom .legal-links a {
   font-size: 13px;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  color: color-mix(in srgb, var(--background-color), transparent 50%);
   text-decoration: none;
   font-weight: 300;
   transition: color 0.3s ease;
@@ -730,10 +731,10 @@ h6 {
 
 .footer-16 .footer-bottom .legal-links .credits {
   font-size: 12px;
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
+  color: color-mix(in srgb, var(--background-color), transparent 60%);
   margin-left: 8px;
   padding-left: 24px;
-  border-left: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-left: 1px solid color-mix(in srgb, var(--background-color), transparent 90%);
 }
 
 @media (max-width: 576px) {
@@ -1460,14 +1461,14 @@ section,
   font-size: 1.25rem;
   font-weight: 300;
   line-height: 1.7;
-  color: color-mix(in srgb, var(--default-color), transparent 15%);
+  color: color-mix(in srgb, var(--background-color), transparent 15%);
   margin-bottom: 1.5rem;
 }
 
 .home-about .about-content p {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: color-mix(in srgb, var(--background-color), transparent 20%);
   margin-bottom: 2.5rem;
 }
 
@@ -1505,7 +1506,7 @@ section,
 
 .home-about .about-content .stats-grid .stat-item .stat-label {
   font-size: 0.95rem;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: color-mix(in srgb, var(--background-color), transparent 30%);
   margin-top: 0.5rem;
   font-weight: 400;
 }
@@ -1581,8 +1582,8 @@ section,
   background-color: var(--surface-color);
   padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 15px 40px color-mix(in srgb, var(--default-color), transparent 90%);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  box-shadow: 0 15px 40px color-mix(in srgb, var(--background-color), transparent 90%);
+  border: 1px solid color-mix(in srgb, var(--background-color), transparent 92%);
 }
 
 @media (max-width: 768px) {
@@ -1625,7 +1626,7 @@ section,
 
 .home-about .about-visual .floating-card .card-content .card-text p {
   font-size: 0.875rem;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  color: color-mix(in srgb, var(--background-color), transparent 40%);
   margin: 0;
   line-height: 1.4;
 }
@@ -1682,9 +1683,30 @@ section,
 }
 .home-about {
   padding: 100px 0;
-  background-color: #b3e0ff; /* light gray */
+  background-color: #a6d6f6; /* light gray */
 }
 
+/* Glassy Blue Container */
+.glassy-box {
+  position: relative;
+  background: rgba(166, 214, 246, 0.35); /* light blue glass */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 60px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+/* Mobile tweak */
+@media (max-width: 768px) {
+  .glassy-box {
+    padding: 40px 20px;
+    border-radius: 16px;
+  }
+}
 /*--------------------------------------------------------------
 # Featured Departments Section
 --------------------------------------------------------------*/
@@ -1796,7 +1818,7 @@ section,
 .featured-departments .specialty-visual img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.4s ease;
 }
 
@@ -2684,6 +2706,27 @@ section,
     border-radius: 16px;
     padding: 1.25rem;
   }
+}
+
+.find-a-doctor {
+  position: relative;
+  overflow: hidden;
+}
+
+.find-a-doctor .section-background {
+  position: absolute;
+  inset: 0;
+  background-image: url("{{ asset('img/background/bluely1.jpg') }}");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.12;
+  z-index: 0;
+}
+
+.find-a-doctor > .container {
+  position: relative;
+  z-index: 1;
 }
 
 /*--------------------------------------------------------------
@@ -6233,9 +6276,10 @@ section,
   padding-bottom: 60px;
   /* Add your styles here */
 }
+
 .logo-img {
-    width: 300px;  
-    height: 1200px;   
+    width: 200px;  
+    height: 150px;   
 }
 
 /* Logo Title Styling */
@@ -6248,9 +6292,9 @@ section,
   text-transform: uppercase;
 
   /* Brand gradient */
-  background: linear-gradient(90deg, #0E4968, #107A7C);
+  /* background: linear-gradient(90deg, #0E4968, #107A7C);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
 
   position: relative;
   white-space: nowrap;
@@ -6355,3 +6399,121 @@ section,
   transform: translate(30%, -50%);
 }
 
+#scroll-top {
+  position: fixed;
+  bottom: 20px;
+  right: 25px;   
+  z-index: 9999;
+}
+
+.styled-logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.styled-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* =============== LOGO SET =================== */
+.logo {
+    position: relative;
+    display: block;
+    align-items: center;
+    background: transparent;
+
+    transition: all 0.3s ease;
+    animation: slideLogo 2s ease-in-out infinite;
+
+    overflow: visible;
+    box-shadow: 0 4px 12px rgba(14, 73, 104, 0.2);
+
+    clip-path: inset(1px);
+    mix-blend-mode: multiply;
+}
+
+/* REMOVE ANY STAR INSIDE LOGO */
+.logo::after {
+    content: none !important;
+}
+
+/* FLOATING STAR OUTSIDE (USING ::before) */
+.logo::before {
+    position: absolute;
+    right: -22px;     /* fully outside */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #0E4968;
+    letter-spacing: 3px;
+    animation: starTwinkle 1.8s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+/* Left ↔ Right Animation */
+@keyframes slideLogo {
+    0%   { transform: translateX(0px); }
+    50%  { transform: translateX(4px); }
+    100% { transform: translateX(0px); }
+}
+
+/* Twinkle animation */
+@keyframes starTwinkle {
+    from {
+        opacity: 0.5;
+        transform: translateY(-50%) scale(1);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-55%) scale(1.15);
+    }
+}
+
+/* Logo Image */
+.logo-img {
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* Slight zoom on hover */
+.logo:hover .logo-img {
+    transform: scale(1.05);
+}
+
+/* Logo Text */
+.logo-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #306060;
+    letter-spacing: 0.5px;
+}
+
+/* ================= FOOTER LOGO FINAL ================= */
+.footer-16 .logo {
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    animation: none;
+}
+
+.footer-16 .logo::after {
+    content: none;
+}
+
+.footer-16 .styled-logo {
+    max-height: 200px;   
+    width: auto;
+    object-fit: contain;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .footer-16 .styled-logo {
+        max-height: 70px;
+    }
+}
+/* ===================================================== */
