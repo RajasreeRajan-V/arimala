@@ -246,7 +246,7 @@
                   class="img-fluid slide active">
 
                 <!-- Slide 2 -->
-                <img src="{{ asset('img/arimalee.png') }}" alt="Advanced Hospital Infrastructure"
+                <img src="{{ asset('img/arimala-slide.jpg') }}" alt="Advanced Hospital Infrastructure"
                   class="img-fluid slide">
               </div>
               <div class="background-elements">
@@ -279,7 +279,6 @@
     <section id="home-about" class="home-about section" style="
   position: relative;
   background-image:
-    linear-gradient(rgba(16, 122, 124, 0.45), rgba(16, 122, 124, 0.45)),
     url('{{ asset('img/background/BACKG.png') }}');
   background-size: cover;
   background-position: center;
@@ -341,12 +340,13 @@
                     <h4>24/7 Emergency Care</h4>
                     <p>Always here when you need us most</p>
                   </div>
-                </div>
-              </div>
-              <div class="experience-badge">
+                    
+                  <div class="experience-badge">
                 <div class="badge-content">
                   <span class="years">67+</span>
                   <span class="text">Years of Trusted Care</span>
+                </div>
+              </div>
                 </div>
               </div>
             </div>
@@ -1022,7 +1022,7 @@
 
           <div class="col-lg-5">
             <div class="brand-section">
-              <a href="index.html" class="logo d-flex align-items-center mb-4">
+              <a href="index.html" class="logo footer-logo d-flex align-items-center mb-4">
                 <img src="{{ asset('img/logo1.jpg') }}" alt="Clinic Logo" class="me-2 styled-logo">
               </a>
 

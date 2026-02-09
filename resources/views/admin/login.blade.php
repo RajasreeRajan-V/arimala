@@ -76,7 +76,7 @@
                     Remember me
                 </label>
 
-                <a href="{{ route('password.request') }}"
+                <a href="{{ route('password') }}"
                    class="hover:underline"
                    style="color: var(--accent-color);">
                     Forgot password?
@@ -92,15 +92,8 @@
             </button>
         </form>
 
-        <!-- Register -->
-        <p class="text-center text-sm text-gray-600 mt-8">
-            Don’t have an account?
-            <a href="{{ route('register') }}"
-               class="font-medium hover:underline"
-               style="color: var(--accent-color);">
-                Register
-            </a>
-        </p>
+       
+       
 
     </div>
 

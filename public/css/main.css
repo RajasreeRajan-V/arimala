@@ -31,6 +31,7 @@
   --accent-color: #107A7C;            /* Buttons, links, highlights */
   --surface-color: #F5F7F8;           /* Cards, sections, boxes */
   --contrast-color: #FFFFFF;          /* Text on dark backgrounds */
+  --black: #000000;          /* Text on dark backgrounds */
 
   /* =========================
      Navigation Menu Colors
@@ -1249,13 +1250,47 @@ section,
   height: 100%;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 60px color-mix(in srgb, var(--default-color), transparent 85%);
+  box-shadow: none;
 }
 
 .hero .hero-visual .main-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+
+}
+
+.hero .hero-visual .main-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero .hero-visual .main-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 2;
+}
+
+.hero .hero-visual .main-image.shutter::before {
+  opacity: 0.15;
+}
+
+.hero .hero-visual .main-image img {
+  opacity: 0;
+  clip-path: inset(50% 0 50% 0);
+  transition:
+    opacity 0.7s ease,
+    clip-path 0.7s ease;
+}
+
+.hero .hero-visual .main-image img.active {
+  opacity: 0.9;
+  clip-path: inset(0 0 0 0);
 }
 
 .hero .hero-visual .main-image .floating-card {
@@ -1263,7 +1298,7 @@ section,
   background: var(--surface-color);
   padding: 1.5rem;
   border-radius: 16px;
-  box-shadow: 0 15px 40px color-mix(in srgb, var(--default-color), transparent 85%);
+  
   backdrop-filter: blur(10px);
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
 }
@@ -1350,6 +1385,18 @@ section,
     padding: 1rem;
     min-width: 120px;
   }
+}
+
+.hero .hero-visual .main-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 60%,
+    var(--surface-color) 100%
+  );
+  pointer-events: none;
 }
 
 .hero .hero-visual .background-elements {
@@ -1461,14 +1508,14 @@ section,
   font-size: 1.25rem;
   font-weight: 300;
   line-height: 1.7;
-  color: color-mix(in srgb, var(--background-color), transparent 15%);
+  color: color-mix(in srgb, var(--black), transparent 15%);
   margin-bottom: 1.5rem;
 }
 
 .home-about .about-content p {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: color-mix(in srgb, var(--background-color), transparent 20%);
+  color: color-mix(in srgb, var(--black), transparent 20%);
   margin-bottom: 2.5rem;
 }
 
@@ -1506,7 +1553,7 @@ section,
 
 .home-about .about-content .stats-grid .stat-item .stat-label {
   font-size: 0.95rem;
-  color: color-mix(in srgb, var(--background-color), transparent 30%);
+  color: color-mix(in srgb, var(--black), transparent 30%);
   margin-top: 0.5rem;
   font-weight: 400;
 }
@@ -1640,6 +1687,7 @@ section,
   padding: 1.25rem;
   border-radius: 8px;
   text-align: center;
+  margin-top: 28px;
   box-shadow: 0 15px 40px color-mix(in srgb, var(--accent-color), transparent 70%);
 }
 
@@ -6406,6 +6454,20 @@ section,
   z-index: 9999;
 }
 
+.logo-box {
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 16px;
+    display: inline-block;
+}
+
+.logo-box {
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 16px;
+    display: inline-block;
+}
+
 .styled-logo {
     height: 150px;
     width: 150px;
@@ -6517,3 +6579,15 @@ section,
     }
 }
 /* ===================================================== */
+
+.stat-number.purecounter {
+  color: #000 !important;          
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.footer-logo {
+    mix-blend-mode: normal !important;
+    isolation: isolate;
+}
