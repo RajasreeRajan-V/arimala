@@ -30,13 +30,6 @@
   <!-- Main CSS File -->
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Clinic
-  * Template URL: https://bootstrapmade.com/clinic-bootstrap-template/
-  * Updated: Jul 23 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="contact-page">
@@ -263,8 +256,8 @@
 
           <div class="col-lg-5">
             <div class="brand-section">
-              <a href="index.html" class="logo d-flex align-items-center mb-4">
-                <img src="{{ asset('img/logo1.jpg') }}" alt="Clinic Logo" class="me-2 styled-logo">
+              <a href="index.html" class="logo footer-logo d-flex align-items-center mb-4">
+                <img src="{{ asset('img/logo1.jpg') }}" class="footer-logo" alt="Logo">
               </a>
 
               <p class="brand-description">Committed to delivering trusted healthcare services with modern facilities,

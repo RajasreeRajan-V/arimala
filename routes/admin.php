@@ -11,6 +11,6 @@ Route::name('admin.')->group(function () {
     Route::middleware(['auth:admin'])->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-        
+        Route::resource('about-us', AboutUsController::class);
 });
 });

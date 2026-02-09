@@ -30,18 +30,19 @@
   <!-- Main CSS File -->
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Clinic
-  * Template URL: https://bootstrapmade.com/clinic-bootstrap-template/
-  * Updated: Jul 23 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <style>
+    .page-title .heading {
+      position: relative;
+      background: url("{{ asset('img/background/hospital.jpg') }}") center center / cover no-repeat;
+      padding: 100px 0;
+      z-index: 1;
+    }
+  </style>
 </head>
 
 <body class="about-page">
 
- <header id="header" class="header fixed-top">
+  <header id="header" class="header fixed-top">
 
     <div class="topbar d-flex align-items-center dark-background">
       <div class="container d-flex justify-content-center justify-content-md-between">
@@ -60,10 +61,11 @@
         </div>
 
         <div class="social-links d-none d-md-flex align-items-center">
-          <a href="#!" class="twitter"><i class="bi bi-twitter-x"></i></a>
-          <a href="#!" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#!" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
           <a href="#!" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#!" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          <a href="#!" class="youtube"><i class="bi bi-youtube"></i></a>
+          <a href="#!" class="mail"><i class="bi bi-envelope"></i></a>
+          <a href="#!" class="location"><i class="bi bi-geo-alt"></i></a>
         </div>
       </div>
     </div><!-- End Top Bar -->
@@ -125,7 +127,6 @@
         </nav>
 
       </div>
-
     </div>
   </header>
 
@@ -133,19 +134,22 @@
 
     <!-- Page Title -->
     <div class="page-title">
+      <br><br>
       <div class="heading">
         <div class="container">
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
-              <h1 class="heading-title">About</h1>
-              <p>
-                At Arimala Hospital, we prioritize the well-being of every patient. Our dedicated team
-                works tirelessly to provide personalized care, advanced treatments, and a supportive
-                environment. We believe in healing with compassion and building lasting trust with
-                the families we serve.
-              </p>
-
+              <div class="glass-card">
+                <h1 class="heading-title">About</h1>
+                <p>
+                  At Arimala Hospital, we prioritize the well-being of every patient. Our dedicated team
+                  works tirelessly to provide personalized care, advanced treatments, and a supportive
+                  environment. We believe in healing with compassion and building lasting trust with
+                  the families we serve.
+                </p>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -204,10 +208,10 @@
 
           <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
             <div class="image-wrapper">
-              <img src="{{ asset('img/health/facilities-6.webp') }}" class="img-fluid main-image"
+              <img src="{{ asset('img/arimala-slide.jpg') }}" class="img-fluid main-image"
                 alt="Healthcare facility">
               <div class="floating-image" data-aos="zoom-in" data-aos-delay="400">
-                <img src="{{ asset('img/health/staff-8.webp') }}" class="img-fluid" alt="Medical team">
+                <img src="{{ asset('img/logo.jpg') }}" class="img-fluid" alt="Medical team">
               </div>
             </div><!-- End Image Wrapper -->
           </div>
@@ -280,8 +284,8 @@
 
           <div class="col-lg-5">
             <div class="brand-section">
-              <a href="index.html" class="logo d-flex align-items-center mb-4">
-                <img src="{{ asset('img/logo1.jpg') }}" alt="Clinic Logo" class="me-2 styled-logo">
+              <a href="index.html" class="logo footer-logo d-flex align-items-center mb-4">
+                <img src="{{ asset('img/logo1.jpg') }}" class="footer-logo" alt="Logo">
               </a>
 
               <p class="brand-description">Committed to delivering trusted healthcare services with modern facilities,

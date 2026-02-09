@@ -1,17 +1,7 @@
-/**
-* Template Name: Clinic
-* Template URL: https://bootstrapmade.com/clinic-bootstrap-template/
-* Updated: Jul 23 2025 with Bootstrap v5.3.7
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
 @charset "UTF-8";
 
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
+
 /* Fonts */
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -3108,9 +3098,6 @@ section,
   font-weight: 500;
 }
 
-.about .image-wrapper {
-  position: relative;
-}
 
 .about .image-wrapper .main-image {
   border-radius: 12px;
@@ -6579,15 +6566,408 @@ section,
     }
 }
 /* ===================================================== */
+/* Footer Logo */
+.footer-logo {
+  mix-blend-mode: normal !important;
+  isolation: isolate;
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  object-fit: contain;
+  display: block;
 
-.stat-number.purecounter {
-  color: #000 !important;          
+  /* Border Styling */
+  border: 2px solid #0E4968;   /* Brand border color */
+  border-radius: 15px;        /* Smooth rounded corners */
+  padding: 10px;              /* Space inside border */
+  background-color: #ffffff;  /* Prevent transparency issues */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Soft shadow */
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.footer-logo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .footer-logo {
+    max-width: 180px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .footer-logo {
+    max-width: 150px;
+  }
+}
+/* ============================ABOUT SECTION================================================ */
+/* ===============================
+   About Section - Professional Style
+================================= */
+
+.about.section {
+  padding: 100px 0;
+  background: #afd2e9 ;
+}
+
+/* Heading */
+.about-content h2 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #0e4968;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.about-content .lead {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  color: #6c757d;
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+/* ===============================
+   Stats Grid
+================================= */
+
+.stats-grid {
+  display: flex;
+  gap: 40px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  background: #ffffff;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  min-width: 140px;
+  transition: 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(14, 73, 104, 0.15);
+}
+
+.stat-number {
+  display: block;
   font-size: 2rem;
   font-weight: 700;
-  line-height: 1;
+  color: #107a7c;
 }
 
-.footer-logo {
-    mix-blend-mode: normal !important;
-    isolation: isolate;
+.stat-label {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-top: 5px;
 }
+
+/* ===============================
+   Image Styling
+================================= */
+
+.image-wrapper {
+  position: relative;
+}
+
+.image-wrapper .main-image {
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.floating-image {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 60%;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.floating-image img {
+  border-radius: 15px;
+}
+
+/* ===============================
+   Values Section
+================================= */
+
+.values-section {
+  margin-top: 120px;
+}
+
+.values-section h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #0e4968;
+  margin-bottom: 10px;
+}
+
+.section-description {
+  color: #6c757d;
+  margin-bottom: 50px;
+}
+
+/* Value Cards */
+
+.value-item {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.value-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(16, 122, 124, 0.15);
+}
+
+.value-icon {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: rgba(16, 122, 124, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #107a7c;
+}
+
+.value-item h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0e4968;
+  margin-bottom: 12px;
+}
+
+.value-item p {
+  font-size: 0.9rem;
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+/* ===============================
+   Responsive Design
+================================= */
+
+@media (max-width: 992px) {
+  .stats-grid {
+    justify-content: center;
+  }
+
+  .floating-image {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    width: 80%;
+    margin: 20px auto 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .about.section {
+    padding: 70px 0;
+  }
+
+  .about-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .values-section {
+    margin-top: 80px;
+  }
+}
+/* About Main Image Highlight */
+.about .image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.about .main-image {
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  border: 5px solid #ffffff;
+  transition: all 0.4s ease;
+}
+
+/* Hover Effect */
+.about .main-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 20px 60px rgba(14, 73, 104, 0.25);
+}
+
+/* Optional Accent Background Effect */
+.about .image-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0E4968, #107A9A);
+  border-radius: 25px;
+  z-index: -1;
+  opacity: 0.08;
+}
+
+/* =================================== */
+/* Glassy Teal Card */
+.glass-card {
+  background: rgba(16, 122, 124, 0.45);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 40px;
+
+  /* White Border */
+  border: 2px solid rgba(255, 255, 255, 0.8);
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+  transition: 0.3s ease;
+}
+
+/* Hover Effect */
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(16, 122, 124, 0.35);
+}
+
+/* Title */
+.glass-card .heading-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+/* Paragraph */
+.glass-card p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Each Stat Box */
+.stat-item {
+  flex: 1;
+  min-width: 180px;
+  padding: 25px 20px;
+  text-align: center;
+  border-radius: 15px;
+
+  /* White Borderline */
+  border: 2px solid rgba(255, 255, 255, 0.8);
+
+  background: rgba(255, 255, 255, 0.05); /* light glass effect */
+  backdrop-filter: blur(6px);
+  transition: 0.3s ease;
+}
+
+/* Hover Effect */
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Number */
+.stat-number {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+/* Label */
+.stat-label {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+}
+/* =================================
+   Enhanced Highlight Effect (Safe Add-On)
+================================= */
+
+/* Soft Section Background Highlight */
+.values-section {
+  position: relative;
+  padding: 60px 40px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(4, 15, 15, 0.06), rgba(11, 29, 39, 0.06));
+}
+
+/* Subtle Decorative Background Glow */
+.values-section::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(16, 122, 124, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* Make sure content stays above glow */
+.values-section .row {
+  position: relative;
+  z-index: 1;
+}
+
+/* Add Elegant Border Accent to Cards */
+.value-item {
+  border: 1px solid rgba(16, 122, 124, 0.12);
+}
+
+/* Smooth Icon Hover Enhancement */
+.value-item:hover .value-icon {
+  background: #107a7c;
+  color: #ffffff;
+  transform: scale(1.1);
+  transition: 0.3s ease;
+}
+/* Soft Section Background Highlight */
+.values-section {
+  position: relative;
+  padding: 60px 40px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(4, 15, 15, 0.06), rgba(11, 29, 39, 0.06));
+
+  /* White Border Added */
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+.contact-item i {
+  font-size: 18px;
+  color: #107a7c;
+  margin-right: 8px;
+}
+
+
+

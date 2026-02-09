@@ -28,8 +28,8 @@
             </li>
 
             <li class="nav-item mb-2">
-                <a href="#" class="nav-link">
-                    Users
+                <a href="{{ route('admin.about-us.index') }}" class="nav-link">
+                    Manage About Us
                 </a>
             </li>
 

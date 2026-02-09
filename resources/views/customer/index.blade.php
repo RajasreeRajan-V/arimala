@@ -22,6 +22,8 @@
   <!-- Make sure Font Awesome is loaded -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+
+
   <!-- Vendor CSS Files -->
   <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -172,7 +174,7 @@
   <main class="main">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section" >
+    <section id="hero" class="hero section">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row align-items-center">
@@ -340,13 +342,13 @@
                     <h4>24/7 Emergency Care</h4>
                     <p>Always here when you need us most</p>
                   </div>
-                    
+
                   <div class="experience-badge">
-                <div class="badge-content">
-                  <span class="years">67+</span>
-                  <span class="text">Years of Trusted Care</span>
-                </div>
-              </div>
+                    <div class="badge-content">
+                      <span class="years">67+</span>
+                      <span class="text">Years of Trusted Care</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1008,9 +1010,7 @@
         </div>
 
       </div>
-
-    </section><!-- /Call To Action Section -->
-
+    </section>
   </main>
 
   <footer id="footer" class="footer-16 footer position-relative">
@@ -1023,7 +1023,7 @@
           <div class="col-lg-5">
             <div class="brand-section">
               <a href="index.html" class="logo footer-logo d-flex align-items-center mb-4">
-                <img src="{{ asset('img/logo1.jpg') }}" alt="Clinic Logo" class="me-2 styled-logo">
+                <img src="{{ asset('img/logo1.jpg') }}" class="footer-logo" alt="Logo">
               </a>
 
               <p class="brand-description">Committed to delivering trusted healthcare services with modern facilities,
@@ -1035,8 +1035,10 @@
                   <span>Arimala Hospital, Near Railway Station, Kanhangad, Kerala 671315</span>
                 </div>
                 <div class="contact-item">
-                  <i class="bi bi-telephone"></i>
+                  <i class="fa-solid fa-phone"></i>
                   <span>+91 8281 240 560</span>
+
+                  <i class="fa-solid fa-phone"></i>
                   <span>0467 220 4560</span>
                 </div>
                 <div class="contact-item">
@@ -1204,4 +1206,5 @@
   </script>
 
 </body>
+
 </html>
