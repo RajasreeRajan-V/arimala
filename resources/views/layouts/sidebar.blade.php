@@ -34,8 +34,8 @@
             </li>
 
             <li class="nav-item mb-2">
-                <a href="#" class="nav-link">
-                    Careers
+                <a href="{{ route('admin.services.index') }}" class="nav-link">
+                    Manage Services
                 </a>
             </li>
 

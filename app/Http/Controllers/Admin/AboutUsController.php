@@ -67,9 +67,9 @@ class AboutUsController
     {
         $aboutUs = AboutUs::findOrFail($id);
         $data = $request->validate([
-        'title' => 'required|string|max:255',
-        'description' => 'required|string',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'title' => 'required|string',
+        'description' => 'required',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
     ]);
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('about-us', 'public');
