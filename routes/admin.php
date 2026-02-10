@@ -15,5 +15,8 @@ Route::name('admin.')->group(function () {
         Route::resource('about-us', AboutUsController::class);
         Route::resource('services', ServicesController::class);
         Route::resource('gallery', GalleryController::class);
+        Route::resource('contactus', ContactusController::class);
+
+        Route::post('/contact-us/{id}/reply',  [ContactUsController::class, 'reply'] )->name('contactus.reply');
 });
 });

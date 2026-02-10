@@ -44,6 +44,11 @@
                 </a>
             </li>
 
+             <li class="nav-item mb-2">
+                <a href="{{ route('admin.contactus.index') }}" class="nav-link">
+                    Manage Contact Us
+                </a>
+
             <li class="nav-item mt-4">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

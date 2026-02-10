@@ -90,10 +90,7 @@
                 style="background-color: var(--accent-color);">
                 Login
             </button>
-        </form>
-
-       
-       
+        </form>   
 
     </div>
 

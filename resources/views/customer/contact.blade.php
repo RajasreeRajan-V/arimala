@@ -112,7 +112,7 @@
                 <li><a href="#">Dropdown 4</a></li>
               </ul>
             </li>
-            <li><a href="{{ route('contact') }}" class="active">Contact</a></li>
+            <li><a href="{{ route('ContactUs.index') }}" class="active">Contact</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
@@ -191,6 +191,11 @@
               </div>
             </div>
           </div>
+          @if(session('success'))
+            <div class="alert alert-success mb-4">
+              {{ session('success') }}
+            </div>
+          @endif
 
           <div class="col-lg-7">
             <div class="contact-form-card" data-aos="fade-up" data-aos-delay="200">
@@ -198,31 +203,54 @@
               <p class="mb-4">Have questions or want to learn more? Reach out to us and our team will get back to you
                 shortly.</p>
 
-              <form action="forms/contact.php" method="post" class="php-email-form">
+              <form action="{{ route('ContactUs.store') }}" method="POST">
+                @csrf
                 <div class="row g-4">
                   <div class="col-md-6">
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required="">
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                      value="{{ old('name') }}" placeholder="Your Name">
+
+                    @error('name')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
                   </div>
+
 
                   <div class="col-md-6">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                      required="">
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
+                      value="{{ old('email') }}" placeholder="Your Email">
+
+                    @error('email')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
                   </div>
 
-                  <div class="col-12">
-                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                      required="">
-                  </div>
 
                   <div class="col-12">
-                    <textarea class="form-control" name="message" id="message" placeholder="Your Message" rows="6"
-                      required=""></textarea>
+                    <input type="text" class="form-control @error('subject') is-invalid @enderror" name="subject"
+                      value="{{ old('subject') }}" placeholder="Subject">
+
+                    @error('subject')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
                   </div>
 
+
                   <div class="col-12">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                    <textarea class="form-control @error('message') is-invalid @enderror" name="message" rows="6"
+                      placeholder="Your Message">{{ old('message') }}</textarea>
+
+                    @error('message')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
                   </div>
 
                   <div class="col-12">
