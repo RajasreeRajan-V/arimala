@@ -20,5 +20,6 @@ Route::name('admin.')->group(function () {
         Route::post('/contact-us/{id}/reply',  [ContactUsController::class, 'reply'] )->name('contactus.reply');
 
         Route::resource('departments', DepartmentsController::class);
+        Route::resource('doctors', DoctorController::class);
 });
 });

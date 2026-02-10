@@ -54,6 +54,12 @@
                 <a href="{{ route('admin.departments.index') }}" class="nav-link">
                     Manage Departments
                 </a>
+            </li>
+                <li class="nav-item mb-2">
+                    <a href="{{ route('admin.doctors.index') }}" class="nav-link">
+                        Manage Doctors
+                    </a>
+                </li>
             <li class="nav-item mt-4">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

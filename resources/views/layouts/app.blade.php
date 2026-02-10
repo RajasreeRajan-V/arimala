@@ -169,7 +169,24 @@ body {
     }
 }
 
+/* Form Controls - Select Dropdowns */
+.form-control,
+.department-select {
+    color: #1F2D33 !important;
+    background-color: #FFFFFF !important;
+}
 
+.form-control option,
+.department-select option {
+    color: #1F2D33 !important;
+    background-color: #FFFFFF !important;
+}
+
+/* Ensure all select elements are visible */
+select.form-control {
+    color: #1F2D33 !important;
+    background-color: #FFFFFF !important;
+}
     </style>
 </head>
 

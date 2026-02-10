@@ -22,4 +22,10 @@ class Departments extends Model
         'subtagline4_title',
         'subtagline4_description',
     ];
+
+    public function doctors()
+{
+    return $this->hasMany(Doctor::class);
+}
+
 }
