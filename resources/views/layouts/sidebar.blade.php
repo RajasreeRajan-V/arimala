@@ -70,6 +70,11 @@
                         Manage Reviews
                     </a>
                 </li>
+                <li class="nav-item mb-2">
+                    <a href="{{ route('admin.blogs.index') }}" class="nav-link">
+                        Manage Blogs
+                    </a>
+                </li>
             <li class="nav-item mt-4">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

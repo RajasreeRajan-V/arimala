@@ -84,8 +84,10 @@ class ReviewController
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Review $review)
+    public function destroy( $id)
     {
-        //
+        $review = Review::findOrFail($id);
+        $review->delete();
+        return redirect()->back()->with('success', 'Review deleted successfully!');
     }
 }
