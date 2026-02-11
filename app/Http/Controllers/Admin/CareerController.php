@@ -96,6 +96,8 @@ class CareerController
      */
     public function destroy($id)
     {
-        //
+        $career = Career::findOrFail($id);
+        $career->delete();
+        return redirect()->route('admin.careers.index')->with('success', 'Career deleted successfully.');
     }
 }

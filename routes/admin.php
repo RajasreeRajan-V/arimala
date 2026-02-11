@@ -22,5 +22,6 @@ Route::name('admin.')->group(function () {
         Route::resource('departments', DepartmentsController::class);
         Route::resource('doctors', DoctorController::class);
         Route::resource('careers', CareerController::class);
+        Route::resource('reviews', ReviewController::class);
 });
 });
