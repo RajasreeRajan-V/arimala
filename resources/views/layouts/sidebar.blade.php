@@ -60,6 +60,11 @@
                         Manage Doctors
                     </a>
                 </li>
+                <li class="nav-item mb-2">
+                    <a href="{{ route('admin.careers.index') }}" class="nav-link">
+                        Manage Careers
+                    </a>
+                </li>
             <li class="nav-item mt-4">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -209,6 +214,27 @@
             margin-left: 0 !important;
         }
     }
+    
+ /* Sidebar scroll */
+.sidebar {
+    max-height: 100vh; /* Full viewport height */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Optional: styled scrollbar */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
 </style>
 
 <script>
