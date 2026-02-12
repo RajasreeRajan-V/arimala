@@ -14,7 +14,7 @@ class ServicesController
      */
     public function index()
     {
-        $services = Services::all();
+        $services = Services::orderBy('id', 'asc')->paginate(10);
         return view('admin.admin_services', compact('services'));
     }
 

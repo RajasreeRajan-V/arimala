@@ -40,7 +40,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $service->title }}</td>
-                            <td>{{ Str::limit($service->description, 50) }}</td>
+                            <td>{{ $service->description }}</td>
                             <td>
                                 @if($service->image)
                                     <img src="{{ asset('storage/' . $service->image) }}" class="img-thumbnail" width="80">

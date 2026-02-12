@@ -14,10 +14,11 @@ class ContactusController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $contacts = ContactUs::all();
-        return view('admin.admin_contactus', compact('contacts'));  
-    }
+{
+    $contacts = ContactUs::all();
+    return view('admin.admin_contactus', compact('contacts'));
+}
+
 
     /**
      * Show the form for creating a new resource.

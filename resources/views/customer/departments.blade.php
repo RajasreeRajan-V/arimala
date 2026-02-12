@@ -30,7 +30,52 @@
   <!-- Main CSS File -->
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
+<style>
+    .page-title .heading {
+      position: relative;
+      background: url("{{ asset('img/background/hospital.jpg') }}") center center / cover no-repeat;
+      padding: 100px 0;
+      z-index: 1;
+    }
+  /* White Glass Card */
+.white-glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 
+  border-radius: 20px;
+  padding: 50px 40px;
+
+  /* Soft Blue Border */
+  border: 2px solid rgba(75, 153, 195, 0.8);
+
+  box-shadow: 0 15px 40px rgba(14, 73, 104, 0.15);
+
+  transition: 0.3s ease;
+}
+
+/* Hover Effect */
+.white-glass-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(14, 73, 104, 0.25);
+}
+
+/* Title */
+.white-glass-card .heading-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #0E4968;
+}
+
+/* Paragraph */
+.white-glass-card p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333333;
+}
+
+</style>
 </head>
 
 <body class="departments-page">
@@ -127,10 +172,11 @@
 
     <!-- Page Title -->
     <div class="page-title">
+      <br><br>
       <div class="heading">
         <div class="container">
           <div class="row d-flex justify-content-center text-center">
-            <div class="col-lg-8">
+            <div class="col-lg-8 glass-card">
               <h1 class="heading-title">Departments</h1>
               <p class="mb-0">
                 At Arimala Hospital, your health and comfort are our top priorities.
@@ -764,11 +810,9 @@
 
             <div class="col-lg-6">
               <div class="copyright">
-                <p>
-                  Crafted &amp; Designed by
-                  <span class="sitename" style="color: #ffccff;">Astra Software Solutions</span>
-                </p>
-
+                <div class="text-center py-3">
+    <small>© <a href="#" class="text-decoration-none" style="color: #ffccff;">2026 Arimala Hospital</a> - All Rights Reserved.</small>
+</div>
               </div>
             </div>
           </div>

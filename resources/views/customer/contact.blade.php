@@ -382,11 +382,9 @@
 
             <div class="col-lg-6">
               <div class="copyright">
-                <p>
-                  Crafted &amp; Designed by
-                  <span class="sitename" style="color: #ffccff;">Astra Software Solutions</span>
-                </p>
-
+                <div class="text-center py-3">
+    <small>© <a href="#" class="text-decoration-none" style="color: #ffccff;">2026 Arimala Hospital</a> - All Rights Reserved.</small>
+</div>
               </div>
             </div>
           </div>

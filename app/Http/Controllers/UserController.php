@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\AboutUs;
+use App\Models\Services;
 
 class UserController extends Controller
 {
@@ -12,11 +14,13 @@ class UserController extends Controller
     }
     public function about()
     {
-        return view('customer.about');
+        $abouts = AboutUs::latest()->get();
+        return view('customer.about', compact('abouts'));
     }
     public function service()
     {
-        return view('customer.services');
+        $services = Services::all();
+        return view('customer.services', compact('services'));
     }
     public function gallery()
     {

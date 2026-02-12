@@ -4057,7 +4057,12 @@ section,
   background: var(--surface-color);
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+
+  /* Outer shadow + Inner border */
+  box-shadow: 
+    0 5px 30px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 2px #107A7C;  /* Inside border */
+
   transition: all 0.3s ease;
   height: 100%;
   display: flex;
@@ -4066,8 +4071,11 @@ section,
 
 .services .service-item:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.15),
+    inset 0 0 0 2px #107A7C; /* Keep inner border */
 }
+
 
 .services .service-image {
   position: relative;
@@ -4078,7 +4086,7 @@ section,
 .services .service-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: CONTAIN;
   transition: transform 0.3s ease;
 }
 

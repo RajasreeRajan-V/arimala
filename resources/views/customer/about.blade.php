@@ -168,54 +168,46 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row align-items-center">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-            <div class="about-content">
-              <h2>Compassionate Care for Every Family at Arimala Hospital</h2>
-              <p class="lead">
-                At Arimala Hospital, we are committed to delivering trusted and compassionate healthcare
-                for every stage of life. With years of dedicated service, we focus on treating patients
-                with care, dignity, and respect.
-              </p>
+        @foreach($abouts as $about)
 
-              <p>
-                Our approach goes beyond medical treatment. We strive to create a supportive environment
-                where patients and their families feel heard, understood, and confident in the care they
-                receive. Guided by experienced professionals and modern facilities, Arimala Hospital
-                stands as a place of healing and hope for our community.
-              </p>
+          <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+              <div class="about-content">
+                <h2>{{ $about->title }}</h2>
+                <p class="lead">
+                  {{ $about->description }}
+                </p>
 
+                <div class="stats-grid">
+                  <div class="stat-item">
+                    <span class="stat-number" data-purecounter-start="0" data-purecounter-end="15000"
+                      data-purecounter-duration="2">15000</span>
+                    <span class="stat-label">Patients Treated</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-number" data-purecounter-start="0" data-purecounter-end="25"
+                      data-purecounter-duration="2">25</span>
+                    <span class="stat-label">Years Experience</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-number" data-purecounter-start="0" data-purecounter-end="50"
+                      data-purecounter-duration="2">50</span>
+                    <span class="stat-label">Medical Specialists</span>
+                  </div>
+                </div><!-- End Stats Grid -->
+              </div><!-- End About Content -->
+            </div>
 
-              <div class="stats-grid">
-                <div class="stat-item">
-                  <span class="stat-number" data-purecounter-start="0" data-purecounter-end="15000"
-                    data-purecounter-duration="2">15000</span>
-                  <span class="stat-label">Patients Treated</span>
+            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+              <div class="image-wrapper">
+                <img src="{{ asset('storage/' . $about->image) }}" class="img-fluid main-image" alt="About Image">
+                <div class="floating-image" data-aos="zoom-in" data-aos-delay="400">
+                  <img src="{{ asset('img/logo.jpg') }}" class="img-fluid" alt="Medical team">
                 </div>
-                <div class="stat-item">
-                  <span class="stat-number" data-purecounter-start="0" data-purecounter-end="25"
-                    data-purecounter-duration="2">25</span>
-                  <span class="stat-label">Years Experience</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-number" data-purecounter-start="0" data-purecounter-end="50"
-                    data-purecounter-duration="2">50</span>
-                  <span class="stat-label">Medical Specialists</span>
-                </div>
-              </div><!-- End Stats Grid -->
-            </div><!-- End About Content -->
+              </div><!-- End Image Wrapper -->
+            </div>
           </div>
-
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-            <div class="image-wrapper">
-              <img src="{{ asset('img/arimala-slide.jpg') }}" class="img-fluid main-image"
-                alt="Healthcare facility">
-              <div class="floating-image" data-aos="zoom-in" data-aos-delay="400">
-                <img src="{{ asset('img/logo.jpg') }}" class="img-fluid" alt="Medical team">
-              </div>
-            </div><!-- End Image Wrapper -->
-          </div>
-        </div>
+        @endforeach
 
         <div class="values-section" data-aos="fade-up" data-aos-delay="300">
           <div class="row">
@@ -382,11 +374,10 @@
 
             <div class="col-lg-6">
               <div class="copyright">
-                <p>
-                  Crafted &amp; Designed by
-                  <span class="sitename" style="color: #ffccff;">Astra Software Solutions</span>
-                </p>
-
+                <div class="text-center py-3">
+                  <small>© <a href="#" class="text-decoration-none" style="color: #ffccff;">2026 Arimala Hospital</a> -
+                    All Rights Reserved.</small>
+                </div>
               </div>
             </div>
           </div>

@@ -29,7 +29,40 @@
 
   <!-- Main CSS File -->
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+<style>
+    .page-title .heading {
+      position: relative;
+      background: url("{{ asset('img/background/hospital.jpg') }}") center center / cover no-repeat;
+      padding: 100px 0;
+      z-index: 1;
+    }
 
+#services {
+  background: 
+    linear-gradient(rgba(16, 122, 124, 0.45), rgba(16, 122, 124, 0.45)),
+    url("{{ asset('img/background/bluely2.jpg') }}") center center / cover no-repeat;
+  
+  position: relative;
+  padding: 80px 0;
+}
+
+
+
+/* Optional: Dark overlay for better text visibility */
+#services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* adjust darkness */
+  z-index: 1;
+}
+
+#services .container {
+  position: relative;
+  z-index: 2;
+}
+
+  </style>
 
 </head>
 
@@ -127,19 +160,21 @@
 
     <!-- Page Title -->
     <div class="page-title">
+      <br><br>
       <div class="heading">
         <div class="container">
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
-              <h1 class="heading-title">Services</h1>
-              <p class="mb-0">
+              <div class="glass-card">
+                <h1 class="heading-title">Services</h1>
+                <p class="mb-0">
+                  At Arimala Hospital, we offer a wide range of healthcare services to meet the needs
+                  of every patient. From general check-ups and specialized treatments to advanced
+                  diagnostics and emergency care, our team is committed to delivering safe,
+                  compassionate, and high-quality medical care.
 
-                At Arimala Hospital, we offer a wide range of healthcare services to meet the needs
-                of every patient. From general check-ups and specialized treatments to advanced
-                diagnostics and emergency care, our team is committed to delivering safe,
-                compassionate, and high-quality medical care.
-
-              </p>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -154,161 +189,62 @@
       </nav>
     </div><!-- End Page Title -->
 
-    <!-- Services Section -->
-    <section id="services" class="services section">
+<!-- Services Section -->
+<section id="services" class="services section">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-4">
 
-        <div class="row gy-4">
+      @foreach($services as $service)
+      <div class="col-lg-4 col-md-6" data-aos="fade-up">
+        <div class="service-item">
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item">
-              <div class="service-image">
-                <img src="assets/img/health/cardiology-2.webp" alt="Cardiology Services" class="img-fluid">
-                <div class="service-overlay">
-                  <i class="fas fa-heartbeat"></i>
-                </div>
-              </div>
-              <div class="service-content">
-                <h3>Cardiology</h3>
-                <p>Comprehensive heart care with advanced diagnostic tools and treatment options for cardiovascular
-                  conditions.</p>
-                <div class="service-features">
-                  <span class="feature-item"><i class="fas fa-check"></i> ECG Testing</span>
-                  <span class="feature-item"><i class="fas fa-check"></i> Heart Surgery</span>
-                </div>
-                <a href="service-details.html" class="service-btn">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
+          <div class="service-image">
+            <img src="{{ asset('storage/' . $service->image) }}" 
+                 alt="{{ $service->title }}" 
+                 class="img-fluid">
+
+            <div class="service-overlay">
+              <i class="{{ $service->icon ?? 'fas fa-heartbeat' }}"></i>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
-            <div class="service-item">
-              <div class="service-image">
-                <img src="assets/img/health/neurology-3.webp" alt="Neurology Services" class="img-fluid">
-                <div class="service-overlay">
-                  <i class="fas fa-brain"></i>
-                </div>
-              </div>
-              <div class="service-content">
-                <h3>Neurology</h3>
-                <p>Expert neurological care for brain and nervous system disorders with state-of-the-art imaging
-                  technology.</p>
-                <div class="service-features">
-                  <span class="feature-item"><i class="fas fa-check"></i> MRI Scans</span>
-                  <span class="feature-item"><i class="fas fa-check"></i> Stroke Care</span>
-                </div>
-                <a href="service-details.html" class="service-btn">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
+          <div class="service-content">
+            <h3>{{ $service->title }}</h3>
+
+            <p>
+              {{ $service->description }}
+            </p>
+
+            <div class="service-features">
+              @if($service->feature_one)
+                <span class="feature-item">
+                  <i class="fas fa-check"></i> {{ $service->feature_one }}
+                </span>
+              @endif
+
+              @if($service->feature_two)
+                <span class="feature-item">
+                  <i class="fas fa-check"></i> {{ $service->feature_two }}
+                </span>
+              @endif
             </div>
-          </div><!-- End Service Item -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item">
-              <div class="service-image">
-                <img src="assets/img/health/orthopedics-1.webp" alt="Orthopedics Services" class="img-fluid">
-                <div class="service-overlay">
-                  <i class="fas fa-bone"></i>
-                </div>
-              </div>
-              <div class="service-content">
-                <h3>Orthopedics</h3>
-                <p>Specialized bone and joint treatment including sports medicine and reconstructive surgery procedures.
-                </p>
-                <div class="service-features">
-                  <span class="feature-item"><i class="fas fa-check"></i> Joint Replacement</span>
-                  <span class="feature-item"><i class="fas fa-check"></i> Sports Medicine</span>
-                </div>
-                <a href="service-details.html" class="service-btn">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
+            {{-- <a href="{{ route('service.details', $service->id) }}" class="service-btn">
+              <span>Learn More</span>
+              <i class="fas fa-arrow-right"></i>
+            </a> --}}
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
-            <div class="service-item">
-              <div class="service-image">
-                <img src="assets/img/health/pediatrics-4.webp" alt="Pediatrics Services" class="img-fluid">
-                <div class="service-overlay">
-                  <i class="fas fa-child"></i>
-                </div>
-              </div>
-              <div class="service-content">
-                <h3>Pediatrics</h3>
-                <p>Dedicated healthcare for children from infancy through adolescence with specialized treatment
-                  protocols.</p>
-                <div class="service-features">
-                  <span class="feature-item"><i class="fas fa-check"></i> Well-Child Visits</span>
-                  <span class="feature-item"><i class="fas fa-check"></i> Immunizations</span>
-                </div>
-                <a href="service-details.html" class="service-btn">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item">
-              <div class="service-image">
-                <img src="assets/img/health/emergency-2.webp" alt="Emergency Services" class="img-fluid">
-                <div class="service-overlay">
-                  <i class="fas fa-ambulance"></i>
-                </div>
-              </div>
-              <div class="service-content">
-                <h3>Emergency Care</h3>
-                <p>24/7 emergency medical services with rapid response teams and critical care capabilities.</p>
-                <div class="service-features">
-                  <span class="feature-item"><i class="fas fa-check"></i> Trauma Center</span>
-                  <span class="feature-item"><i class="fas fa-check"></i> Critical Care</span>
-                </div>
-                <a href="service-details.html" class="service-btn">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
-            <div class="service-item">
-              <div class="service-image">
-                <img src="assets/img/health/laboratory-3.webp" alt="Laboratory Services" class="img-fluid">
-                <div class="service-overlay">
-                  <i class="fas fa-microscope"></i>
-                </div>
-              </div>
-              <div class="service-content">
-                <h3>Laboratory Testing</h3>
-                <p>Advanced diagnostic laboratory services with comprehensive testing panels and rapid result delivery.
-                </p>
-                <div class="service-features">
-                  <span class="feature-item"><i class="fas fa-check"></i> Blood Tests</span>
-                  <span class="feature-item"><i class="fas fa-check"></i> Pathology</span>
-                </div>
-                <a href="service-details.html" class="service-btn">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
+          </div>
         </div>
-
       </div>
+      @endforeach
 
-    </section><!-- /Services Section -->
+    </div>
+  </div>
+
+</section>
+
 
   </main>
 
@@ -419,11 +355,9 @@
 
             <div class="col-lg-6">
               <div class="copyright">
-                <p>
-                  Crafted &amp; Designed by
-                  <span class="sitename" style="color: #ffccff;">Astra Software Solutions</span>
-                </p>
-
+                <div class="text-center py-3">
+    <small>© <a href="#" class="text-decoration-none" style="color: #ffccff;">2026 Arimala Hospital</a> - All Rights Reserved.</small>
+</div>
               </div>
             </div>
           </div>
