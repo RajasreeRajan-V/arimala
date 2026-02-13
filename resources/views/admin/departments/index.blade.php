@@ -38,9 +38,9 @@
                     <tbody>
                         @forelse($departments as $department)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $departments->firstItem() + $loop->index }}</td>
                                 <td>{{ $department->title }}</td>
-                                <td>{{ Str::limit($department->description, 50) }}</td>
+                                <td>{{ $department->description }}</td>
                                 <td>
                                     <img src="{{ asset('storage/' . $department->image) }}" class="img-thumbnail" width="100">
                                 </td>
@@ -81,6 +81,10 @@
                         @endforelse
                     </tbody>
                 </table>
+                {{-- Pagination --}}
+                <div class="d-flex justify-content-center mt-3">
+                    {{ $departments->links() }}
+                </div>
             </div>
         </div>
     </div>

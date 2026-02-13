@@ -15,7 +15,7 @@ class DepartmentsController
      */
     public function index()
     {
-        $departments = Departments::all();
+        $departments = Departments::orderBy('id', 'asc')->paginate(5);
         return view('admin.departments.index', compact('departments'));
     }
 

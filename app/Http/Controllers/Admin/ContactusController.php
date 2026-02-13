@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
-Use App\Models\ContactUs;
+use App\Models\ContactUs;
 
 class ContactusController extends Controller
 {
