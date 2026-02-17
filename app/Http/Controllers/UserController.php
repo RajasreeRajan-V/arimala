@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\AboutUs;
 use App\Models\Services;
 use App\Http\Controllers\Controller;
+use App\Models\Career;
+use App\Models\Departments;
+use App\Models\Doctor;
 
 class UserController extends Controller
 {
@@ -33,10 +36,17 @@ class UserController extends Controller
     }
      public function doctors()
     {
-        return view('customer.doctors');
+       $doctors = Doctor::with('department')->get();
+        return view('customer.doctors', compact('doctors'));
     }
       public function departments()
     {
-        return view('customer.departments');
+        $departments = Departments::orderBy('id', 'asc')->take(5)->get();
+        return view('customer.departments', compact('departments'));
+    }
+    public function career()
+    {
+        $careers = Career::all();
+        return view('customer.career', compact('careers'));
     }
 }

@@ -29,52 +29,52 @@
 
   <!-- Main CSS File -->
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-
+  <link href="{{ asset('css/department.css') }}" rel="stylesheet">
 <style>
-    .page-title .heading {
+  .page-title .heading {
       position: relative;
       background: url("{{ asset('img/background/hospital.jpg') }}") center center / cover no-repeat;
       padding: 100px 0;
       z-index: 1;
     }
-  /* White Glass Card */
-.white-glass-card {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
 
-  border-radius: 20px;
-  padding: 50px 40px;
+    /* White Glass Card */
+    .white-glass-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
 
-  /* Soft Blue Border */
-  border: 2px solid rgba(75, 153, 195, 0.8);
+      border-radius: 20px;
+      padding: 50px 40px;
 
-  box-shadow: 0 15px 40px rgba(14, 73, 104, 0.15);
+      /* Soft Blue Border */
+      border: 2px solid rgba(75, 153, 195, 0.8);
 
-  transition: 0.3s ease;
-}
+      box-shadow: 0 15px 40px rgba(14, 73, 104, 0.15);
 
-/* Hover Effect */
-.white-glass-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(14, 73, 104, 0.25);
-}
+      transition: 0.3s ease;
+    }
 
-/* Title */
-.white-glass-card .heading-title {
-  font-size: 42px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #0E4968;
-}
+    /* Hover Effect */
+    .white-glass-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(14, 73, 104, 0.25);
+    }
 
-/* Paragraph */
-.white-glass-card p {
-  font-size: 18px;
-  line-height: 1.7;
-  color: #333333;
-}
+    /* Title */
+    .white-glass-card .heading-title {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #0E4968;
+    }
 
+    /* Paragraph */
+    .white-glass-card p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #333333;
+    }
 </style>
 </head>
 
@@ -199,509 +199,191 @@
       </nav>
     </div><!-- End Page Title -->
 
-    <!-- Departments Tabs Section -->
     <section id="departments-tabs" class="departments-tabs section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="medical-specialties">
           <div class="row">
+
+            {{-- Navigation Tabs --}}
             <div class="col-12">
               <div class="specialty-navigation">
-                <div class="nav nav-pills d-flex" id="specialty-tabs" role="tablist" data-aos="fade-up"
-                  data-aos-delay="400">
-                  <a class="nav-link department-tab active" id="neurology-tab" data-bs-toggle="pill"
-                    href="#departments-tabs-neurology" role="tab" aria-controls="departments-tabs-neurology"
-                    aria-selected="true" data-aos="fade-up" data-aos-delay="100">Neurology</a>
-                  <a class="nav-link department-tab" id="surgery-tab" data-bs-toggle="pill"
-                    href="#departments-tabs-surgery" role="tab" aria-controls="departments-tabs-surgery"
-                    aria-selected="false" data-aos="fade-up" data-aos-delay="150">Surgery</a>
-                  <a class="nav-link department-tab" id="dental-tab" data-bs-toggle="pill"
-                    href="#departments-tabs-dental" role="tab" aria-controls="departments-tabs-dental"
-                    aria-selected="false" data-aos="fade-up" data-aos-delay="200">Dental Care</a>
-                  <a class="nav-link department-tab" id="ophthalmology-tab" data-bs-toggle="pill"
-                    href="#departments-tabs-ophthalmology" role="tab" aria-controls="departments-tabs-ophthalmology"
-                    aria-selected="false" data-aos="fade-up" data-aos-delay="250">Ophthalmology</a>
-                  <a class="nav-link department-tab" id="cardiology-tab" data-bs-toggle="pill"
-                    href="#departments-tabs-cardiology" role="tab" aria-controls="departments-tabs-cardiology"
-                    aria-selected="false" data-aos="fade-up" data-aos-delay="300">Cardiology</a>
+                <div class="nav nav-pills d-flex" id="specialty-tabs" role="tablist">
+
+                  @foreach($departments as $key => $department)
+                    <a class="nav-link department-tab {{ $key == 0 ? 'active' : '' }}"
+                      id="department-tab-{{ $department->id }}" data-bs-toggle="pill"
+                      href="#department-{{ $department->id }}" role="tab"
+                      aria-selected="{{ $key == 0 ? 'true' : 'false' }}">
+
+                      {{ $department->title }}
+                    </a>
+                  @endforeach
+
                 </div>
               </div>
             </div>
 
+            {{-- Tab Content --}}
             <div class="col-12">
-              <div class="tab-content department-content" id="specialty-content" data-aos="fade-up"
-                data-aos-delay="500">
+              <div class="tab-content department-content">
 
-                <div class="tab-pane fade show active" id="departments-tabs-neurology" role="tabpanel"
-                  aria-labelledby="neurology-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="{{ asset('/img/health/neurology-3.webp') }}" alt="Neurology Department" class="img-fluid">
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">Neurological Sciences Department</h2>
-                        <p class="department-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                          do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                          nostrud exercitation ullamco.</p>
+                @foreach($departments as $key => $department)
+                  <div class="tab-pane fade {{ $key == 0 ? 'show active' : '' }}" id="department-{{ $department->id }}"
+                    role="tabpanel">
 
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-brain"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Brain Monitoring</h4>
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-wave-square"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>EEG Testing</h4>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-stethoscope"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Neurological Exam</h4>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-file-medical"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Treatment Plans</h4>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.</p>
-                              </div>
-                            </div>
-                          </div>
+                    <div class="row department-layout">
+
+                      {{-- Image --}}
+                      <div class="col-lg-4 order-lg-2">
+                        <div class="department-image">
+                          <img src="{{ asset('storage/' . $department->image) }}" alt="{{ $department->title }}"
+                            class="img-fluid">
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </div><!-- End Neurology Tab -->
 
-                <div class="tab-pane fade" id="departments-tabs-surgery" role="tabpanel" aria-labelledby="surgery-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="{{ asset('/img/health/surgery-2.webp') }}" alt="Surgery Department" class="img-fluid">
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">Surgical Services Department</h2>
-                        <p class="department-description">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-                          odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-                        </p>
+                      {{-- Content --}}
+                      <div class="col-lg-8 order-lg-1">
+                        <div class="department-info">
 
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-cut"></i>
+                          <h2 class="department-title">
+                            {{ $department->title }}
+                          </h2>
+
+                          <p class="department-description">
+                            {{ $department->description }}
+                          </p>
+
+                          <div class="row mt-4">
+
+                            {{-- Subtagline 1 --}}
+                            @if($department->subtagline1_title)
+                              <div class="col-md-6">
+                                <div class="service-item d-flex">
+                                  <div class="service-icon me-3">
+                                    <i class="fas fa-stethoscope"></i>
+                                  </div>
+                                  <div class="service-content">
+                                    <h4>{{ $department->subtagline1_title }}</h4>
+                                    <p>{{ $department->subtagline1_description }}</p>
+                                  </div>
+                                </div>
                               </div>
-                              <div class="service-content">
-                                <h4>Minimally Invasive</h4>
-                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+                            @endif
+
+                            {{-- Subtagline 2 --}}
+                            @if($department->subtagline2_title)
+                              <div class="col-md-6">
+                                <div class="service-item d-flex">
+                                  <div class="service-icon me-3">
+                                    <i class="fas fa-heartbeat"></i>
+                                  </div>
+                                  <div class="service-content">
+                                    <h4>{{ $department->subtagline2_title }}</h4>
+                                    <p>{{ $department->subtagline2_description }}</p>
+                                  </div>
+                                </div>
                               </div>
-                            </div>
+                            @endif
+
+                            {{-- Subtagline 3 --}}
+                            @if($department->subtagline3_title)
+                              <div class="col-md-6">
+                                <div class="service-item d-flex">
+                                  <div class="service-icon me-3">
+                                    <i class="fas fa-procedures"></i>
+                                  </div>
+                                  <div class="service-content">
+                                    <h4>{{ $department->subtagline3_title }}</h4>
+                                    <p>{{ $department->subtagline3_description }}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            @endif
+
+                            {{-- Subtagline 4 --}}
+                            @if($department->subtagline4_title)
+                              <div class="col-md-6">
+                                <div class="service-item d-flex">
+                                  <div class="service-icon me-3">
+                                    <i class="fas fa-shield-alt"></i>
+                                  </div>
+                                  <div class="service-content">
+                                    <h4>{{ $department->subtagline4_title }}</h4>
+                                    <p>{{ $department->subtagline4_description }}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            @endif
+
                           </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-tools"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Advanced Procedures</h4>
-                                <p>Consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-shield-alt"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Safe Operations</h4>
-                                <p>Incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-clock"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Recovery Support</h4>
-                                <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis.</p>
-                              </div>
-                            </div>
-                          </div>
+
+
                         </div>
                       </div>
+
                     </div>
+
                   </div>
-                </div><!-- End Surgery Tab -->
-
-                <div class="tab-pane fade" id="departments-tabs-dental" role="tabpanel" aria-labelledby="dental-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="{{ asset('/img/health/dermatology-1.webp') }}" alt="Dental Care Department" class="img-fluid">
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">Dental Care Department</h2>
-                        <p class="department-description">Suscipit laboriosam, nisi ut aliquid ex ea commodi
-                          consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
-                          molestiae.</p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="far fa-smile"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Oral Health</h4>
-                                <p>Consequatur aut perferendis doloribus asperiores repellat tempore.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-tooth"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Teeth Cleaning</h4>
-                                <p>Et harum quidem rerum facilis est et expedita distinctio nam libero.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-star"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Cosmetic Dentistry</h4>
-                                <p>Tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-cog"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Orthodontics</h4>
-                                <p>Id quod maxime placeat facere possimus, omnis voluptas assumenda est.</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div><!-- End Dental Tab -->
-
-                <div class="tab-pane fade" id="departments-tabs-ophthalmology" role="tabpanel"
-                  aria-labelledby="ophthalmology-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="{{ asset('/img/health/pediatrics-4.webp') }}" alt="Ophthalmology Department" class="img-fluid">
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">Ophthalmology Department</h2>
-                        <p class="department-description">Omnis dolor repellendus temporibus autem quibusdam et aut
-                          officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae.</p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-eye"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Vision Testing</h4>
-                                <p>Sint et voluptatum sint quia dolor sit amet consectetur adipiscing elit.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-camera"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Retinal Imaging</h4>
-                                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-bolt"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Laser Surgery</h4>
-                                <p>Enim ad minim veniam quis nostrud exercitation ullamco laboris nisi.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-prescription-bottle"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Eye Care Plans</h4>
-                                <p>Ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div><!-- End Ophthalmology Tab -->
-
-                <div class="tab-pane fade" id="departments-tabs-cardiology" role="tabpanel"
-                  aria-labelledby="cardiology-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="{{ asset('/img/health/cardiology-3.webp') }}" alt="Cardiology Department" class="img-fluid">
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">Cardiology Department</h2>
-                        <p class="department-description">In voluptate velit esse cillum dolore eu fugiat nulla pariatur
-                          excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt.</p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-heartbeat"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Heart Monitoring</h4>
-                                <p>Mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-chart-line"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>ECG Analysis</h4>
-                                <p>Sit voluptatem accusantium doloremque laudantium totam rem aperiam.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-tint"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Blood Tests</h4>
-                                <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-shield-heart"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Preventive Care</h4>
-                                <p>Vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit.</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div><!-- End Cardiology Tab -->
+                @endforeach
 
               </div>
             </div>
+
           </div>
         </div>
 
       </div>
 
-    </section><!-- /Departments Tabs Section -->
+    </section>
 
-    <!-- Departments Section -->
-    <section id="departments" class="departments section">
+<!-- Departments Section -->
+<section id="departments" class="departments section">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row g-5">
+    <div class="row g-5">
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="department-card">
-              <div class="department-icon">
-                <i class="fas fa-heartbeat"></i>
-              </div>
-              <div class="department-image">
-                <img src="{{ asset('/img/health/cardiology-3.webp') }}" alt="Cardiology Department" class="img-fluid">
-              </div>
-              <div class="department-content">
-                <h3>Cardiology</h3>
-                <p>Comprehensive heart care with advanced diagnostic tools and expert cardiologists dedicated to your
-                  cardiovascular health.</p>
-                <a href="#!" class="learn-more">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
+      @foreach($departments as $index => $department)
+
+        <div class="col-lg-4 col-md-6" 
+             data-aos="fade-up" 
+             data-aos-delay="{{ 100 + ($index * 100) }}">
+
+          <div class="department-card">
+
+            <!-- Icon -->
+            <div class="department-icon">
+              <i class="{{ $department->icon ?? 'fas fa-hospital' }}"></i>
             </div>
-          </div><!-- End Department Card -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="department-card">
-              <div class="department-icon">
-                <i class="fas fa-brain"></i>
-              </div>
-              <div class="department-image">
-                <img src="{{ asset('/img/health/neurology-2.webp') }}" alt="Neurology Department" class="img-fluid">
-              </div>
-              <div class="department-content">
-                <h3>Neurology</h3>
-                <p>Advanced treatment for neurological disorders with cutting-edge technology and specialized
-                  neurological care teams.</p>
-                <a href="#!" class="learn-more">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
+            <!-- Image -->
+            <div class="department-image">
+              <img src="{{ asset('storage/' . $department->image) }}" 
+                   alt="{{ $department->name }}" 
+                   class="img-fluid">
             </div>
-          </div><!-- End Department Card -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="department-card">
-              <div class="department-icon">
-                <i class="fas fa-bone"></i>
-              </div>
-              <div class="department-image">
-                <img src="{{ asset('/img/health/orthopedics-4.webp') }}" alt="Orthopedics Department" class="img-fluid">
-              </div>
-              <div class="department-content">
-                <h3>Orthopedics</h3>
-                <p>Expert bone and joint care offering comprehensive treatment from sports injuries to complex
-                  reconstructive surgery.</p>
-                <a href="#!" class="learn-more">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
+            <!-- Content -->
+            <div class="department-content">
+              <h3>{{ $department->name }}</h3>
+              <p>{{ $department->description }}</p>
             </div>
-          </div><!-- End Department Card -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="department-card">
-              <div class="department-icon">
-                <i class="fas fa-child"></i>
-              </div>
-              <div class="department-image">
-                <img src="{{ asset('/img/health/pediatrics-3.webp') }}" alt="Pediatrics Department" class="img-fluid">
-              </div>
-              <div class="department-content">
-                <h3>Pediatrics</h3>
-                <p>Specialized medical care for infants, children, and adolescents with compassionate pediatric
-                  specialists.</p>
-                <a href="#!" class="learn-more">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div><!-- End Department Card -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="department-card">
-              <div class="department-icon">
-                <i class="fas fa-hand-holding-medical"></i>
-              </div>
-              <div class="department-image">
-                <img src="assets/img/health/dermatology-4.webp" alt="Dermatology Department" class="img-fluid">
-              </div>
-              <div class="department-content">
-                <h3>Dermatology</h3>
-                <p>Complete skin care services from medical dermatology to cosmetic procedures for healthy, beautiful
-                  skin.</p>
-                <a href="#!" class="learn-more">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div><!-- End Department Card -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="department-card">
-              <div class="department-icon">
-                <i class="fas fa-ribbon"></i>
-              </div>
-              <div class="department-image">
-                <img src="{{ asset('/img/health/oncology-2.webp') }}" alt="Oncology Department" class="img-fluid">
-              </div>
-              <div class="department-content">
-                <h3>Oncology</h3>
-                <p>Comprehensive cancer care with multidisciplinary approach and latest treatment options for all cancer
-                  types.</p>
-                <a href="#!" class="learn-more">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div><!-- End Department Card -->
-
+          </div>
         </div>
 
-      </div>
+      @endforeach
 
-    </section><!-- /Departments Section -->
+    </div>
 
-  </main>
+  </div>
+
+</section>
+
+
+   </main>
 
   <footer id="footer" class="footer-16 footer position-relative">
 

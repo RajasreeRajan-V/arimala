@@ -127,6 +127,7 @@
             <li><a href="{{ route('departments') }}">Departments</a></li>
             <li><a href="{{ route('service') }}">Services</a></li>
             <li><a href="{{ route('doctors') }}">Doctors</a></li>
+            <li><a href="{{ route('career') }}">Career</a></li>
             <li class="dropdown"><a href="#"><span>More Pages</span> <i
                   class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>

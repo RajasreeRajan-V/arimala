@@ -164,7 +164,7 @@
                 </div>
                 <div class="info-content">
                   <h3>Our Address</h3>
-                  <p>1842 Maple Avenue, Portland, Oregon 97204</p>
+                  <p>Arimala Hospital, Near Railway Station, Kanhangad, Kerala 671315</p>
                 </div>
               </div>
 

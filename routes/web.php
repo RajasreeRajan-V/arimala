@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactUsController;
@@ -25,4 +25,6 @@ Route::get('/departments', [UserController::class, 'departments'])->name('depart
 
 
 Route::resource('ContactUs', ContactUsController::class);
+Route::get("/career", [UserController::class, 'career'])->name('career');
+
 require __DIR__.'/auth.php';

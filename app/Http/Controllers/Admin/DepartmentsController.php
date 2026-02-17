@@ -35,7 +35,7 @@ class DepartmentsController
         $request->validate([
         'title'       => 'required|string|max:255',
         'description' => 'required|string',
-        'image'       => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+        'image'       => 'required|image|mimes:jpg,jpeg,png,webp',
 
         'subtagline1_title'       => 'nullable|string|max:255',
         'subtagline1_description' => 'nullable|string',

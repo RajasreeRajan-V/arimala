@@ -1,0 +1,152 @@
+ 
+.departments-tabs {
+    position: relative;
+    min-height: 500px;
+    background: url("/img/background/department.jpg") no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* Overlay */
+.departments-tabs::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        135deg,
+        rgba(14, 73, 104, 0.75),   /* heading color */
+        rgba(16, 122, 124, 0.75)   /* accent color */
+    );
+
+    z-index: 1;
+}
+
+/* Keep content above overlay */
+.departments-tabs .container {
+    position: relative;
+    z-index: 2;
+}
+
+.department-content {
+    background-color: #d8f1f1;  /* Light teal */
+    padding: 20px;
+    border-radius: 12px;
+}
+/* Glass container */
+.medical-specialties {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation Tabs */
+.specialty-navigation .nav-link {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    margin-right: 10px;
+    padding: 10px 25px;
+    transition: 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.specialty-navigation .nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.specialty-navigation .nav-link.active {
+    background: #ffffff;
+    color: #1e60d4;
+    font-weight: 600;
+}
+
+/* Department Content Glass */
+.department-content .tab-pane {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 30px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Text Color */
+.department-title,
+.department-description,
+.service-content h4,
+.service-content p {
+    color: #ffffff;
+}
+
+/* Service Item Glass Card */
+.service-item {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    padding: 15px;
+    transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Icons */
+.service-icon i {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+/* Glassy Teal Department Card */
+.department-card {
+    background: rgba(16, 122, 124, 0.15); /* light #107A7C */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-radius: 20px;
+    padding: 20px;
+
+    border: 1px solid rgba(16, 122, 124, 0.3);
+
+    box-shadow: 0 15px 35px rgba(16, 122, 124, 0.2);
+
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.department-card:hover {
+    transform: translateY(-8px);
+    background: rgba(16, 122, 124, 0.25);
+    box-shadow: 0 20px 45px rgba(16, 122, 124, 0.35);
+}
+
+/* Make Text Clean */
+.department-card h3,
+.department-card p {
+    color: #0E4968; /* heading color for balance */
+}
+
+.department-content .row > div {
+    display: flex;
+}
+
+.service-item {
+    display: flex;
+    align-items: flex-start;
+    background: #fff;
+    padding: 25px;
+    border-radius: 14px;
+    border: 1.5px solid #0d6efd; /* clean aligned border */
+    transition: 0.3s ease;
+    height: 100%;
+}
+
+.department-content .col-md-6 {
+    margin-bottom: 25px;   /* space between rows */
+}
