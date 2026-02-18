@@ -4,13 +4,17 @@
 
 #doctors .row {
     row-gap: 30px;
+    border: 2px solid #d0dbe5;
+    border-radius: 20px;
+    padding: 30px;
+    background: #ffffff;
 }
 
 /* Doctor Card */
 .doctor-card {
     background: #ffffff;
     border-radius: 18px;
-    border: 1px solid #d0dbe5;   /* stronger visible border */
+    border: 2px solid #d0dbe5;   /* stronger visible border */
     overflow: hidden;
     transition: all 0.35s ease;
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);

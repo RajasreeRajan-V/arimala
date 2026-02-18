@@ -16,11 +16,17 @@ class Career extends Model
         'qualification',
         'due_date',
         'position',
+        'jobtype',
     ];
 
     protected $casts = [
     'due_date' => 'date',
 ];
+
+public function applications()
+    {
+        return $this->hasMany(CareerAapplication::class, 'career_id');
+    }
 
 }
 

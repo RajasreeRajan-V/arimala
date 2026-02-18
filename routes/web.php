@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\CareerAapplicationController;
 
 // Route::get('/', function () {
 //     return view('customer.index');
@@ -25,6 +26,9 @@ Route::get('/departments', [UserController::class, 'departments'])->name('depart
 
 
 Route::resource('ContactUs', ContactUsController::class);
+
+Route::resource('apply', CareerAapplicationController::class);
+
 Route::get("/career", [UserController::class, 'career'])->name('career');
 
 require __DIR__.'/auth.php';

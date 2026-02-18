@@ -38,6 +38,7 @@ class CareerController
         'qualification'=> 'required|string',
         'due_date'     => 'required|date',
         'position'     => 'required',
+        'jobtype'   =>'required',
         'imge'         => 'nullable|image|mimes:jpg,jpeg,png,gif,webp',
     ]);
     
@@ -77,6 +78,7 @@ class CareerController
         'qualification' => 'required|string|max:255',
         'due_date'      => 'required|date',
         'position'      => 'required|string|max:255',
+        'jobtype'   =>'required',
         'imge'          => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
     ]);
 
@@ -89,7 +91,6 @@ class CareerController
 
     return redirect()->route('admin.careers.index')->with('success', 'Career updated successfully.');
 }
-
 
     /**
      * Remove the specified resource from storage.

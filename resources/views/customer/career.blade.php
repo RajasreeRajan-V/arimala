@@ -76,6 +76,17 @@
             line-height: 1.7;
             color: #333333;
         }
+
+        /* .careers-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url("{{ asset('img/bg/career1.jpg') }}") center center / cover no-repeat;
+            padding: 80px 0;
+        }
+
+        .careers-bg .section-title h2,
+        .careers-bg .section-title p {
+            color: #ffffff;
+        } */
     </style>
 
 </head>
@@ -204,58 +215,108 @@
                 </div>
             </nav>
         </div><!-- End Page Title -->
-<section id="careers" class="careers section">
+        <section id="careers" class="careers section py-5">
+            <div class="careers-bg">
+                <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4">
-
-            @foreach($careers as $index => $career)
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ 100 + ($index * 100) }}">
-
-                <div class="career-card">
-
-                    <div class="career-image">
-                        <img src="{{ $career->imge
-            ? asset('storage/' . $career->imge)
-            : asset('/img/CAREERS/default-job.jpg') }}" alt="{{ $career->title }}" class="img-fluid">
-
-                        <div class="career-overlay">
-                            <div class="social-links">
-                                <a href="mailto:{{ $career->contact_email }}"><i class="bi bi-envelope"></i></a>
-                                <a href="tel:{{ $career->contact_phone }}"><i class="bi bi-phone"></i></a>
-                            </div>
-                        </div>
+                    <div class="section-title text-center mb-5">
+                        <h2 class="fw-bold">Current Openings</h2>
+                        <p class="text-muted">Join our team and make a difference in healthcare</p>
                     </div>
 
-                    <div class="career-content">
-                        <h4>{{ $career->title }}</h4>
-                        <span class="department">{{ $career->department->title ?? 'Department' }}</span>
+                    <div class="row g-5 gy-5">
+                        @foreach($careers as $career)
+                            <div class="col-lg-6 col-12">
+                                <div class="career-card-modern">
 
-                        <p>{{ Str::limit($career->description, 80) }}</p>
+                                    <!-- Header -->
+                                    <div class="career-header">
+                                        <div class="career-title-section">
+                                            <h4>{{ $career->job_title }}</h4>
 
-                        <div class="career-meta">
-                            <div class="location">
-                                <i class="bi bi-geo-alt"></i>
-                                <span>{{ $career->location ?? 'Location' }}</span>
+                                            <div class="career-meta">
+                                                <span class="career-type-badge">
+                                                    <i class="bi bi-briefcase"></i>
+                                                    {{ $career->position }}
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        {{-- <div class="career-status">
+                                            @if($career->due_date->lt(now()->startOfDay()))
+                                                <button class="btn-apply bg-secondary text-white" disabled>
+                                                    Applications Closed
+                                                </button>
+                                            @endif
+                                        </div> --}}
+
+                                    </div>
+
+                                    <!-- Image (Optional) -->
+                                    @if(!empty($career->imge) && file_exists(public_path('storage/' . $career->imge)))
+                                        <img src="{{ asset('storage/' . $career->imge) }}" class="img-fluid w-100"
+                                            style="max-height:200px; object-fit:cover;" alt="{{ $career->job_title }}">
+                                    @endif
+
+                                    <!-- Description -->
+                                    <div class="career-description">
+                                        <p>{{ $career->description }}</p>
+                                    </div>
+
+                                    <!-- Requirements -->
+                                    <div class="career-requirements">
+
+                                        <div class="requirement-item">
+                                            <div class="requirement-label">
+                                                <i class="bi bi-mortarboard"></i>
+                                                <span>Qualification</span>
+                                            </div>
+                                            <div class="requirement-value">
+                                                {{ $career->qualification }}
+                                            </div>
+                                        </div>
+
+                                        <div class="requirement-item">
+                                            <div class="requirement-label">
+                                                <i class="bi bi-calendar-event"></i>
+                                                <span>Last Date</span>
+                                            </div>
+                                            <div class="requirement-value">
+                                                {{ \Carbon\Carbon::parse($career->due_date)->format('d M Y') }}
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Footer -->
+                                    <div class="career-footer">
+                                        <div class="career-posted">
+                                            <i class="bi bi-clock"></i>
+                                            <span>Posted on {{ $career->created_at->format('d M Y') }}</span>
+                                        </div>
+
+                                        @if($career->due_date->gte(now()->startOfDay()))
+                                            <a href="{{ route('apply.show', $career->id) }}" class="btn-apply">
+                                                Apply Now
+                                                <i class="bi bi-arrow-right"></i>
+                                            </a>
+                                        @else
+                                            <button class="btn-apply bg-secondary text-white" disabled>
+                                                Applications Closed
+                                            </button>
+                                        @endif
+
+                                    </div>
+
+
+                                </div>
                             </div>
-                            <div class="experience">
-                                <i class="bi bi-briefcase"></i>
-                                <span>{{ $career->experience ?? 'Experience Required' }}</span>
-                            </div>
-                        </div>
-
+                        @endforeach
                     </div>
 
                 </div>
             </div>
-            @endforeach
-
-        </div>
-    </div>
-
-</section>
-<!-- /Careers Section -->
-
+        </section>
     </main>
     <footer id="footer" class="footer-16 footer position-relative">
 

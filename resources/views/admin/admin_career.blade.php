@@ -34,6 +34,7 @@
                             <th>Qualification</th>
                             <th>Due Date</th>
                             <th>Position</th>
+                            <th>Job Type</th> <!-- Added -->
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -41,17 +42,31 @@
                         @forelse($careers as $career)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+
                                 <td>{{ $career->job_title }}</td>
-                                <td>{{ Str::limit($career->description, 50) }}</td>
+
+                                <td>{{ $career->description }}</td>
+
                                 <td>
                                     @if($career->imge)
                                         <img src="{{ asset('storage/' . $career->imge) }}" class="img-thumbnail" width="80">
+                                    @else
+                                        <span class="text-muted">No Image</span>
                                     @endif
                                 </td>
+
                                 <td>{{ $career->qualification }}</td>
+
                                 <td>{{ \Carbon\Carbon::parse($career->due_date)->format('Y-m-d') }}</td>
 
                                 <td>{{ $career->position }}</td>
+
+                                <td>
+                                    <span class="badge bg-info">
+                                        {{ $career->jobtype }}
+                                    </span>
+                                </td>
+
                                 <td>
                                     <!-- Edit Button -->
                                     <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
@@ -65,6 +80,7 @@
                                         onsubmit="return confirm('Are you sure you want to delete this career?');">
                                         @csrf
                                         @method('DELETE')
+
                                         <button type="submit" class="btn btn-sm btn-danger">
                                             Delete
                                         </button>
@@ -74,7 +90,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="8" class="text-center">No Careers found.</td>
+                                <td colspan="9" class="text-center">No Careers found.</td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -85,54 +101,96 @@
     </div>
 
     {{-- Edit Modal --}}
+    {{-- Edit Modal --}}
     @foreach($careers as $career)
         <div class="modal fade" id="editModal{{ $career->id }}" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg"> <!-- Same size as Create -->
                 <form action="{{ route('admin.careers.update', $career->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
+
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Edit Career</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
+
                         <div class="modal-body">
-                            <div class="mb-3">
-                                <label class="form-label">Job Title</label>
-                                <input type="text" name="job_title" class="form-control" value="{{ $career->job_title }}"
-                                    required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Description</label>
-                                <textarea name="description" class="form-control" rows="4"
-                                    required>{{ $career->description }}</textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Qualification</label>
-                                <input type="text" name="qualification" class="form-control"
-                                    value="{{ $career->qualification }}" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Due Date</label>
-                                <input type="date" name="due_date" class="form-control"
-                                    value="{{ $career->due_date->format('Y-m-d') }}" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Position</label>
-                                <input type="text" name="position" class="form-control" value="{{ $career->position }}"
-                                    required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Image</label>
-                                <input type="file" name="imge" class="form-control">
-                                @if($career->imge)
-                                    <img src="{{ asset('storage/' . $career->imge) }}" class="img-thumbnail mt-2" width="100">
-                                @endif
+                            <div class="row">
+
+                                <!-- Job Title -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Job Title</label>
+                                    <input type="text" name="job_title" class="form-control" value="{{ $career->job_title }}"
+                                        required>
+                                </div>
+
+                                <!-- Qualification -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Qualification</label>
+                                    <input type="text" name="qualification" class="form-control"
+                                        value="{{ $career->qualification }}" required>
+                                </div>
+
+                                <!-- Due Date -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Due Date</label>
+                                    <input type="date" name="due_date" class="form-control"
+                                        value="{{ \Carbon\Carbon::parse($career->due_date)->format('Y-m-d') }}"
+                                        min="{{ date('Y-m-d') }}" required>
+                                </div>
+
+
+                                <!-- Position -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Position</label>
+                                    <input type="text" name="position" class="form-control" value="{{ $career->position }}"
+                                        required>
+                                </div>
+
+                                <!-- Job Type -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Job Type</label>
+                                    <select name="jobtype" class="form-control" required>
+                                        <option value="">Select Job Type</option>
+                                        <option value="Full Time" {{ $career->jobtype == 'Full Time' ? 'selected' : '' }}>Full
+                                            Time</option>
+                                        <option value="Part Time" {{ $career->jobtype == 'Part Time' ? 'selected' : '' }}>Part
+                                            Time</option>
+                                        <option value="Contract" {{ $career->jobtype == 'Contract' ? 'selected' : '' }}>Contract
+                                        </option>
+                                        <option value="Internship" {{ $career->jobtype == 'Internship' ? 'selected' : '' }}>
+                                            Internship</option>
+                                    </select>
+                                </div>
+
+                                <!-- Image -->
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Image (Optional)</label>
+                                    <input type="file" name="imge" class="form-control">
+
+                                    @if($career->imge)
+                                        <img src="{{ asset('storage/' . $career->imge) }}" class="img-thumbnail mt-2" width="100">
+                                    @endif
+                                </div>
+
+                                <!-- Description (Full Width) -->
+                                <div class="col-12 mb-3">
+                                    <label class="form-label">Description</label>
+                                    <textarea name="description" class="form-control" rows="4"
+                                        required>{{ $career->description }}</textarea>
+                                </div>
+
                             </div>
                         </div>
+
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-warning">Update</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-warning">
+                                Update
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -140,9 +198,10 @@
         </div>
     @endforeach
 
+
     {{-- Create Modal --}}
     <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg"> <!-- Increased width -->
             <form action="{{ route('admin.careers.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-content">
@@ -150,34 +209,67 @@
                         <h5 class="modal-title">Add Career</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
+
                     <div class="modal-body">
-                        <div class="mb-3">
-                            <label class="form-label">Job Title</label>
-                            <input type="text" name="job_title" class="form-control" placeholder="Enter job title" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Description</label>
-                            <textarea name="description" class="form-control" rows="4" placeholder="Enter description"
-                                required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Qualification</label>
-                            <input type="text" name="qualification" class="form-control" placeholder="Enter qualification"
-                                required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Due Date</label>
-                            <input type="date" name="due_date" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Position</label>
-                            <input type="text" name="position" class="form-control" placeholder="Enter position" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Image</label>
-                            <input type="file" name="imge" class="form-control">
+                        <div class="row">
+
+                            <!-- Job Title -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Job Title</label>
+                                <input type="text" name="job_title" class="form-control" placeholder="Enter job title"
+                                    required>
+                            </div>
+
+                            <!-- Qualification -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Qualification</label>
+                                <input type="text" name="qualification" class="form-control"
+                                    placeholder="Enter qualification" required>
+                            </div>
+
+
+                            <!-- Due Date -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Due Date</label>
+                                <input type="date" name="due_date" class="form-control" min="{{ date('Y-m-d') }}" required>
+                            </div>
+
+
+                            <!-- Position -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Position</label>
+                                <input type="text" name="position" class="form-control" placeholder="Enter position"
+                                    required>
+                            </div>
+
+                            <!-- Job Type -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Job Type</label>
+                                <select name="jobtype" class="form-control" required>
+                                    <option value="">Select Job Type</option>
+                                    <option value="Full Time">Full Time</option>
+                                    <option value="Part Time">Part Time</option>
+                                    <option value="Contract">Contract</option>
+                                    <option value="Internship">Internship</option>
+                                </select>
+                            </div>
+
+                            <!-- Image -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Image (Optional)</label>
+                                <input type="file" name="imge" class="form-control">
+                            </div>
+
+                            <!-- Description (Full Width) -->
+                            <div class="col-12 mb-3">
+                                <label class="form-label">Description</label>
+                                <textarea name="description" class="form-control" rows="4" placeholder="Enter description"
+                                    required></textarea>
+                            </div>
+
                         </div>
                     </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-primary">Save</button>
