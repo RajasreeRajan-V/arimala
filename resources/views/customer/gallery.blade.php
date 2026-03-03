@@ -30,12 +30,19 @@
   <!-- Main CSS File -->
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
-
+  <style>
+    .page-title .heading {
+      position: relative;
+      background: url("{{ asset('img/background/hospital.jpg') }}") center center / cover no-repeat;
+      padding: 100px 0;
+      z-index: 1;
+    }
+  </style>
 </head>
 
 <body class="gallery-page">
 
- <header id="header" class="header fixed-top">
+  <header id="header" class="header fixed-top">
 
     <div class="topbar d-flex align-items-center dark-background">
       <div class="container d-flex justify-content-center justify-content-md-between">
@@ -127,18 +134,22 @@
 
     <!-- Page Title -->
     <div class="page-title">
+      <br><br>
       <div class="heading">
         <div class="container">
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
-              <h1 class="heading-title">Gallery</h1>
-              <p class="mb-0">
-                Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo
-                odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum
-                debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat
-                ipsum dolorem.
-              </p>
+              <div class="glass-card">
+                <h1 class="heading-title">Arimala Hospital Gallery</h1>
+                <p class="mb-0">
+                  Explore a glimpse of Arimala Hospital's state-of-the-art facilities, advanced medical equipment,
+                  dedicated healthcare professionals, and compassionate patient care environment.
+                  Our gallery reflects our commitment to excellence, safety, and quality healthcare services
+                  for every patient we serve.
+                </p>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -153,108 +164,45 @@
     </div><!-- End Page Title -->
 
     <!-- Gallery Section -->
-    <section id="gallery" class="gallery section">
+<section id="gallery" class="gallery section">
 
-      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+  <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-4 justify-content-center">
+<div class="row gy-4 justify-content-center">
 
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img src="assets/img/gallery/gallery-1.webp" class="img-fluid" alt="">
+  @forelse($galleries as $gallery)
+
+      <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="gallery-item h-100">
+
+              <img src="{{ asset('storage/' . $gallery->image) }}" 
+                   class="img-fluid" 
+                   alt="{{ $gallery->title ?? 'Gallery Image' }}">
+
               <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/gallery-1.webp" title="Gallery 1" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <a href="{{ asset('storage/' . $gallery->image) }}" 
+                     title="{{ $gallery->title }}" 
+                     class="glightbox preview-link">
+                      <i class="bi bi-arrows-angle-expand"></i>
+                  </a>
               </div>
-            </div>
-          </div><!-- End Gallery Item -->
 
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img src="assets/img/gallery/gallery-2.webp" class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/gallery-2.webp" title="Gallery 2" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img src="assets/img/gallery/gallery-3.webp" class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/gallery-3.webp" title="Gallery 3" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img src="assets/img/gallery/gallery-4.webp" class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/gallery-4.webp" title="Gallery 4" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img src="assets/img/gallery/gallery-5.webp" class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/gallery-5.webp" title="Gallery 5" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img src="assets/img/gallery/gallery-6.webp" class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/gallery-6.webp" title="Gallery 6" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img src="assets/img/gallery/gallery-7.webp" class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/gallery-7.webp" title="Gallery 7" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img src="assets/img/gallery/gallery-8.webp" class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/gallery-8.webp" title="Gallery 8" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div><!-- End Gallery Item -->
-
-        </div>
-
+          </div>
       </div>
 
-    </section><!-- /Gallery Section -->
+  @empty
 
+      <div class="col-12 text-center py-5">
+          <h4>No gallery images available.</h4>
+          <p>Please check back later.</p>
+      </div>
+
+  @endforelse
+
+</div>
+  </div>
+</section>
   </main>
-
   <footer id="footer" class="footer-16 footer position-relative">
 
     <div class="container">
@@ -363,8 +311,9 @@
             <div class="col-lg-6">
               <div class="copyright">
                 <div class="text-center py-3">
-    <small>© <a href="#" class="text-decoration-none" style="color: #ffccff;">2026 Arimala Hospital</a> - All Rights Reserved.</small>
-</div>
+                  <small>© <a href="#" class="text-decoration-none" style="color: #ffccff;">2026 Arimala Hospital</a> -
+                    All Rights Reserved.</small>
+                </div>
               </div>
             </div>
           </div>

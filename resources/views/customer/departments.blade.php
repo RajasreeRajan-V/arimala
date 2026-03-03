@@ -167,9 +167,7 @@
 
     </div>
   </header>
-
   <main class="main">
-
     <!-- Page Title -->
     <div class="page-title">
       <br><br>
@@ -316,10 +314,7 @@
                                 </div>
                               </div>
                             @endif
-
-                          </div>
-
-
+                            </div>
                         </div>
                       </div>
 
@@ -370,19 +365,12 @@
               <h3>{{ $department->name }}</h3>
               <p>{{ $department->description }}</p>
             </div>
-
           </div>
         </div>
-
       @endforeach
-
     </div>
-
   </div>
-
 </section>
-
-
    </main>
 
   <footer id="footer" class="footer-16 footer position-relative">
@@ -521,7 +509,6 @@
 
   <!-- Main JS File -->
   <script src="{{ asset('js/main.js') }}"></script>
-
 </body>
 
 </html>

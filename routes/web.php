@@ -20,9 +20,13 @@ Route::get('/about', [UserController::class, 'about'])->name('about');
 Route::get('/', [UserController::class, 'dashboard'])->name('dashboard');
 Route::get('/service', [UserController::class, 'service'])->name('service');
 Route::get('/gallery', [UserController::class, 'gallery'])->name('gallery');
+
 // Route::get('/contact', [UserController::class, 'contact'])->name('contact');
+
 Route::get('/doctors', [UserController::class, 'doctors'])->name('doctors');
 Route::get('/departments', [UserController::class, 'departments'])->name('departments');
+
+Route::get('/blog', [UserController::class, 'blog'])->name('blog');
 
 
 Route::resource('ContactUs', ContactUsController::class);
@@ -30,5 +34,7 @@ Route::resource('ContactUs', ContactUsController::class);
 Route::resource('apply', CareerAapplicationController::class);
 
 Route::get("/career", [UserController::class, 'career'])->name('career');
+
+Route::get("/faq", [UserController::class, 'faq'])->name('faq');
 
 require __DIR__.'/auth.php';

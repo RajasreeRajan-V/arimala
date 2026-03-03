@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Career;
 use App\Models\Departments;
 use App\Models\Doctor;
+use App\Models\Gallery;
+use App\Models\Blog;
 
 class UserController extends Controller
 {
@@ -28,7 +30,8 @@ class UserController extends Controller
     }
     public function gallery()
     {
-        return view('customer.gallery');
+        $galleries = Gallery::all();
+        return view('customer.gallery', compact('galleries'));
     }
      public function contact()
     {
@@ -48,5 +51,14 @@ class UserController extends Controller
     {
         $careers = Career::all();
         return view('customer.career', compact('careers'));
+    }
+    public function blog()
+    {
+        $blogs = Blog::all();
+        return view('customer.blog', compact('blogs'));
+    }
+    public function faq()
+    {
+        return view('customer.faq');
     }
 }

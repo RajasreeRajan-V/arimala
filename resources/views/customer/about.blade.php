@@ -37,6 +37,19 @@
       padding: 100px 0;
       z-index: 1;
     }
+    .value-item {
+    border: 2px solid #000;
+    padding: 30px;
+    border-radius: 12px;
+    background: #fff;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.value-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
   </style>
 </head>
 

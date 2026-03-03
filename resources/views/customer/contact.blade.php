@@ -29,7 +29,14 @@
 
   <!-- Main CSS File -->
   <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-
+ <style>
+    .page-title .heading {
+      position: relative;
+      background: url("{{ asset('img/background/hospital.jpg') }}") center center / cover no-repeat;
+      padding: 100px 0;
+      z-index: 1;
+    }
+  </style>
 </head>
 
 <body class="contact-page">
@@ -126,10 +133,12 @@
 
     <!-- Page Title -->
     <div class="page-title">
+      <br><br>
       <div class="heading">
         <div class="container">
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
+              <div class="glass-card">
               <h1 class="heading-title">Contact</h1>
               <p class="mb-0">
                 At Arimala Hospital, we are dedicated to providing comprehensive healthcare with
@@ -137,6 +146,7 @@
                 receives personalized attention, advanced treatments, and support for a healthier,
                 happier life.
               </p>
+              </div>
             </div>
           </div>
         </div>
@@ -152,12 +162,13 @@
     </div><!-- End Page Title -->
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    <section id="contact" class="contact section" style="background: url('img/background/contact.png') center center / cover no-repeat;">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row g-5">
           <div class="col-lg-5">
             <div class="contact-info-wrapper">
+              
               <div class="contact-info-item" data-aos="fade-up" data-aos-delay="100">
                 <div class="info-icon">
                   <i class="bi bi-geo-alt"></i>
@@ -266,13 +277,12 @@
       <div class="container-fluid map-container" data-aos="fade-up" data-aos-delay="200">
         <div class="map-overlay"></div>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3897.943989537925!2d75.08320767482984!3d12.319556887939084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba47c6ac0074653%3A0x775bf502fbe100e!2sArimala%20Hospital!5e0!3m2!1sen!2sin!4v1772191005575!5m2!1sen!2sin"
           width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
 
-    </section><!-- /Contact Section -->
-
+    </section>
   </main>
 
   <footer id="footer" class="footer-16 footer position-relative">

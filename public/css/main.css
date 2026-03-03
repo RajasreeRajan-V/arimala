@@ -314,7 +314,7 @@ h6 {
   .navmenu .dropdown ul {
     margin: 0;
     padding: 10px 0;
-    background: var(--nav-dropdown-background-color);
+    /* background: var(--nav-dropdown-background-color); */
     display: block;
     position: absolute;
     visibility: hidden;
@@ -325,6 +325,11 @@ h6 {
     border-radius: 4px;
     z-index: 99;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    background: rgba(16, 122, 124, 0.12);   /* light #107A7C */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(16, 122, 124, 0.25);
+
   }
 
   .navmenu .dropdown ul li {
@@ -345,7 +350,9 @@ h6 {
   .navmenu .dropdown ul a:hover,
   .navmenu .dropdown ul .active:hover,
   .navmenu .dropdown ul li:hover>a {
-    color: var(--nav-dropdown-hover-color);
+    background-color: #107A7C;
+    color: #fff;
+    /* color: var(--nav-dropdown-hover-color); */
   }
 
   .navmenu .dropdown:hover>ul {
@@ -3362,6 +3369,40 @@ section,
   }
 }
 
+.departments-tabs .specialty-navigation .department-tab {
+  background-color: color-mix(in srgb, var(--background-color), transparent 95%);
+  border: none;
+  border-radius: 0;
+  color: var(--background-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 2rem 1.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+  flex: 1;
+  text-align: center;
+
+  border: 2px solid #ffffff;
+}
+
+.departments-tabs .specialty-navigation .department-tab.active {
+  border: 2px solid #ffffff;
+}
+
+@media (max-width: 992px) {
+  .departments-tabs .specialty-navigation .department-tab {
+    font-size: 1rem;
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .departments-tabs .specialty-navigation .department-tab {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
 .departments-tabs .specialty-navigation .department-tab:hover {
   background-color: color-mix(in srgb, var(--accent-color), transparent 10%);
   color: var(--contrast-color);
@@ -5198,66 +5239,88 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Gallery Section
+/*--------------------------------------------------------------
+# Gallery Section - Enhanced
 --------------------------------------------------------------*/
+
+/* Entire Section Border */
+.gallery.section {
+  border: 4px solid #107A7C;
+  border-radius: 20px;
+  padding: 40px 20px;
+  margin: 40px auto;
+  background: #f9fdfd;
+}
+
+/* Gallery Item */
 .gallery .gallery-item {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(16, 122, 124, 0.15);
+  transition: all 0.4s ease;
 }
 
+/* Image Styling */
 .gallery .gallery-item img {
-  transition: 0.3s;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: all 0.4s ease;
+  border-radius: 15px;
 }
 
+/* Hover Effect on Image */
+.gallery .gallery-item:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.05);
+}
+
+/* Add Hover Lift Effect */
+.gallery .gallery-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(16, 122, 124, 0.25);
+}
+
+/* Overlay */
 .gallery .gallery-links {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: all ease-in-out 0.3s;
-  background: rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(to top, rgba(16,122,124,0.85), rgba(0,0,0,0.4));
   z-index: 3;
+  border-radius: 15px;
 }
 
-.gallery .gallery-links .preview-link,
-.gallery .gallery-links .details-link {
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.5);
-  transition: 0.3s;
-  line-height: 1.2;
-  margin: 30px 8px 0 8px;
-}
-
-.gallery .gallery-links .preview-link:hover,
-.gallery .gallery-links .details-link:hover {
-  color: #ffffff;
-}
-
-.gallery .gallery-links .details-link {
-  font-size: 30px;
-  line-height: 0;
-}
-
+/* Show Overlay on Hover */
 .gallery .gallery-item:hover .gallery-links {
   opacity: 1;
 }
 
-.gallery .gallery-item:hover .preview-link,
-.gallery .gallery-item:hover .details-link {
-  margin-top: 0;
+/* Icons */
+.gallery .gallery-links .preview-link,
+.gallery .gallery-links .details-link {
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: 0.3s;
+  margin: 0 10px;
 }
 
-.gallery .gallery-item:hover img {
-  transform: scale(1.1);
+/* Icon Hover */
+.gallery .gallery-links .preview-link:hover,
+.gallery .gallery-links .details-link:hover {
+  color: #ffffff;
+  transform: scale(1.2);
 }
 
+/* Lightbox Custom */
 .glightbox-clean .gslide-description {
-  background: #272727;
+  background: #1c1c1c;
 }
 
 .glightbox-clean .gslide-title {
-  color: rgba(255, 255, 255, 0.8);
-  margin: 0;
+  color: #ffffff;
 }
 
 /*--------------------------------------------------------------
@@ -5274,16 +5337,16 @@ section,
 }
 
 .faq .faq-item.faq-active .faq-header .faq-number {
-  color: var(--accent-color);
+  color: var(--background-color);
   font-weight: 500;
 }
 
 .faq .faq-item.faq-active .faq-header h4 {
-  color: var(--accent-color);
+  color: var(--background-color);
 }
 
 .faq .faq-item.faq-active .faq-header .faq-toggle {
-  color: var(--accent-color);
+  color: var(--background-color);
   transform: rotate(0deg);
 }
 
@@ -5336,7 +5399,7 @@ section,
   font-family: var(--heading-font);
   font-size: 1.1rem;
   font-weight: 300;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  color: color-mix(in srgb, var(--background-color), transparent 50%);
   transition: all 0.3s ease;
   letter-spacing: -0.02em;
 }
@@ -5347,7 +5410,7 @@ section,
   font-family: var(--heading-font);
   font-size: 1.25rem;
   font-weight: 300;
-  color: var(--heading-color);
+  color: var(--background-color);
   transition: all 0.3s ease;
   line-height: 1.5;
   letter-spacing: -0.01em;
@@ -5361,7 +5424,7 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  color: color-mix(in srgb, var(--background-color), transparent 40%);
   font-size: 18px;
   transition: all 0.3s ease;
   position: relative;
@@ -5387,7 +5450,7 @@ section,
 
 .faq .faq-item .faq-content .content-inner p {
   margin: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  color: color-mix(in srgb, var(--black), transparent 25%);
   line-height: 1.8;
   font-size: 1rem;
   font-weight: 300;
@@ -5467,7 +5530,7 @@ section,
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  background-color: color-mix(in srgb, var(--black), transparent 90%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5475,7 +5538,7 @@ section,
 
 .contact .contact-info-item .info-icon i {
   font-size: 24px;
-  color: var(--accent-color);
+  color: var(--black);
 }
 
 .contact .contact-info-item .info-content h3 {
@@ -7003,7 +7066,198 @@ section,
   margin-right: 8px;
 }
 
+.dropdown-dept-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start !important;
+  gap: 12px;                 
+}
+
+.dept-icon {
+  width: 100px;              
+  height: 60px;
+  flex-shrink: 0;            
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dept-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         
+  border-radius: 6px;
+  display: block;
+}
+
+/* ============================= */
+/* BLOG SECTION - ENHANCED */
+/* ============================= */
+
+.blogs.section {
+  border: 4px solid #107A7C;
+  border-radius: 20px;
+  padding: 40px 20px;
+  margin: 40px auto;
+  background: #f9fdfd;
+}
+
+/* Blog Item Card */
+.blogs .blog-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(16, 122, 124, 0.15);
+  transition: all 0.4s ease;
+}
+
+/* Image Styling */
+.blogs .blog-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: all 0.4s ease;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+/* Hover Effects */
+.blogs .blog-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(16, 122, 124, 0.25);
+}
+
+.blogs .blog-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Blog Content */
+.blogs .blog-content h5 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #107A7C;
+}
+
+.blogs .blog-content p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Read More Button */
+.read-more-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #107A7C;
+  color: #ffffff;
+  border-radius: 30px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.read-more-btn:hover {
+  background: #0c5f61;
+  color: #ffffff;
+}
+
+/* 
+.faq {
+  position: relative;
+  overflow: hidden;
+}
+.faq::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(16, 122, 124, 0.30); 
+  backdrop-filter: blur(6px); 
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1;
+}
+.faq .container {
+  position: relative;
+  z-index: 2;
+} */
 
 
+/* Glass effect for FAQ wrapper */
+.faq-wrapper {
+ background: rgba(0, 0, 0, 0.35); /* Black transparent */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 40px;
 
+  /* White Border */
+  border: 2px solid rgba(255, 255, 255, 0.6);
 
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* FAQ items glass look */
+.faq-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  margin-bottom: 15px;
+  padding: 15px 20px;
+
+  /* Optional white border for each item */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* White text for contrast */
+.faq-wrapper h4,
+.faq-wrapper p,
+.faq-wrapper .faq-number {
+  color: #ffffff;
+}
+
+/* Make FAQ content text white */
+.faq-content p {
+  color: #ffffff !important;
+}
+
+/* Contact Section Overlay */
+.contact {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.35); /* White overlay */
+  z-index: 1;
+}
+
+/* Keep content above overlay */
+.contact .container {
+  position: relative;
+  z-index: 2;
+}
+.contact-info-wrapper {
+  border: 2px solid #000;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.contact-info-item {
+  border: 1px solid #000;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.contact-info-item:last-child {
+  margin-bottom: 0;
+}
+
+.map-container {
+  border: 2px solid #000;
+  border-radius: 10px; 
+  overflow: hidden;   /* keeps iframe inside rounded border */
+  margin-top: 30px;   /* optional spacing */
+}

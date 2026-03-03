@@ -81,7 +81,6 @@
 </div>
 
 <body class="index-page">
-
   <header id="header" class="header fixed-top">
 
     <div class="topbar d-flex align-items-center dark-background">
@@ -124,41 +123,44 @@
           <ul>
             <li><a href="{{ route('dashboard') }}" class="active">Home</a></li>
             <li><a href="{{ route('about') }}">About</a></li>
-            <li><a href="{{ route('departments') }}">Departments</a></li>
             <li><a href="{{ route('service') }}">Services</a></li>
-            <li><a href="{{ route('doctors') }}">Doctors</a></li>
             <li><a href="{{ route('career') }}">Career</a></li>
-            <li class="dropdown"><a href="#"><span>More Pages</span> <i
+            <li><a href="{{ route('doctors') }}">Doctors</a></li>
+            <li class="dropdown"><a href="#"><span>Departments</span> <i
                   class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
-                <li><a href="department-details.html">Department Details</a></li>
-                <li><a href="service-details.html">Service Details</a></li>
-                <li><a href="appointment.html">Appointment</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
-                <li><a href="faq.html">Frequently Asked Questions</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="terms.html">Terms</a></li>
-                <li><a href="privacy.html">Privacy</a></li>
-                <li><a href="404.html">404</a></li>
-              </ul>
-            </li>
-            <li class="dropdown"><a href="#"><span>Dropdown</span> <i
-                  class="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-                <li><a href="#">Dropdown 1</a></li>
-                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                      class="bi bi-chevron-down toggle-dropdown"></i></a>
-                  <ul>
-                    <li><a href="#">Deep Dropdown 1</a></li>
-                    <li><a href="#">Deep Dropdown 2</a></li>
-                    <li><a href="#">Deep Dropdown 3</a></li>
-                    <li><a href="#">Deep Dropdown 4</a></li>
-                    <li><a href="#">Deep Dropdown 5</a></li>
-                  </ul>
+                <li>
+                  <a href="{{ route('departments') }}" class="dropdown-dept-link">
+                    <span class="dept-icon">
+                      <img src="{{ asset('img/background/SKETCH.jpg') }}" alt="Departments">
+                    </span>
+                    <span>Departments</span>
+                  </a>
                 </li>
-                <li><a href="#">Dropdown 2</a></li>
-                <li><a href="#">Dropdown 3</a></li>
-                <li><a href="#">Dropdown 4</a></li>
+                <li> 
+                  <a href="{{ route('gallery') }}" class="dropdown-dept-link">
+                    <span class="dept-icon">
+                      <img src="{{ asset('img/background/Blog.jpg') }}" alt="Departments">
+                    </span>
+                    <span>Gallery</span>
+                  </a>
+                </li>
+                 <li> 
+                  <a href="{{ route('blog') }}" class="dropdown-dept-link">
+                    <span class="dept-icon">
+                      <img src="{{ asset('img/background/NURSE.jpg') }}" alt="Departments">
+                    </span>
+                    <span>Blog</span>
+                  </a>
+                </li>
+                 <li> 
+                  <a href="{{ route('faq') }}" class="dropdown-dept-link">
+                    <span class="dept-icon">
+                      <img src="{{ asset('img/background/faqq.png') }}" alt="Departments">
+                    </span>
+                    <span>FAQ</span>
+                  </a>
+                </li>
               </ul>
             </li>
             <li><a href="{{ route('ContactUs.index') }}">Contact</a></li>
@@ -512,9 +514,14 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Featured Services</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>Our Featured Services</h2>
+        <p>
+          Arimala Hospital delivers advanced medical care with compassion, combining
+          expert doctors, modern technology, and patient-centered treatment to ensure
+          the best health outcomes.
+        </p>
       </div><!-- End Section Title -->
+
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -1007,7 +1014,7 @@
               </div>
             </div>
 
-          </div>  
+          </div>
         </div>
 
       </div>
@@ -1025,8 +1032,7 @@
             <div class="brand-section">
               <a href="index.html" class="logo footer-logo d-flex align-items-center mb-4">
                 <img src="{{ asset('img/logo1.jpg') }}" class="footer-logo" alt="Logo">
-              </a>
-
+              </a>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
               <p class="brand-description">Committed to delivering trusted healthcare services with modern facilities,
                 experienced doctors, and a patient-first approach at Arimala Hospital.</p>
 
@@ -1124,8 +1130,9 @@
             <div class="col-lg-6">
               <div class="copyright">
                 <div class="text-center py-3">
-    <small>© <a href="#" class="text-decoration-none" style="color: #ffccff;">2026 Arimala Hospital</a> - All Rights Reserved.</small>
-</div>
+                  <small>© <a href="#" class="text-decoration-none" style="color: #ffccff;">2026 Arimala Hospital</a> -
+                    All Rights Reserved.</small>
+                </div>
               </div>
             </div>
           </div>
