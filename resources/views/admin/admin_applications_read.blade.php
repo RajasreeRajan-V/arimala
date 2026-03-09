@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Job Applications')
+@section('title', 'Read Applications')
 
 @section('content')
 <div class="container mt-5">
 
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>Job Applications <span class="badge bg-danger">Unread</span></h2>
-        <a href="{{ route('admin.applications.read') }}" class="btn btn-secondary">
-            <i class="fa-solid fa-envelope-open"></i> View Read Applications
+        <h2>Read Applications <span class="badge bg-success">Opened</span></h2>
+        <a href="{{ route('admin.applications.index') }}" class="btn btn-secondary">
+            <i class="fa-solid fa-arrow-left"></i> Back to Unread
         </a>
     </div>
 
@@ -60,13 +60,11 @@
                             <td class="text-center">
                                 <div class="d-flex justify-content-center gap-2">
 
-                                    {{-- View (marks as read, opens detail blade) --}}
                                     <a href="{{ route('admin.applications.show', $application->id) }}"
                                         class="btn btn-sm btn-info">
-                                        <i class="fa-solid fa-street-view"></i>
+                                        <i class="fa-solid fa-eye"></i>
                                     </a>
 
-                                    {{-- Delete --}}
                                     <form action="{{ route('admin.applications.destroy', $application->id) }}"
                                         method="POST"
                                         onsubmit="return confirm('Delete this application?')">
@@ -82,7 +80,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="11" class="text-center">No Unread Applications Found</td>
+                            <td colspan="11" class="text-center">No Read Applications Found</td>
                         </tr>
                     @endforelse
                 </tbody>

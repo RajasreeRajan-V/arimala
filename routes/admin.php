@@ -30,6 +30,9 @@ Route::name('admin.')->group(function () {
 
         Route::resource('chairperson', ChairManController::class);
 
-        Route::resource('applications', ApplicationController::class);
+        Route::get('/applications/read', [ApplicationController::class, 'readApplications'])->name('applications.read');
+
+        Route::resource('applications', ApplicationController::class);        
+       
 });
 });

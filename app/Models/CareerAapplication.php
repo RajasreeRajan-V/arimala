@@ -12,7 +12,7 @@ class CareerAapplication extends Model
     use HasFactory;
     protected $fillable = [
     'career_id', 'name', 'email', 'phone', 'position',
-    'qualification', 'experience', 'resume', 'cover_letter'
+    'qualification', 'experience', 'resume', 'cover_letter','is_read'
 ];
 
     public function career()

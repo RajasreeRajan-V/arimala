@@ -12,13 +12,29 @@ class ApplicationController extends Controller
      */
     public function index()
     {
-        $applications = CareerAapplication::with('career')->get();
+        $applications = CareerAapplication::with('career')
+            ->where('is_read', false)
+            ->get();
         return view('admin.admin_applications', compact('applications'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+     public function show(string $id)
+    {
+        $application = CareerAapplication::with('career')->findOrFail($id);
+
+        $application->is_read = true;
+        $application->save();
+        return view('admin.admin_application_view', compact('application'));
+    }
+    
+     public function readApplications()
+    {
+        $applications = CareerAapplication::with('career')
+            ->where('is_read', true)
+            ->get();
+        return view('admin.admin_applications_read', compact('applications'));
+    }
+
     public function create()
     {
         //
@@ -31,19 +47,7 @@ class ApplicationController extends Controller
     {
         //
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+       public function edit(string $id)
     {
         //
     }
@@ -59,8 +63,9 @@ class ApplicationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+   public function destroy(string $id)
     {
-        //
+        CareerAapplication::findOrFail($id)->delete();
+        return redirect()->back()->with('success', 'Application deleted successfully.');
     }
 }
