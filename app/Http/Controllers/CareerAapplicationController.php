@@ -6,6 +6,10 @@ use App\Models\CareerAapplication;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateCareerAapplicationRequest;
 use App\Models\Career;
+use Illuminate\Validation\Rule; 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CareerApplicationMail;
+use App\Mail\ContactThankYouMail;
 
 class CareerAapplicationController extends Controller
 {
@@ -33,8 +37,22 @@ class CareerAapplicationController extends Controller
          $validated = $request->validate([
             'career_id'   => 'required|exists:careers,id',
             'name'        => 'required|string',
-            'email'       => 'required|email|unique:career_aapplications,email',
-            'phone' => 'required|string|max:12|unique:career_aapplications,phone',
+            'email' => [
+                    'required',
+                    'email',
+                    Rule::unique('career_aapplications')->where(function ($query) use ($request) {
+                        return $query->where('career_id', $request->career_id);
+                    }),
+                ],
+                
+            'phone' => [
+                'required',
+                'string',
+                'max:12',
+                Rule::unique('career_aapplications')->where(function ($query) use ($request) {
+                    return $query->where('career_id', $request->career_id);
+                }),
+            ],
 
             'position'    => 'required|string',
             'qualification' => 'required|string',
@@ -52,17 +70,19 @@ class CareerAapplicationController extends Controller
             {
              $resumePath = null;
             }
-        CareerAapplication::create([
-        'career_id'     => $validated['career_id'],
-        'name'          => $validated['name'],
-        'email'         => $validated['email'],
-        'phone'         => $validated['phone'],
-        'position'      => $validated['position'],
-        'qualification' => $validated['qualification'],
-        'experience'    => $validated['experience'],
-        'resume'        => $resumePath,
-        'cover_letter'  => $validated['cover_letter'] ?? null,
-    ]);
+        $application = CareerAapplication::create([
+                'career_id'     => $validated['career_id'],
+                'name'          => $validated['name'],
+                'email'         => $validated['email'],
+                'phone'         => $validated['phone'],
+                'position'      => $validated['position'],
+                'qualification' => $validated['qualification'],
+                'experience'    => $validated['experience'],
+                'resume'        => $resumePath,
+                'cover_letter'  => $validated['cover_letter'] ?? null,
+            ]);
+    Mail::to('rajasreev553@gmail.com')->send(new CareerApplicationMail($application));
+    Mail::to($application->email)->send(new ContactThankYouMail($application));
     return redirect()->back()->with('success', 'Your application has been submitted successfully!');
     }
 
@@ -70,10 +90,10 @@ class CareerAapplicationController extends Controller
      * Display the specified resource.
      */
     public function show($career_id)
-{   
-    $career = Career::findOrFail($career_id);
-    return view('customer.application', compact('career'));
-}
+    {   
+        $career = Career::findOrFail($career_id);
+        return view('customer.application', compact('career'));
+    }
 
 
 

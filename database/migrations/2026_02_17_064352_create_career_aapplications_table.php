@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('career_aapplications', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('career_id')
-            ->constrained('careers')
-            ->onDelete('cascade');
-            
+            $table->foreignId('career_id')->constrained('careers')->onDelete('cascade');
+
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('phone')->unique();
+            $table->string('email');
+            $table->string('phone');
 
             $table->string('position');
             $table->string('qualification');
@@ -27,6 +25,9 @@ return new class extends Migration
             $table->string('resume');
 
             $table->text('cover_letter')->nullable();
+
+            $table->unique(['career_id','email']);
+            $table->unique(['career_id','phone']);
             $table->timestamps();
         });
     }

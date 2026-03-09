@@ -1,0 +1,394 @@
+:root {
+    --background-color: #FFFFFF;
+    --default-color: #1F2D33;
+    --heading-color: #0E4968;
+    --accent-color: #107A7C;
+    --surface-color: #F5F7F8;
+    --contrast-color: #D4E8E8;
+    --black: #000000;
+}
+
+/* ── Section Base ───────────────────────────── */
+.chairperson-section {
+    position: relative;
+    padding: 100px 0 110px;
+    background: #afd2e9;
+    overflow: hidden;
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+/* ── Background Layers ──────────────────────── */
+.cp-bg-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cp-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle, rgba(16,122,124,0.07) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
+.cp-gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+}
+
+.orb-1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(16,122,124,0.15) 0%, transparent 70%);
+    top: -150px;
+    right: -100px;
+}
+
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(14,73,104,0.1) 0%, transparent 70%);
+    bottom: -100px;
+    left: -80px;
+}
+
+/* ── Label / Pill ───────────────────────────── */
+.cp-label-wrap {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.cp-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(16,122,124,0.1);
+    border: 1.5px solid rgba(16,122,124,0.25);
+    color: var(--accent-color);
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 50px;
+    backdrop-filter: blur(6px);
+}
+
+/* ── Photo Wrap ─────────────────────────────── */
+.cp-photo-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.cp-photo-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px dashed rgba(16,122,124,0.2);
+    width: 360px;
+    height: 360px;
+    animation: cpSpin 30s linear infinite;
+}
+
+.cp-ring-2 {
+    width: 300px;
+    height: 300px;
+    border-color: rgba(14,73,104,0.15);
+    border-style: solid;
+    animation-direction: reverse;
+    animation-duration: 20s;
+}
+
+@keyframes cpSpin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+.cp-photo-frame {
+    width: 260px;
+    height: 320px;
+    border-radius: 50% 50% 48% 52% / 55% 55% 45% 45%;
+    overflow: hidden;
+    border: 5px solid var(--contrast-color);
+    box-shadow:
+        0 20px 60px rgba(14,73,104,0.18),
+        0 4px 20px rgba(16,122,124,0.15),
+        inset 0 0 0 3px rgba(16,122,124,0.1);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.cp-photo-frame:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow:
+        0 32px 80px rgba(14,73,104,0.22),
+        0 8px 30px rgba(16,122,124,0.2);
+}
+
+.cp-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+/* ── Floating Badge ─────────────────────────── */
+.cp-badge {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    background: var(--contrast-color);
+    border-radius: 16px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 8px 32px rgba(14,73,104,0.15);
+    z-index: 5;
+    animation: cpFloat 4s ease-in-out infinite;
+}
+
+@keyframes cpFloat {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-8px); }
+}
+
+.cp-badge-icon {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, var(--accent-color), var(--heading-color));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+.cp-badge-title {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    line-height: 1;
+    margin-bottom: 3px;
+}
+
+.cp-badge-sub {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.68rem;
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+/* ── Decorative Dots ────────────────────────── */
+.cp-dots {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    background-image: radial-gradient(circle, rgba(16,122,124,0.35) 1.5px, transparent 1.5px);
+    background-size: 12px 12px;
+    z-index: 1;
+}
+
+/* ── Content Block ──────────────────────────── */
+.cp-content {
+    padding-left: 10px;
+}
+
+.cp-heading {
+    font-family: 'Georgia', serif;
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    font-weight: 400;
+    color: var(--default-color);
+    line-height: 1.25;
+    margin-bottom: 24px;
+}
+
+.cp-heading-accent {
+    color: var(--heading-color);
+    font-style: italic;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+.cp-heading-accent::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    border-radius: 2px;
+}
+
+.cp-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.cp-divider::before {
+    content: '';
+    width: 48px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
+    display: block;
+}
+
+.cp-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(16,122,124,0.2), transparent);
+    display: block;
+}
+
+/* ── Quote Block ────────────────────────────── */
+.cp-quote-block {
+    position: relative;
+    background: var(--contrast-color);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 0 16px 16px 0;
+    padding: 28px 30px 28px 36px;
+    margin-bottom: 32px;
+    box-shadow:
+        0 4px 24px rgba(14,73,104,0.07),
+        0 1px 4px rgba(0,0,0,0.04);
+}
+
+.cp-quote-mark {
+    position: absolute;
+    top: 8px;
+    left: 14px;
+    font-family: 'Georgia', serif;
+    font-size: 5rem;
+    line-height: 1;
+    color: rgba(16,122,124,0.12);
+    font-weight: 900;
+    pointer-events: none;
+    user-select: none;
+}
+
+.cp-quote-text {
+    font-family: 'Georgia', serif;
+    font-size: 1.02rem;
+    line-height: 1.85;
+    color: var(--default-color);
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Person Card ────────────────────────────── */
+.cp-person-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 24px;
+    background: linear-gradient(135deg, rgba(14,73,104,0.06), rgba(16,122,124,0.06));
+    border: 1px solid rgba(16,122,124,0.15);
+    border-radius: 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cp-person-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 60%, rgba(16,122,124,0.05));
+    pointer-events: none;
+}
+
+.cp-person-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--heading-color), var(--accent-color));
+    color: var(--contrast-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Georgia', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(16,122,124,0.25);
+}
+
+.cp-name {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin: 0 0 3px;
+}
+
+.cp-designation {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.cp-signature-line {
+    margin-left: auto;
+    width: 70px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    border-radius: 2px;
+    position: relative;
+}
+
+.cp-signature-line::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--heading-color), transparent);
+    border-radius: 2px;
+}
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 991.98px) {
+    .chairperson-section { padding: 70px 0 80px; }
+    .cp-photo-wrap { padding: 30px 20px; margin-bottom: 20px; }
+    .cp-photo-ring { width: 280px; height: 280px; }
+    .cp-ring-2 { width: 220px; height: 220px; }
+    .cp-photo-frame { width: 210px; height: 260px; }
+    .cp-content { padding-left: 0; }
+    .cp-badge { bottom: 10px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+}
+
+@media (max-width: 575.98px) {
+    .cp-heading { font-size: 1.6rem; }
+    .cp-quote-text { font-size: 0.95rem; }
+    .cp-person-card { flex-wrap: wrap; }
+    .cp-signature-line { display: none; }
+}
+.chairperson-section .container.position-relative {
+    border: 3px solid var(--black);   /* Black Border */
+    border-radius: 20px;              /* Smooth rounded corners */
+    padding: 60px 40px;               /* Inner spacing */
+    background: var(--contrast-color); /* Optional: white background */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* Soft depth */
+}

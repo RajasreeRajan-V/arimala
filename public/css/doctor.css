@@ -1,6 +1,9 @@
 /* ============================= */
 /*        DOCTORS SECTION        */
 /* ============================= */
+#doctors {
+    background-color: #D4E8E8;
+}
 
 #doctors .row {
     row-gap: 30px;
@@ -14,25 +17,23 @@
 .doctor-card {
     background: #ffffff;
     border-radius: 18px;
-    border: 2px solid #d0dbe5;   /* stronger visible border */
+    border: 2px solid #d0dbe5;
     overflow: hidden;
     transition: all 0.35s ease;
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
     height: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .doctor-card:hover {
     transform: translateY(-8px);
-    border-color: linear-gradient(
-        135deg,
-        rgba(14, 73, 104, 0.75),   /* heading color */
-        rgba(16, 122, 124, 0.75)   /* accent color */
-    );   /* only color change */
-    box-shadow: 0 18px 40px rgba(13, 110, 253, 0.12);
+    box-shadow: 0 18px 40px rgba(16, 122, 124, 0.15);
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, #0e4968, #107A7C) border-box;
+    border: 2px solid transparent;
 }
-
 
 /* Doctor Image */
 .doctor-image {
@@ -55,7 +56,7 @@
 .doctor-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(13, 110, 253, 0.85);
+    background: rgba(16, 122, 124, 0.85);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -84,7 +85,7 @@
 
 .social-links a:hover {
     background: #ffffff;
-    color: #0d6efd;
+    color: #107A7C;
 }
 
 /* Doctor Content */
@@ -106,7 +107,7 @@
     display: inline-block;
     font-size: 14px;
     font-weight: 500;
-    color: #0d6efd;
+    color: #107A7C;
     margin-bottom: 10px;
 }
 
@@ -133,5 +134,51 @@
 }
 
 .doctor-meta i {
-    color: #0d6efd;
+    color: #107A7C;
 }
+
+
+.topbar-socials {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.topbar-social {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    margin-left: 6px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.topbar-socials {
+    display: flex;
+    align-items: center;
+    gap: 16px !important; 
+}
+
+.topbar-social {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.topbar-social:hover {
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* Brand colors on hover */
+.topbar-social.whatsapp:hover  { color: #25D366; }
+.topbar-social.instagram:hover { color: #E1306C; }
+.topbar-social.youtube:hover   { color: #FF0000; }
+.topbar-social.mail:hover      { color: #d4f5f5; }
+.topbar-social.location:hover  { color: #d4f5f5; }

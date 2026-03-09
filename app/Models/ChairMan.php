@@ -9,4 +9,10 @@ class ChairMan extends Model
 {
     /** @use HasFactory<\Database\Factories\ChairManFactory> */
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'designation',
+        'about',
+        'photo',
+    ];
 }

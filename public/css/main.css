@@ -507,6 +507,21 @@ h6 {
   }
 }
 
+/* Active state for dropdown dept links */
+.dropdown-dept-link.active {
+  background-color: #107A7C !important;
+  color: #fff !important;
+}
+
+.dropdown-dept-link.active span:last-child {
+  color: #fff !important;
+}
+
+/* Optional: highlight the image with a teal border */
+.dropdown-dept-link.active .dept-icon img {
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 0 2px #107A7C;
+}
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
@@ -6708,7 +6723,7 @@ section,
 
 .about.section {
   padding: 100px 0;
-  background: #afd2e9 ;
+  background: #afd2e9;
 }
 
 /* Heading */

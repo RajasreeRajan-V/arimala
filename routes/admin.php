@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\ApplicationController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +27,9 @@ Route::name('admin.')->group(function () {
 
         Route::resource('reviews', ReviewController::class);
         Route::resource('blogs', BlogController::class);
+
+        Route::resource('chairperson', ChairManController::class);
+
+        Route::resource('applications', ApplicationController::class);
 });
 });

@@ -2,286 +2,289 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Arimala Hospital - Kanhangad</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Arimala Hospital - Kanhangad</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-    rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
 
-  <!-- Make sure Font Awesome is loaded -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Make sure Font Awesome is loaded -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 
 
-  <!-- Vendor CSS Files -->
-  <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ asset('vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  <!-- Main CSS File -->
-  <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/get_in_touch.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/chatbot.css') }}" rel="stylesheet">
+    <!-- Main CSS File -->
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/get_in_touch.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/chatbot.css') }}" rel="stylesheet">
 
 </head>
 <!-- MODAL HTML -->
 <!-- ===== MODAL ===== -->
 <div class="modal-overlay" id="modal">
-  <div class="custom-modal">
-    <span class="close-btn" id="closeModal">&times;</span>
+    <div class="custom-modal">
+        <span class="close-btn" id="closeModal">&times;</span>
 
-    <div class="hospital-brand">
-      <img src="img/back-logo.png" alt="Arimala Hospital Logo">
-      <p class="hospital-desc">
-        Arimala Hospital is committed to delivering compassionate,
-        patient-centered healthcare with advanced medical facilities
-        and experienced specialists you can trust.
-      </p>
+        <div class="hospital-brand">
+            <img src="img/back-logo.png" alt="Arimala Hospital Logo">
+            <p class="hospital-desc">
+                Arimala Hospital is committed to delivering compassionate,
+                patient-centered healthcare with advanced medical facilities
+                and experienced specialists you can trust.
+            </p>
+        </div>
+
+        <h2>Get in Touch</h2>
+        <p class="modal-subtitle">We’d love to hear from you</p>
+
+        <form id="contactModalForm">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+
+            <div class="form-group">
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="subject" placeholder="Subject" required>
+            </div>
+
+            <div class="form-group">
+                <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
     </div>
-
-    <h2>Get in Touch</h2>
-    <p class="modal-subtitle">We’d love to hear from you</p>
-
-    <form id="contactModalForm">
-      <div class="form-group">
-        <input type="text" name="name" placeholder="Your Name" required>
-      </div>
-
-      <div class="form-group">
-        <input type="tel" name="phone" placeholder="Phone Number" required>
-      </div>
-
-      <div class="form-group">
-        <input type="text" name="subject" placeholder="Subject" required>
-      </div>
-
-      <div class="form-group">
-        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-      </div>
-
-      <button type="submit" class="submit-btn">Send Message</button>
-    </form>
-  </div>
 </div>
 
 <body class="index-page">
-  <header id="header" class="header fixed-top">
+    <header id="header" class="header fixed-top">
 
-    <div class="topbar d-flex align-items-center dark-background">
-      <div class="container d-flex justify-content-center justify-content-md-between">
-        <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center me-3">
-            <a href="mailto:arimalahospital@gmail.com">arimalahospital@gmail.com</a>
-          </i>
+        <div class="topbar d-flex align-items-center dark-background">
+            <div class="container d-flex justify-content-center justify-content-md-between">
+                <div class="contact-info d-flex align-items-center">
+                    <i class="bi bi-envelope d-flex align-items-center me-3">
+                        <a href="mailto:arimalahospital@gmail.com">arimalahospital@gmail.com</a>
+                    </i>
 
-          <i class="bi bi-envelope d-flex align-items-center">
-            <a href="mailto:hrarimala@gmail.com">hrarimala@gmail.com</a>
-          </i>
+                    <i class="bi bi-envelope d-flex align-items-center">
+                        <a href="mailto:hrarimala@gmail.com">hrarimala@gmail.com</a>
+                    </i>
 
-          <i class="bi bi-phone d-flex align-items-center ms-4">
-            <span>+91 8281 240 560</span></i>
-          <i class="bi bi-telephone d-flex align-items-center ms-4"><span>0467 220 4560</span>
-          </i>
-        </div>
-        <div class="social-links d-none d-md-flex align-items-center">
-          <a href="#!" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
-          <a href="#!" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#!" class="youtube"><i class="bi bi-youtube"></i></a>
-          <a href="#!" class="mail"><i class="bi bi-envelope"></i></a>
-          <a href="#!" class="location"><i class="bi bi-geo-alt"></i></a>
-        </div>
-      </div>
-    </div><!-- End Top Bar -->
+                    <i class="bi bi-phone d-flex align-items-center ms-4">
+                        <span>+91 8281 240 560</span></i>
+                    <i class="bi bi-telephone d-flex align-items-center ms-4"><span>0467 220 4560</span>
+                    </i>
+                </div>
+                <div class="social-links d-none d-md-flex align-items-center">
+                    <a href="#!" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#!" class="instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#!" class="youtube"><i class="bi bi-youtube"></i></a>
+                    <a href="#!" class="mail"><i class="bi bi-envelope"></i></a>
+                    <a href="#!" class="location"><i class="bi bi-geo-alt"></i></a>
+                </div>
+            </div>
+        </div><!-- End Top Bar -->
 
-    <div class="branding d-flex align-items-cente">
+        <div class="branding d-flex align-items-cente">
 
-      <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="{{ route('dashboard') }}" class="logo d-flex align-items-center gap-2">
-          <img src="{{ asset('img/back-logo.png') }}" alt="Arimala Hospital" class="logo-img">
-          {{-- <span class="logo-title">
+            <div class="container position-relative d-flex align-items-center justify-content-between">
+                <a href="{{ route('dashboard') }}" class="logo d-flex align-items-center gap-2">
+                    <img src="{{ asset('img/back-logo.png') }}" alt="Arimala Hospital" class="logo-img">
+                    {{-- <span class="logo-title">
             Arimala Hospital
           </span> --}}
-        </a>
+                </a>
 
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="{{ route('dashboard') }}" class="active">Home</a></li>
-            <li><a href="{{ route('about') }}">About</a></li>
-            <li><a href="{{ route('service') }}">Services</a></li>
-            <li><a href="{{ route('career') }}">Career</a></li>
-            <li><a href="{{ route('doctors') }}">Doctors</a></li>
-            <li class="dropdown"><a href="#"><span>Departments</span> <i
-                  class="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-                <li>
-                  <a href="{{ route('departments') }}" class="dropdown-dept-link">
-                    <span class="dept-icon">
-                      <img src="{{ asset('img/background/SKETCH.jpg') }}" alt="Departments">
-                    </span>
-                    <span>Departments</span>
-                  </a>
-                </li>
-                <li> 
-                  <a href="{{ route('gallery') }}" class="dropdown-dept-link">
-                    <span class="dept-icon">
-                      <img src="{{ asset('img/background/Blog.jpg') }}" alt="Departments">
-                    </span>
-                    <span>Gallery</span>
-                  </a>
-                </li>
-                 <li> 
-                  <a href="{{ route('blog') }}" class="dropdown-dept-link">
-                    <span class="dept-icon">
-                      <img src="{{ asset('img/background/NURSE.jpg') }}" alt="Departments">
-                    </span>
-                    <span>Blog</span>
-                  </a>
-                </li>
-                 <li> 
-                  <a href="{{ route('faq') }}" class="dropdown-dept-link">
-                    <span class="dept-icon">
-                      <img src="{{ asset('img/background/faqq.png') }}" alt="Departments">
-                    </span>
-                    <span>FAQ</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li><a href="{{ route('ContactUs.index') }}">Contact</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-
-      </div>
-
-    </div>
-  </header>
-  <!-- Lottie container -->
-
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <div class="hero-content">
-              <br><br><br>
-              <div class="trust-badges mb-4" data-aos="fade-right" data-aos-delay="200">
-                <div class="badge-item">
-                  <i class="bi bi-shield-check"></i>
-                  <span>Accredited</span>
-                </div>
-                <div class="badge-item">
-                  <i class="bi bi-clock"></i>
-                  <span>24/7 Emergency</span>
-                </div>
-                <div class="badge-item">
-                  <i class="bi bi-star-fill"></i>
-                  <span>4.9/5 Rating</span>
-                </div>
-              </div>
-
-              <h1 data-aos="fade-right" data-aos-delay="300">
-                Excellence in <span class="highlight">Healthcare</span> With Compassionate Care
-              </h1>
-
-              <p class="hero-description" data-aos="fade-right" data-aos-delay="400">
-                Providing compassionate, patient-centered healthcare with advanced medical technology and a team of
-                experienced specialists. We are committed to delivering safe, reliable, and personalized treatment to
-                support your health and well-being at every stage of life.
-              </p>
-
-              <div class="hero-stats mb-4" data-aos="fade-right" data-aos-delay="500">
-                <div class="stat-item">
-                  <h3><span data-purecounter-start="0" data-purecounter-end="67" data-purecounter-duration="2"
-                      class="purecounter"></span>+</h3>
-                  <p>Years Experience</p>
-                </div>
-                <div class="stat-item">
-                  <h3><span data-purecounter-start="0" data-purecounter-end="5000" data-purecounter-duration="2"
-                      class="purecounter"></span>+</h3>
-                  <p>Patients Treated</p>
-                </div>
-                <div class="stat-item">
-                  <h3><span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="2"
-                      class="purecounter"></span>+</h3>
-                  <p>Medical Experts</p>
-                </div>
-              </div>
-
-
-
-              <div class="emergency-contact" data-aos="fade-right" data-aos-delay="700">
-                <div class="emergency-icon">
-                  <i class="bi bi-telephone-fill"></i>
-                </div>
-                <div class="emergency-info">
-                  <small>Emergency Hotline</small>
-                  <strong>+91 8281 240 560</strong>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="hero-visual" data-aos="fade-left" data-aos-delay="400">
-
-              <div class="main-image image-slider">
-                <!-- Slide 1 -->
-                <img src="{{ asset('img/arimala-slide.jpg') }}" alt="Modern Healthcare Facility"
-                  class="img-fluid slide active">
-
-                <!-- Slide 2 -->
-                <img src="{{ asset('img/arimala-slide.jpg') }}" alt="Advanced Hospital Infrastructure"
-                  class="img-fluid slide">
-              </div>
-              <div class="background-elements">
-                <div class="element element-1"></div>
-                <div class="element element-2"></div>
-                <div class="element element-3"></div>
-              </div>
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        <li><a href="{{ route('dashboard') }}" class="active">Home</a></li>
+                        <li><a href="{{ route('about') }}">About</a></li>
+                        <li><a href="{{ route('service') }}">Services</a></li>
+                        <li><a href="{{ route('career') }}">Career</a></li>
+                        <li><a href="{{ route('doctors') }}">Doctors</a></li>
+                        <li class="dropdown"><a href="#"><span>Departments</span> <i
+                                    class="bi bi-chevron-down toggle-dropdown"></i></a>
+                            <ul>
+                                <li>
+                                    <a href="{{ route('departments') }}" class="dropdown-dept-link">
+                                        <span class="dept-icon">
+                                            <img src="{{ asset('img/background/SKETCH.jpg') }}" alt="Departments">
+                                        </span>
+                                        <span>Departments</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('gallery') }}" class="dropdown-dept-link">
+                                        <span class="dept-icon">
+                                            <img src="{{ asset('img/background/Blog.jpg') }}" alt="Departments">
+                                        </span>
+                                        <span>Gallery</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('blog') }}" class="dropdown-dept-link">
+                                        <span class="dept-icon">
+                                            <img src="{{ asset('img/background/NURSE.jpg') }}" alt="Departments">
+                                        </span>
+                                        <span>Blog</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('faq') }}" class="dropdown-dept-link">
+                                        <span class="dept-icon">
+                                            <img src="{{ asset('img/background/faqq.png') }}" alt="Departments">
+                                        </span>
+                                        <span>FAQ</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ route('ContactUs.index') }}">Contact</a></li>
+                    </ul>
+                    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+                </nav>
 
             </div>
-          </div>
+
         </div>
-      </div>
-      <!-- Hero Popper Animation -->
-      <!-- Left Hero Popper -->
-      <div class="hero-popper popper-left" id="heroPopperLeft">
-        <iframe src="https://lottie.host/embed/36c5a82a-fa2c-4b1f-bbd8-415e665b23f6/2435EIhn07.lottie" frameborder="0"
-          allowfullscreen>
-        </iframe>
-      </div>
+    </header>
+    <!-- Lottie container -->
 
-      <!-- Right Hero Popper -->
-      <div class="hero-popper popper-right" id="heroPopperRight">
-        <iframe src="https://lottie.host/embed/36c5a82a-fa2c-4b1f-bbd8-415e665b23f6/2435EIhn07.lottie" frameborder="0"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </section>
+    <main class="main">
 
-    <!-- Home About Section -->
-    <section id="home-about" class="home-about section" style="
+        <!-- Hero Section -->
+        <section id="hero" class="hero section">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="hero-content">
+                            <br><br><br>
+                            <div class="trust-badges mb-4" data-aos="fade-right" data-aos-delay="200">
+                                <div class="badge-item">
+                                    <i class="bi bi-shield-check"></i>
+                                    <span>Accredited</span>
+                                </div>
+                                <div class="badge-item">
+                                    <i class="bi bi-clock"></i>
+                                    <span>24/7 Emergency</span>
+                                </div>
+                                <div class="badge-item">
+                                    <i class="bi bi-star-fill"></i>
+                                    <span>4.9/5 Rating</span>
+                                </div>
+                            </div>
+
+                            <h1 data-aos="fade-right" data-aos-delay="300">
+                                Excellence in <span class="highlight">Healthcare</span> With Compassionate Care
+                            </h1>
+
+                            <p class="hero-description" data-aos="fade-right" data-aos-delay="400">
+                                Providing compassionate, patient-centered healthcare with advanced medical technology
+                                and a team of
+                                experienced specialists. We are committed to delivering safe, reliable, and personalized
+                                treatment to
+                                support your health and well-being at every stage of life.
+                            </p>
+
+                            <div class="hero-stats mb-4" data-aos="fade-right" data-aos-delay="500">
+                                <div class="stat-item">
+                                    <h3><span data-purecounter-start="0" data-purecounter-end="67"
+                                            data-purecounter-duration="2" class="purecounter"></span>+</h3>
+                                    <p>Years Experience</p>
+                                </div>
+                                <div class="stat-item">
+                                    <h3><span data-purecounter-start="0" data-purecounter-end="5000"
+                                            data-purecounter-duration="2" class="purecounter"></span>+</h3>
+                                    <p>Patients Treated</p>
+                                </div>
+                                <div class="stat-item">
+                                    <h3><span data-purecounter-start="0" data-purecounter-end="50"
+                                            data-purecounter-duration="2" class="purecounter"></span>+</h3>
+                                    <p>Medical Experts</p>
+                                </div>
+                            </div>
+
+
+
+                            <div class="emergency-contact" data-aos="fade-right" data-aos-delay="700">
+                                <div class="emergency-icon">
+                                    <i class="bi bi-telephone-fill"></i>
+                                </div>
+                                <div class="emergency-info">
+                                    <small>Emergency Hotline</small>
+                                    <strong>+91 8281 240 560</strong>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="hero-visual" data-aos="fade-left" data-aos-delay="400">
+
+                            <div class="main-image image-slider">
+                                <!-- Slide 1 -->
+                                <img src="{{ asset('img/arimala-slide.jpg') }}" alt="Modern Healthcare Facility"
+                                    class="img-fluid slide active">
+
+                                <!-- Slide 2 -->
+                                <img src="{{ asset('img/arimala-slide.jpg') }}"
+                                    alt="Advanced Hospital Infrastructure" class="img-fluid slide">
+                            </div>
+                            <div class="background-elements">
+                                <div class="element element-1"></div>
+                                <div class="element element-2"></div>
+                                <div class="element element-3"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Hero Popper Animation -->
+            <!-- Left Hero Popper -->
+            <div class="hero-popper popper-left" id="heroPopperLeft">
+                <iframe src="https://lottie.host/embed/36c5a82a-fa2c-4b1f-bbd8-415e665b23f6/2435EIhn07.lottie"
+                    frameborder="0" allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- Right Hero Popper -->
+            <div class="hero-popper popper-right" id="heroPopperRight">
+                <iframe src="https://lottie.host/embed/36c5a82a-fa2c-4b1f-bbd8-415e665b23f6/2435EIhn07.lottie"
+                    frameborder="0" allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Home About Section -->
+        <section id="home-about" class="home-about section"
+            style="
   position: relative;
   background-image:
     url('{{ asset('img/background/BACKG.png') }}');
@@ -289,81 +292,87 @@
   background-position: center;
   background-repeat: no-repeat;
 ">
-      <div class="container glassy-box" data-aos="fade-up" data-aos-delay="100">
-        <div class="row align-items-center">
-          <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-delay="200">
-            <div class="about-content">
-              <h2 class="section-heading">Compassionate Care, Advanced Medicine</h2>
-              <p class="lead-text">
-                For more than two decades, Arimala Hospital has been dedicated to providing trusted healthcare by
-                combining
-                advanced medical technology with compassionate, personalized patient care.
-              </p>
-              <p>
-                Our team of experienced doctors, nurses, and healthcare professionals work together to deliver complete,
-                patient-centered care. From preventive health services to advanced treatments, we are committed to
-                maintaining
-                the highest standards of medical excellence while ensuring comfort, safety, and trust at every step of
-                care.
-              </p>
+            <div class="container glassy-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-delay="200">
+                        <div class="about-content">
+                            <h2 class="section-heading">Compassionate Care, Advanced Medicine</h2>
+                            <p class="lead-text">
+                                For more than two decades, Arimala Hospital has been dedicated to providing trusted
+                                healthcare by
+                                combining
+                                advanced medical technology with compassionate, personalized patient care.
+                            </p>
+                            <p>
+                                Our team of experienced doctors, nurses, and healthcare professionals work together to
+                                deliver complete,
+                                patient-centered care. From preventive health services to advanced treatments, we are
+                                committed to
+                                maintaining
+                                the highest standards of medical excellence while ensuring comfort, safety, and trust at
+                                every step of
+                                care.
+                            </p>
 
-              <div class="stats-grid">
-                <div class="stat-item">
-                  <div class="stat-number purecounter" data-purecounter-start="0" data-purecounter-end="15000"
-                    data-purecounter-duration="1"></div>
-                  <div class="stat-label">Patients Served</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-number purecounter" data-purecounter-start="0" data-purecounter-end="25"
-                    data-purecounter-duration="1"></div>
-                  <div class="stat-label">Years of Excellence</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-number purecounter" data-purecounter-start="0" data-purecounter-end="15"
-                    data-purecounter-duration="1"></div>
-                  <div class="stat-label">Medical Specialists</div>
-                </div>
-              </div>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-number purecounter" data-purecounter-start="0"
+                                        data-purecounter-end="15000" data-purecounter-duration="1"></div>
+                                    <div class="stat-label">Patients Served</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number purecounter" data-purecounter-start="0"
+                                        data-purecounter-end="25" data-purecounter-duration="1"></div>
+                                    <div class="stat-label">Years of Excellence</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number purecounter" data-purecounter-start="0"
+                                        data-purecounter-end="15" data-purecounter-duration="1"></div>
+                                    <div class="stat-label">Medical Specialists</div>
+                                </div>
+                            </div>
 
-              <div class="cta-section">
-                <a href="about.html" class="btn-primary">Learn More About Us</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
-            <div class="about-visual">
-              <div class="main-image">
-                <img src="{{ asset('img/arimalalabel.png') }}" alt="Modern medical facility" class="img-fluid">
-              </div>
-              <div class="floating-card">
-                <div class="card-content">
-                  <div class="icon">
-                    <i class="bi bi-heart-pulse"></i>
-                  </div>
-                  <div class="card-text">
-                    <h4>24/7 Emergency Care</h4>
-                    <p>Always here when you need us most</p>
-                  </div>
-
-                  <div class="experience-badge">
-                    <div class="badge-content">
-                      <span class="years">67+</span>
-                      <span class="text">Years of Trusted Care</span>
+                            <div class="cta-section">
+                                <a href="about.html" class="btn-primary">Learn More About Us</a>
+                            </div>
+                        </div>
                     </div>
-                  </div>
+
+                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+                        <div class="about-visual">
+                            <div class="main-image">
+                                <img src="{{ asset('img/arimalalabel.png') }}" alt="Modern medical facility"
+                                    class="img-fluid">
+                            </div>
+                            <div class="floating-card">
+                                <div class="card-content">
+                                    <div class="icon">
+                                        <i class="bi bi-heart-pulse"></i>
+                                    </div>
+                                    <div class="card-text">
+                                        <h4>24/7 Emergency Care</h4>
+                                        <p>Always here when you need us most</p>
+                                    </div>
+
+                                    <div class="experience-badge">
+                                        <div class="badge-content">
+                                            <span class="years">67+</span>
+                                            <span class="text">Years of Trusted Care</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+
             </div>
-          </div>
-        </div>
 
-      </div>
+        </section><!-- /Home About Section -->
 
-    </section><!-- /Home About Section -->
-
-    <!-- Featured Departments Section -->
-    <section id="featured-departments" class="featured-departments section" style="
+        <!-- Featured Departments Section -->
+        <section id="featured-departments" class="featured-departments section"
+            style="
   position: relative;
   background-image:
     linear-gradient(rgba(16, 122, 124, 0.35), rgba(16, 122, 124, 0.35)),
@@ -372,289 +381,302 @@
   background-position: center;
   background-repeat: no-repeat;
 ">
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Featured Departments</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Featured Departments</h2>
+                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row g-5">
+                <div class="row g-5">
 
-          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
-            <div class="specialty-card">
-              <div class="specialty-content">
-                <div class="specialty-meta">
-                  <span class="specialty-label">Specialized Care</span>
+                    <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="specialty-card">
+                            <div class="specialty-content">
+                                <div class="specialty-meta">
+                                    <span class="specialty-label">Specialized Care</span>
+                                </div>
+                                <h3>Cardiovascular Medicine</h3>
+                                <p>Advanced diagnostic imaging and interventional procedures for comprehensive heart
+                                    health management
+                                    with personalized treatment protocols.</p>
+                                <div class="specialty-features">
+                                    <span><i class="bi bi-check-circle-fill"></i>24/7 Emergency Cardiac Care</span>
+                                    <span><i class="bi bi-check-circle-fill"></i>Minimally Invasive Procedures</span>
+                                </div>
+                                <a href="department-details.html" class="specialty-link">
+                                    Explore Cardiology <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="specialty-visual">
+                                <img src="{{ asset('img/Arimala-img1.png') }}" alt="Cardiovascular Medicine"
+                                    class="img-fluid">
+                                <div class="visual-overlay">
+                                    <i class="bi bi-heart-pulse"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End Specialty Card -->
+
+                    <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="specialty-card">
+                            <div class="specialty-content">
+                                <div class="specialty-meta">
+                                    <span class="specialty-label">Expert Care</span>
+                                </div>
+                                <h3>Neurological Sciences</h3>
+                                <p>Cutting-edge neuroimaging and neurosurgical expertise for complex brain and spinal
+                                    cord conditions
+                                    with innovative treatment approaches.</p>
+                                <div class="specialty-features">
+                                    <span><i class="bi bi-check-circle-fill"></i>Advanced Brain Imaging</span>
+                                    <span><i class="bi bi-check-circle-fill"></i>Robotic Surgery</span>
+                                </div>
+                                <a href="department-details.html" class="specialty-link">
+                                    Explore Neurology <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="specialty-visual">
+                                <img src="{{ asset('img/health/neurology-4.webp') }}" alt="Neurological Sciences"
+                                    class="img-fluid">
+                                <div class="visual-overlay">
+                                    <i class="bi bi-cpu"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End Specialty Card -->
+
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="department-highlight">
+                            <div class="highlight-icon">
+                                <i class="bi bi-shield-plus"></i>
+                            </div>
+                            <h4>Orthopedic Surgery</h4>
+                            <p>Comprehensive musculoskeletal care utilizing advanced arthroscopic techniques and joint
+                                replacement
+                                procedures.</p>
+                            <ul class="highlight-list">
+                                <li>Sports Medicine</li>
+                                <li>Joint Replacement</li>
+                                <li>Spine Surgery</li>
+                            </ul>
+                            <a href="department-details.html" class="highlight-cta">Learn More</a>
+                        </div>
+                    </div><!-- End Department Highlight -->
+
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="department-highlight">
+                            <div class="highlight-icon">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <h4>Pediatric Care</h4>
+                            <p>Child-centered healthcare services from newborn to adolescence with family-focused
+                                treatment
+                                approaches.</p>
+                            <ul class="highlight-list">
+                                <li>Neonatal Intensive Care</li>
+                                <li>Developmental Pediatrics</li>
+                                <li>Pediatric Surgery</li>
+                            </ul>
+                            <a href="department-details.html" class="highlight-cta">Learn More</a>
+                        </div>
+                    </div><!-- End Department Highlight -->
+
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="department-highlight">
+                            <div class="highlight-icon">
+                                <i class="bi bi-activity"></i>
+                            </div>
+                            <h4>Cancer Treatment</h4>
+                            <p>Multidisciplinary oncology program offering personalized cancer care with latest
+                                therapeutic
+                                innovations.</p>
+                            <ul class="highlight-list">
+                                <li>Precision Medicine</li>
+                                <li>Immunotherapy</li>
+                                <li>Radiation Oncology</li>
+                            </ul>
+                            <a href="department-details.html" class="highlight-cta">Learn More</a>
+                        </div>
+                    </div><!-- End Department Highlight -->
+
                 </div>
-                <h3>Cardiovascular Medicine</h3>
-                <p>Advanced diagnostic imaging and interventional procedures for comprehensive heart health management
-                  with personalized treatment protocols.</p>
-                <div class="specialty-features">
-                  <span><i class="bi bi-check-circle-fill"></i>24/7 Emergency Cardiac Care</span>
-                  <span><i class="bi bi-check-circle-fill"></i>Minimally Invasive Procedures</span>
+
+                <div class="emergency-banner" data-aos="fade-up" data-aos-delay="400">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <div class="emergency-content">
+                                <h3>Emergency Services Available 24/7</h3>
+                                <p>Our emergency department is equipped with state-of-the-art technology and staffed by
+                                    board-certified
+                                    emergency physicians ready to provide immediate care.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-lg-end">
+                            <a href="tel:918281240560" class="emergency-btn">
+                                <i class="bi bi-telephone-fill"></i>
+                                Call Emergency: +91 8281 240 560
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <a href="department-details.html" class="specialty-link">
-                  Explore Cardiology <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-              <div class="specialty-visual">
-                <img src="{{ asset('img/Arimala-img1.png') }}" alt="Cardiovascular Medicine" class="img-fluid">
-                <div class="visual-overlay">
-                  <i class="bi bi-heart-pulse"></i>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Specialty Card -->
-
-          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
-            <div class="specialty-card">
-              <div class="specialty-content">
-                <div class="specialty-meta">
-                  <span class="specialty-label">Expert Care</span>
-                </div>
-                <h3>Neurological Sciences</h3>
-                <p>Cutting-edge neuroimaging and neurosurgical expertise for complex brain and spinal cord conditions
-                  with innovative treatment approaches.</p>
-                <div class="specialty-features">
-                  <span><i class="bi bi-check-circle-fill"></i>Advanced Brain Imaging</span>
-                  <span><i class="bi bi-check-circle-fill"></i>Robotic Surgery</span>
-                </div>
-                <a href="department-details.html" class="specialty-link">
-                  Explore Neurology <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-              <div class="specialty-visual">
-                <img src="{{ asset('img/health/neurology-4.webp') }}" alt="Neurological Sciences" class="img-fluid">
-                <div class="visual-overlay">
-                  <i class="bi bi-cpu"></i>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Specialty Card -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="department-highlight">
-              <div class="highlight-icon">
-                <i class="bi bi-shield-plus"></i>
-              </div>
-              <h4>Orthopedic Surgery</h4>
-              <p>Comprehensive musculoskeletal care utilizing advanced arthroscopic techniques and joint replacement
-                procedures.</p>
-              <ul class="highlight-list">
-                <li>Sports Medicine</li>
-                <li>Joint Replacement</li>
-                <li>Spine Surgery</li>
-              </ul>
-              <a href="department-details.html" class="highlight-cta">Learn More</a>
-            </div>
-          </div><!-- End Department Highlight -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="department-highlight">
-              <div class="highlight-icon">
-                <i class="bi bi-people"></i>
-              </div>
-              <h4>Pediatric Care</h4>
-              <p>Child-centered healthcare services from newborn to adolescence with family-focused treatment
-                approaches.</p>
-              <ul class="highlight-list">
-                <li>Neonatal Intensive Care</li>
-                <li>Developmental Pediatrics</li>
-                <li>Pediatric Surgery</li>
-              </ul>
-              <a href="department-details.html" class="highlight-cta">Learn More</a>
-            </div>
-          </div><!-- End Department Highlight -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="department-highlight">
-              <div class="highlight-icon">
-                <i class="bi bi-activity"></i>
-              </div>
-              <h4>Cancer Treatment</h4>
-              <p>Multidisciplinary oncology program offering personalized cancer care with latest therapeutic
-                innovations.</p>
-              <ul class="highlight-list">
-                <li>Precision Medicine</li>
-                <li>Immunotherapy</li>
-                <li>Radiation Oncology</li>
-              </ul>
-              <a href="department-details.html" class="highlight-cta">Learn More</a>
-            </div>
-          </div><!-- End Department Highlight -->
-
-        </div>
-
-        <div class="emergency-banner" data-aos="fade-up" data-aos-delay="400">
-          <div class="row align-items-center">
-            <div class="col-lg-8">
-              <div class="emergency-content">
-                <h3>Emergency Services Available 24/7</h3>
-                <p>Our emergency department is equipped with state-of-the-art technology and staffed by board-certified
-                  emergency physicians ready to provide immediate care.</p>
-              </div>
-            </div>
-            <div class="col-lg-4 text-lg-end">
-              <a href="tel:918281240560" class="emergency-btn">
-                <i class="bi bi-telephone-fill"></i>
-                Call Emergency: +91 8281 240 560
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Featured Departments Section -->
-
-    <!-- Featured Services Section -->
-    <section id="featured-services" class="featured-services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Our Featured Services</h2>
-        <p>
-          Arimala Hospital delivers advanced medical care with compassion, combining
-          expert doctors, modern technology, and patient-centered treatment to ensure
-          the best health outcomes.
-        </p>
-      </div><!-- End Section Title -->
-
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row g-0">
-
-          <div class="col-lg-8" data-aos="fade-right" data-aos-delay="200">
-            <div class="featured-service-main">
-              <div class="service-image-wrapper">
-                <img src="{{ asset('img/health/consultation-4.webp') }}" alt="Premier Healthcare Services"
-                  class="img-fluid" loading="lazy">
-                <div class="service-overlay">
-                  <div class="service-badge">
-                    <i class="bi bi-heart-pulse"></i>
-                    <span>Emergency Care</span>
-                  </div>
-                </div>
-              </div>
-              <div class="service-details">
-                <h2>Comprehensive Healthcare Excellence</h2>
-                <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ante ipsum primis in faucibus
-                  orci luctus et ultrices posuere cubilia curae donec velit neque.</p>
-                <a href="#!" class="main-cta">Explore Our Services</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-left" data-aos-delay="300">
-            <div class="services-sidebar">
-
-              <div class="service-item" data-aos="fade-up" data-aos-delay="400">
-                <div class="service-icon-wrapper">
-                  <i class="bi bi-capsule"></i>
-                </div>
-                <div class="service-info">
-                  <h4>Dermatology Clinic</h4>
-                  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                  <a href="#!" class="service-link">Learn More</a>
-                </div>
-              </div>
-
-              <div class="service-item" data-aos="fade-up" data-aos-delay="500">
-                <div class="service-icon-wrapper">
-                  <i class="bi bi-bandaid"></i>
-                </div>
-                <div class="service-info">
-                  <h4>Surgery Center</h4>
-                  <p>Donec rutrum congue leo eget malesuada curabitur arcu erat accumsan id imperdiet et porttitor at
-                    sem.</p>
-                  <a href="#!" class="service-link">Learn More</a>
-                </div>
-              </div>
-
-              <div class="service-item" data-aos="fade-up" data-aos-delay="600">
-                <div class="service-icon-wrapper">
-                  <i class="bi bi-activity"></i>
-                </div>
-                <div class="service-info">
-                  <h4>Diagnostics Lab</h4>
-                  <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui cras ultricies ligula sed
-                    magna.</p>
-                  <a href="#!" class="service-link">Learn More</a>
-                </div>
-              </div>
 
             </div>
-          </div>
 
-        </div>
+        </section><!-- /Featured Departments Section -->
 
-        <div class="specialties-grid" data-aos="fade-up" data-aos-delay="300">
-          <div class="row align-items-center">
+        <!-- Featured Services Section -->
+        <section id="featured-services" class="featured-services section">
 
-            <div class="col-lg-3 col-md-6">
-              <div class="specialty-card">
-                <div class="specialty-image">
-                  <img src="{{ asset('img/health/maternal-2.webp') }}" alt="Maternal Care" class="img-fluid"
-                    loading="lazy">
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Our Featured Services</h2>
+                <p>
+                    Arimala Hospital delivers advanced medical care with compassion, combining
+                    expert doctors, modern technology, and patient-centered treatment to ensure
+                    the best health outcomes.
+                </p>
+            </div><!-- End Section Title -->
+
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row g-0">
+
+                    <div class="col-lg-8" data-aos="fade-right" data-aos-delay="200">
+                        <div class="featured-service-main">
+                            <div class="service-image-wrapper">
+                                <img src="{{ asset('img/health/consultation-4.webp') }}"
+                                    alt="Premier Healthcare Services" class="img-fluid" loading="lazy">
+                                <div class="service-overlay">
+                                    <div class="service-badge">
+                                        <i class="bi bi-heart-pulse"></i>
+                                        <span>Emergency Care</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-details">
+                                <h2>Comprehensive Healthcare Excellence</h2>
+                                <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ante ipsum
+                                    primis in faucibus
+                                    orci luctus et ultrices posuere cubilia curae donec velit neque.</p>
+                                <a href="#!" class="main-cta">Explore Our Services</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" data-aos="fade-left" data-aos-delay="300">
+                        <div class="services-sidebar">
+
+                            <div class="service-item" data-aos="fade-up" data-aos-delay="400">
+                                <div class="service-icon-wrapper">
+                                    <i class="bi bi-capsule"></i>
+                                </div>
+                                <div class="service-info">
+                                    <h4>Dermatology Clinic</h4>
+                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
+                                        turpis egestas.</p>
+                                    <a href="#!" class="service-link">Learn More</a>
+                                </div>
+                            </div>
+
+                            <div class="service-item" data-aos="fade-up" data-aos-delay="500">
+                                <div class="service-icon-wrapper">
+                                    <i class="bi bi-bandaid"></i>
+                                </div>
+                                <div class="service-info">
+                                    <h4>Surgery Center</h4>
+                                    <p>Donec rutrum congue leo eget malesuada curabitur arcu erat accumsan id imperdiet
+                                        et porttitor at
+                                        sem.</p>
+                                    <a href="#!" class="service-link">Learn More</a>
+                                </div>
+                            </div>
+
+                            <div class="service-item" data-aos="fade-up" data-aos-delay="600">
+                                <div class="service-icon-wrapper">
+                                    <i class="bi bi-activity"></i>
+                                </div>
+                                <div class="service-info">
+                                    <h4>Diagnostics Lab</h4>
+                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui cras
+                                        ultricies ligula sed
+                                        magna.</p>
+                                    <a href="#!" class="service-link">Learn More</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
-                <div class="specialty-content">
-                  <h5>Maternal Care</h5>
-                  <span>Expert pregnancy &amp; delivery support</span>
+
+                <div class="specialties-grid" data-aos="fade-up" data-aos-delay="300">
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="specialty-card">
+                                <div class="specialty-image">
+                                    <img src="{{ asset('img/health/maternal-2.webp') }}" alt="Maternal Care"
+                                        class="img-fluid" loading="lazy">
+                                </div>
+                                <div class="specialty-content">
+                                    <h5>Maternal Care</h5>
+                                    <span>Expert pregnancy &amp; delivery support</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="specialty-card">
+                                <div class="specialty-image">
+                                    <img src="{{ asset('img/health/vaccination-3.webp') }}" alt="Vaccination"
+                                        class="img-fluid" loading="lazy">
+                                </div>
+                                <div class="specialty-content">
+                                    <h5>Vaccination</h5>
+                                    <span>Complete immunization programs</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="specialty-card">
+                                <div class="specialty-image">
+                                    <img src="{{ asset('img/health/emergency-1.webp') }}" alt="Emergency Care"
+                                        class="img-fluid" loading="lazy">
+                                </div>
+                                <div class="specialty-content">
+                                    <h5>Emergency Care</h5>
+                                    <span>24/7 critical care services</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="specialty-card">
+                                <div class="specialty-image">
+                                    <img src="{{ asset('img/health/facilities-6.webp') }}" alt="Advanced Tech"
+                                        class="img-fluid" loading="lazy">
+                                </div>
+                                <div class="specialty-content">
+                                    <h5>Advanced Technology</h5>
+                                    <span>State-of-the-art medical equipment</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-              </div>
+
             </div>
 
-            <div class="col-lg-3 col-md-6">
-              <div class="specialty-card">
-                <div class="specialty-image">
-                  <img src="{{ asset('img/health/vaccination-3.webp') }}" alt="Vaccination" class="img-fluid"
-                    loading="lazy">
-                </div>
-                <div class="specialty-content">
-                  <h5>Vaccination</h5>
-                  <span>Complete immunization programs</span>
-                </div>
-              </div>
-            </div>
+        </section><!-- /Featured Services Section -->
 
-            <div class="col-lg-3 col-md-6">
-              <div class="specialty-card">
-                <div class="specialty-image">
-                  <img src="{{ asset('img/health/emergency-1.webp') }}" alt="Emergency Care" class="img-fluid"
-                    loading="lazy">
-                </div>
-                <div class="specialty-content">
-                  <h5>Emergency Care</h5>
-                  <span>24/7 critical care services</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-              <div class="specialty-card">
-                <div class="specialty-image">
-                  <img src="{{ asset('img/health/facilities-6.webp') }}" alt="Advanced Tech" class="img-fluid"
-                    loading="lazy">
-                </div>
-                <div class="specialty-content">
-                  <h5>Advanced Technology</h5>
-                  <span>State-of-the-art medical equipment</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Featured Services Section -->
-
-    <!-- Find A Doctor Section -->
-    <section id="find-a-doctor" class="find-a-doctor section" style="
+        <!-- Find A Doctor Section -->
+        <section id="find-a-doctor" class="find-a-doctor section"
+            style="
     position: relative;
     background-image: url('{{ asset('img/background/bluely1.jpg') }}');
     background-size: cover;
@@ -662,553 +684,570 @@
     background-repeat: no-repeat;
   ">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Find A Doctor</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Find A Doctor</h2>
+                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row justify-content-center mb-5" data-aos="fade-up" data-aos-delay="200">
-          <div class="col-lg-8 text-center">
-            <div class="search-section">
-              <h3 class="search-title">Find Your Perfect Healthcare Provider</h3>
-              <p class="search-subtitle">Search through our comprehensive directory of experienced medical professionals
-              </p>
-              <form class="search-form" action="#!" method="#">
-                <div class="search-input-group">
-                  <div class="input-wrapper">
-                    <i class="bi bi-person"></i>
-                    <input type="text" class="form-control" name="doctor_name" placeholder="Enter doctor name">
-                  </div>
-                  <div class="select-wrapper">
-                    <i class="bi bi-heart-pulse"></i>
-                    <select class="form-select" name="specialty">
-                      <option value="">All Specialties</option>
-                      <option value="cardiology">Cardiology</option>
-                      <option value="neurology">Neurology</option>
-                      <option value="orthopedics">Orthopedics</option>
-                      <option value="pediatrics">Pediatrics</option>
-                      <option value="dermatology">Dermatology</option>
-                      <option value="oncology">Oncology</option>
-                    </select>
-                  </div>
-                  <button type="submit" class="search-btn">
-                    <i class="bi bi-search"></i>
-                    Find Doctors
-                  </button>
+                <div class="row justify-content-center mb-5" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-lg-8 text-center">
+                        <div class="search-section">
+                            <h3 class="search-title">Find Your Perfect Healthcare Provider</h3>
+                            <p class="search-subtitle">Search through our comprehensive directory of experienced
+                                medical professionals
+                            </p>
+                            <form class="search-form" action="#!" method="#">
+                                <div class="search-input-group">
+                                    <div class="input-wrapper">
+                                        <i class="bi bi-person"></i>
+                                        <input type="text" class="form-control" name="doctor_name"
+                                            placeholder="Enter doctor name">
+                                    </div>
+                                    <div class="select-wrapper">
+                                        <i class="bi bi-heart-pulse"></i>
+                                        <select class="form-select" name="specialty">
+                                            <option value="">All Specialties</option>
+                                            <option value="cardiology">Cardiology</option>
+                                            <option value="neurology">Neurology</option>
+                                            <option value="orthopedics">Orthopedics</option>
+                                            <option value="pediatrics">Pediatrics</option>
+                                            <option value="dermatology">Dermatology</option>
+                                            <option value="oncology">Oncology</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="search-btn">
+                                        <i class="bi bi-search"></i>
+                                        Find Doctors
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-              </form>
+
+                <div class="doctors-grid" data-aos="fade-up" data-aos-delay="300">
+                    <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="profile-header">
+                            <div class="doctor-avatar">
+                                <img src="{{ asset('img/health/staff-2.webp') }}" alt="Dr. Amanda Foster"
+                                    class="img-fluid">
+                                <div class="status-indicator available"></div>
+                            </div>
+                            <div class="doctor-details">
+                                <h4>Dr. Amanda Foster</h4>
+                                <span class="specialty-tag">Cardiology Specialist</span>
+                                <div class="experience-info">
+                                    <i class="bi bi-award"></i>
+                                    <span>14 years experience</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating-section">
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <span class="rating-score">4.9</span>
+                            <span class="review-count">(127 reviews)</span>
+                        </div>
+                        <div class="action-buttons">
+                            <a href="#!" class="btn-secondary">View Details</a>
+
+                        </div>
+                    </div><!-- End Doctor Profile -->
+
+                    <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="profile-header">
+                            <div class="doctor-avatar">
+                                <img src="{{ asset('img/health/staff-6.webp') }}" alt="Dr. Marcus Johnson"
+                                    class="img-fluid">
+                                <div class="status-indicator busy"></div>
+                            </div>
+                            <div class="doctor-details">
+                                <h4>Dr. Marcus Johnson</h4>
+                                <span class="specialty-tag">Neurology Expert</span>
+                                <div class="experience-info">
+                                    <i class="bi bi-award"></i>
+                                    <span>16 years experience</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating-section">
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                            <span class="rating-score">4.8</span>
+                            <span class="review-count">(89 reviews)</span>
+                        </div>
+                        <div class="action-buttons">
+                            <a href="#!" class="btn-secondary">View Details</a>
+
+                        </div>
+                    </div><!-- End Doctor Profile -->
+
+                    <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="profile-header">
+                            <div class="doctor-avatar">
+                                <img src="{{ asset('img/health/staff-4.webp') }}" alt="Dr. Rachel Williams"
+                                    class="img-fluid">
+                                <div class="status-indicator available"></div>
+                            </div>
+                            <div class="doctor-details">
+                                <h4>Dr. Rachel Williams</h4>
+                                <span class="specialty-tag">Pediatrics Care</span>
+                                <div class="experience-info">
+                                    <i class="bi bi-award"></i>
+                                    <span>11 years experience</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating-section">
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <span class="rating-score">5.0</span>
+                            <span class="review-count">(203 reviews)</span>
+                        </div>
+                        <div class="action-buttons">
+                            <a href="#!" class="btn-secondary">View Details</a>
+
+                        </div>
+                    </div><!-- End Doctor Profile -->
+
+                    <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="profile-header">
+                            <div class="doctor-avatar">
+                                <img src="{{ asset('img/health/staff-8.webp') }}" alt="Dr. David Chen"
+                                    class="img-fluid">
+                                <div class="status-indicator offline"></div>
+                            </div>
+                            <div class="doctor-details">
+                                <h4>Dr. David Chen</h4>
+                                <span class="specialty-tag">Orthopedic Surgery</span>
+                                <div class="experience-info">
+                                    <i class="bi bi-award"></i>
+                                    <span>22 years experience</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating-section">
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                            <span class="rating-score">4.7</span>
+                            <span class="review-count">(156 reviews)</span>
+                        </div>
+                        <div class="action-buttons">
+                            <a href="#!" class="btn-secondary">View Details</a>
+
+                        </div>
+                    </div><!-- End Doctor Profile -->
+
+                    <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="profile-header">
+                            <div class="doctor-avatar">
+                                <img src="assets/img/health/staff-11.webp" alt="Dr. Victoria Torres"
+                                    class="img-fluid">
+                                <div class="status-indicator available"></div>
+                            </div>
+                            <div class="doctor-details">
+                                <h4>Dr. Victoria Torres</h4>
+                                <span class="specialty-tag">Dermatology Care</span>
+                                <div class="experience-info">
+                                    <i class="bi bi-award"></i>
+                                    <span>9 years experience</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating-section">
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <span class="rating-score">4.5</span>
+                            <span class="review-count">(74 reviews)</span>
+                        </div>
+                        <div class="action-buttons">
+                            <a href="#!" class="btn-secondary">View Details</a>
+
+                        </div>
+                    </div><!-- End Doctor Profile -->
+
+                    <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="600">
+                        <div class="profile-header">
+                            <div class="doctor-avatar">
+                                <img src="{{ asset('img/health/staff-14.webp') }}" alt="Dr. Benjamin Lee"
+                                    class="img-fluid">
+                                <div class="status-indicator available"></div>
+                            </div>
+                            <div class="doctor-details">
+                                <h4>Dr. Benjamin Lee</h4>
+                                <span class="specialty-tag">Oncology Treatment</span>
+                                <div class="experience-info">
+                                    <i class="bi bi-award"></i>
+                                    <span>19 years experience</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating-section">
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <span class="rating-score">4.9</span>
+                            <span class="review-count">(194 reviews)</span>
+                        </div>
+                        <div class="action-buttons">
+                            <a href="#!" class="btn-secondary">View Details</a>
+
+                        </div>
+                    </div><!-- End Doctor Profile -->
+
+                </div>
+
+                <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="700">
+                    <a href="doctors.html" class="btn-view-all">
+                        View All Doctors
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+
             </div>
-          </div>
+
+        </section><!-- /Find A Doctor Section -->
+
+        <!-- Call To Action Section -->
+        <section id="call-to-action" class="call-to-action section light-background">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="hero-content">
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-6">
+                            <div class="content-wrapper" data-aos="fade-up" data-aos-delay="200">
+                                <h1>Excellence in Medical Care, Every Day</h1>
+                                <p>
+                                    Arimala Hospital is committed to delivering compassionate, high-quality healthcare
+                                    with a
+                                    patient-first approach.
+                                    Our team of experienced doctors and medical professionals use advanced technology to
+                                    provide accurate
+                                    diagnosis,
+                                    effective treatment, and comprehensive care for every patient.
+                                </p>
+
+
+                                <div class="cta-wrapper">
+                                    <a href="appointment.html" class="primary-cta">
+                                        <span>Schedule Consultation</span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                    <a href="services.html" class="secondary-cta">
+                                        <span>Explore Services</span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="image-container" data-aos="fade-left" data-aos-delay="300">
+                                <img src="{{ asset('img/health/facilities-9.webp') }}" alt="Medical Excellence"
+                                    class="img-fluid">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="features-section">
+
+                    <div class="row g-0">
+
+                        <div class="col-lg-4">
+                            <div class="feature-block" data-aos="fade-up" data-aos-delay="200">
+                                <div class="feature-icon">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+                                <h3>Advanced Technology</h3>
+                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                    mollit anim id est
+                                    laborum.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="feature-block" data-aos="fade-up" data-aos-delay="300">
+                                <div class="feature-icon">
+                                    <i class="bi bi-clock"></i>
+                                </div>
+                                <h3>24/7 Availability</h3>
+                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                    fugiat nulla pariatur
+                                    excepteur.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="feature-block" data-aos="fade-up" data-aos-delay="400">
+                                <div class="feature-icon">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                                <h3>Expert Team</h3>
+                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                                    laudantium
+                                    totam rem.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="contact-block">
+                    <div class="row">
+
+                        <div class="col-lg-8">
+                            <div class="contact-content" data-aos="fade-up" data-aos-delay="200">
+                                <h2>Need Immediate Medical Assistance?</h2>
+                                <p>Our emergency response team is available around the clock to provide immediate
+                                    medical support when
+                                    you need it most.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="contact-actions" data-aos="fade-up" data-aos-delay="300">
+                                <a href="tel:918281240560" class="emergency-call">
+                                    <i class="bi bi-telephone"></i>
+                                    <span>+91 8281 240 560</span>
+                                </a>
+                                <a href="contact.html" class="contact-link">Find Location</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer" class="footer-16 footer position-relative">
+
+        <div class="container">
+
+            <div class="footer-main" data-aos="fade-up" data-aos-delay="100">
+                <div class="row align-items-start">
+
+                    <div class="col-lg-5">
+                        <div class="brand-section">
+                            <a href="index.html" class="logo footer-logo d-flex align-items-center mb-4">
+                                <img src="{{ asset('img/logo1.jpg') }}" class="footer-logo" alt="Logo">
+                            </a>
+                            <p class="brand-description">Committed to delivering trusted healthcare services with
+                                modern facilities,
+                                experienced doctors, and a patient-first approach at Arimala Hospital.</p>
+
+                            <div class="contact-info mt-5">
+                                <div class="contact-item">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <span>Arimala Hospital, Near Railway Station, Kanhangad, Kerala 671315</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <span>+91 8281 240 560</span>
+
+                                    <i class="fa-solid fa-phone"></i>
+                                    <span>0467 220 4560</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="bi bi-envelope"></i>
+                                    <span>arimalahospital@gmail.com</span>
+                                    <span>hrarimala@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <div class="footer-nav-wrapper">
+                            <div class="row">
+
+                                <div class="col-6 col-lg-3">
+                                    <div class="nav-column">
+                                        <h6>Studio</h6>
+                                        <nav class="footer-nav">
+                                            <a href="#!">Our Story</a>
+                                            <a href="#!">Design Process</a>
+                                            <a href="#!">Portfolio</a>
+                                            <a href="#!">Case Studies</a>
+                                            <a href="#!">Awards</a>
+                                        </nav>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-lg-3">
+                                    <div class="nav-column">
+                                        <h6>Services</h6>
+                                        <nav class="footer-nav">
+                                            <a href="#!">Brand Identity</a>
+                                            <a href="#!">Web Design</a>
+                                            <a href="#!">Mobile Apps</a>
+                                            <a href="#!">Digital Strategy</a>
+                                            <a href="#!">Consultation</a>
+                                        </nav>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-lg-3">
+                                    <div class="nav-column">
+                                        <h6>Resources</h6>
+                                        <nav class="footer-nav">
+                                            <a href="#!">Design Blog</a>
+                                            <a href="#!">Style Guide</a>
+                                            <a href="#!">Free Assets</a>
+                                            <a href="#!">Tutorials</a>
+                                            <a href="#!">Inspiration</a>
+                                        </nav>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-lg-3">
+                                    <div class="nav-column">
+                                        <h6>Connect</h6>
+                                        <nav class="footer-nav">
+                                            <a href="#!">Start Project</a>
+                                            <a href="#!">Schedule Call</a>
+                                            <a href="#!">Join Newsletter</a>
+                                            <a href="#!">Follow Updates</a>
+                                            <a href="#!">Partnership</a>
+                                        </nav>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
 
-        <div class="doctors-grid" data-aos="fade-up" data-aos-delay="300">
-          <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="100">
-            <div class="profile-header">
-              <div class="doctor-avatar">
-                <img src="{{ asset('img/health/staff-2.webp') }}" alt="Dr. Amanda Foster" class="img-fluid">
-                <div class="status-indicator available"></div>
-              </div>
-              <div class="doctor-details">
-                <h4>Dr. Amanda Foster</h4>
-                <span class="specialty-tag">Cardiology Specialist</span>
-                <div class="experience-info">
-                  <i class="bi bi-award"></i>
-                  <span>14 years experience</span>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="bottom-content" data-aos="fade-up" data-aos-delay="300">
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-6">
+                            <div class="copyright">
+                                <div class="text-center py-3">
+                                    <small>© <a href="#" class="text-decoration-none"
+                                            style="color: #ffccff;">2026 Arimala Hospital</a> -
+                                        All Rights Reserved.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-            <div class="rating-section">
-              <div class="stars">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-              </div>
-              <span class="rating-score">4.9</span>
-              <span class="review-count">(127 reviews)</span>
-            </div>
-            <div class="action-buttons">
-              <a href="#!" class="btn-secondary">View Details</a>
+        </div>
+    </footer>
 
-            </div>
-          </div><!-- End Doctor Profile -->
+    <!-- Scroll Top -->
+    <a href="#!" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-          <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="200">
-            <div class="profile-header">
-              <div class="doctor-avatar">
-                <img src="{{ asset('img/health/staff-6.webp') }}" alt="Dr. Marcus Johnson" class="img-fluid">
-                <div class="status-indicator busy"></div>
-              </div>
-              <div class="doctor-details">
-                <h4>Dr. Marcus Johnson</h4>
-                <span class="specialty-tag">Neurology Expert</span>
-                <div class="experience-info">
-                  <i class="bi bi-award"></i>
-                  <span>16 years experience</span>
-                </div>
-              </div>
-            </div>
-            <div class="rating-section">
-              <div class="stars">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-half"></i>
-              </div>
-              <span class="rating-score">4.8</span>
-              <span class="review-count">(89 reviews)</span>
-            </div>
-            <div class="action-buttons">
-              <a href="#!" class="btn-secondary">View Details</a>
+    <!-- Preloader -->
+    <div id="preloader"></div>
 
-            </div>
-          </div><!-- End Doctor Profile -->
+    <div id="chatFloatingWrap">
 
-          <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="300">
-            <div class="profile-header">
-              <div class="doctor-avatar">
-                <img src="{{ asset('img/health/staff-4.webp') }}" alt="Dr. Rachel Williams" class="img-fluid">
-                <div class="status-indicator available"></div>
-              </div>
-              <div class="doctor-details">
-                <h4>Dr. Rachel Williams</h4>
-                <span class="specialty-tag">Pediatrics Care</span>
-                <div class="experience-info">
-                  <i class="bi bi-award"></i>
-                  <span>11 years experience</span>
-                </div>
-              </div>
-            </div>
-            <div class="rating-section">
-              <div class="stars">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-              </div>
-              <span class="rating-score">5.0</span>
-              <span class="review-count">(203 reviews)</span>
-            </div>
-            <div class="action-buttons">
-              <a href="#!" class="btn-secondary">View Details</a>
+        <!-- Social Icons FIRST (so they appear above the chat button) -->
+        <div class="social-icons">
+            <a href="https://wa.me/919XXXXXXXXX" target="_blank" class="whatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
 
-            </div>
-          </div><!-- End Doctor Profile -->
-
-          <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="400">
-            <div class="profile-header">
-              <div class="doctor-avatar">
-                <img src="{{ asset('img/health/staff-8.webp') }}" alt="Dr. David Chen" class="img-fluid">
-                <div class="status-indicator offline"></div>
-              </div>
-              <div class="doctor-details">
-                <h4>Dr. David Chen</h4>
-                <span class="specialty-tag">Orthopedic Surgery</span>
-                <div class="experience-info">
-                  <i class="bi bi-award"></i>
-                  <span>22 years experience</span>
-                </div>
-              </div>
-            </div>
-            <div class="rating-section">
-              <div class="stars">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-half"></i>
-              </div>
-              <span class="rating-score">4.7</span>
-              <span class="review-count">(156 reviews)</span>
-            </div>
-            <div class="action-buttons">
-              <a href="#!" class="btn-secondary">View Details</a>
-
-            </div>
-          </div><!-- End Doctor Profile -->
-
-          <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="500">
-            <div class="profile-header">
-              <div class="doctor-avatar">
-                <img src="assets/img/health/staff-11.webp" alt="Dr. Victoria Torres" class="img-fluid">
-                <div class="status-indicator available"></div>
-              </div>
-              <div class="doctor-details">
-                <h4>Dr. Victoria Torres</h4>
-                <span class="specialty-tag">Dermatology Care</span>
-                <div class="experience-info">
-                  <i class="bi bi-award"></i>
-                  <span>9 years experience</span>
-                </div>
-              </div>
-            </div>
-            <div class="rating-section">
-              <div class="stars">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star"></i>
-              </div>
-              <span class="rating-score">4.5</span>
-              <span class="review-count">(74 reviews)</span>
-            </div>
-            <div class="action-buttons">
-              <a href="#!" class="btn-secondary">View Details</a>
-
-            </div>
-          </div><!-- End Doctor Profile -->
-
-          <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="600">
-            <div class="profile-header">
-              <div class="doctor-avatar">
-                <img src="{{ asset('img/health/staff-14.webp') }}" alt="Dr. Benjamin Lee" class="img-fluid">
-                <div class="status-indicator available"></div>
-              </div>
-              <div class="doctor-details">
-                <h4>Dr. Benjamin Lee</h4>
-                <span class="specialty-tag">Oncology Treatment</span>
-                <div class="experience-info">
-                  <i class="bi bi-award"></i>
-                  <span>19 years experience</span>
-                </div>
-              </div>
-            </div>
-            <div class="rating-section">
-              <div class="stars">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-              </div>
-              <span class="rating-score">4.9</span>
-              <span class="review-count">(194 reviews)</span>
-            </div>
-            <div class="action-buttons">
-              <a href="#!" class="btn-secondary">View Details</a>
-
-            </div>
-          </div><!-- End Doctor Profile -->
-
+            <a href="https://instagram.com/your_instagram" target="_blank" class="instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
         </div>
 
-        <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="700">
-          <a href="doctors.html" class="btn-view-all">
-            View All Doctors
-            <i class="bi bi-arrow-right"></i>
-          </a>
+        <!-- Lottie Chat Button -->
+        <div id="lottieChatBtn">
+            <iframe src="https://lottie.host/embed/7ed012d7-ed41-492b-8ac8-82c35cc06a6e/oBxttvF3cs.lottie"></iframe>
         </div>
-
-      </div>
-
-    </section><!-- /Find A Doctor Section -->
-
-    <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action section light-background">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="hero-content">
-          <div class="row align-items-center">
-
-            <div class="col-lg-6">
-              <div class="content-wrapper" data-aos="fade-up" data-aos-delay="200">
-                <h1>Excellence in Medical Care, Every Day</h1>
-                <p>
-                  Arimala Hospital is committed to delivering compassionate, high-quality healthcare with a
-                  patient-first approach.
-                  Our team of experienced doctors and medical professionals use advanced technology to provide accurate
-                  diagnosis,
-                  effective treatment, and comprehensive care for every patient.
-                </p>
-
-
-                <div class="cta-wrapper">
-                  <a href="appointment.html" class="primary-cta">
-                    <span>Schedule Consultation</span>
-                    <i class="bi bi-arrow-right"></i>
-                  </a>
-                  <a href="services.html" class="secondary-cta">
-                    <span>Explore Services</span>
-                    <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-6">
-              <div class="image-container" data-aos="fade-left" data-aos-delay="300">
-                <img src="{{ asset('img/health/facilities-9.webp') }}" alt="Medical Excellence" class="img-fluid">
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="features-section">
-
-          <div class="row g-0">
-
-            <div class="col-lg-4">
-              <div class="feature-block" data-aos="fade-up" data-aos-delay="200">
-                <div class="feature-icon">
-                  <i class="bi bi-shield-check"></i>
-                </div>
-                <h3>Advanced Technology</h3>
-                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                  laborum.</p>
-              </div>
-            </div>
-
-            <div class="col-lg-4">
-              <div class="feature-block" data-aos="fade-up" data-aos-delay="300">
-                <div class="feature-icon">
-                  <i class="bi bi-clock"></i>
-                </div>
-                <h3>24/7 Availability</h3>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
-                  excepteur.</p>
-              </div>
-            </div>
-
-            <div class="col-lg-4">
-              <div class="feature-block" data-aos="fade-up" data-aos-delay="400">
-                <div class="feature-icon">
-                  <i class="bi bi-people"></i>
-                </div>
-                <h3>Expert Team</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-                  totam rem.</p>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="contact-block">
-          <div class="row">
-
-            <div class="col-lg-8">
-              <div class="contact-content" data-aos="fade-up" data-aos-delay="200">
-                <h2>Need Immediate Medical Assistance?</h2>
-                <p>Our emergency response team is available around the clock to provide immediate medical support when
-                  you need it most.</p>
-              </div>
-            </div>
-
-            <div class="col-lg-4">
-              <div class="contact-actions" data-aos="fade-up" data-aos-delay="300">
-                <a href="tel:918281240560" class="emergency-call">
-                  <i class="bi bi-telephone"></i>
-                  <span>+91 8281 240 560</span>
-                </a>
-                <a href="contact.html" class="contact-link">Find Location</a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </main>
-
-  <footer id="footer" class="footer-16 footer position-relative">
-
-    <div class="container">
-
-      <div class="footer-main" data-aos="fade-up" data-aos-delay="100">
-        <div class="row align-items-start">
-
-          <div class="col-lg-5">
-            <div class="brand-section">
-              <a href="index.html" class="logo footer-logo d-flex align-items-center mb-4">
-                <img src="{{ asset('img/logo1.jpg') }}" class="footer-logo" alt="Logo">
-              </a>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-              <p class="brand-description">Committed to delivering trusted healthcare services with modern facilities,
-                experienced doctors, and a patient-first approach at Arimala Hospital.</p>
-
-              <div class="contact-info mt-5">
-                <div class="contact-item">
-                  <i class="bi bi-geo-alt"></i>
-                  <span>Arimala Hospital, Near Railway Station, Kanhangad, Kerala 671315</span>
-                </div>
-                <div class="contact-item">
-                  <i class="fa-solid fa-phone"></i>
-                  <span>+91 8281 240 560</span>
-
-                  <i class="fa-solid fa-phone"></i>
-                  <span>0467 220 4560</span>
-                </div>
-                <div class="contact-item">
-                  <i class="bi bi-envelope"></i>
-                  <span>arimalahospital@gmail.com</span>
-                  <span>hrarimala@gmail.com</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-7">
-            <div class="footer-nav-wrapper">
-              <div class="row">
-
-                <div class="col-6 col-lg-3">
-                  <div class="nav-column">
-                    <h6>Studio</h6>
-                    <nav class="footer-nav">
-                      <a href="#!">Our Story</a>
-                      <a href="#!">Design Process</a>
-                      <a href="#!">Portfolio</a>
-                      <a href="#!">Case Studies</a>
-                      <a href="#!">Awards</a>
-                    </nav>
-                  </div>
-                </div>
-
-                <div class="col-6 col-lg-3">
-                  <div class="nav-column">
-                    <h6>Services</h6>
-                    <nav class="footer-nav">
-                      <a href="#!">Brand Identity</a>
-                      <a href="#!">Web Design</a>
-                      <a href="#!">Mobile Apps</a>
-                      <a href="#!">Digital Strategy</a>
-                      <a href="#!">Consultation</a>
-                    </nav>
-                  </div>
-                </div>
-
-                <div class="col-6 col-lg-3">
-                  <div class="nav-column">
-                    <h6>Resources</h6>
-                    <nav class="footer-nav">
-                      <a href="#!">Design Blog</a>
-                      <a href="#!">Style Guide</a>
-                      <a href="#!">Free Assets</a>
-                      <a href="#!">Tutorials</a>
-                      <a href="#!">Inspiration</a>
-                    </nav>
-                  </div>
-                </div>
-
-                <div class="col-6 col-lg-3">
-                  <div class="nav-column">
-                    <h6>Connect</h6>
-                    <nav class="footer-nav">
-                      <a href="#!">Start Project</a>
-                      <a href="#!">Schedule Call</a>
-                      <a href="#!">Join Newsletter</a>
-                      <a href="#!">Follow Updates</a>
-                      <a href="#!">Partnership</a>
-                    </nav>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
 
     </div>
 
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="bottom-content" data-aos="fade-up" data-aos-delay="300">
-          <div class="row align-items-center">
-
-            <div class="col-lg-6">
-              <div class="copyright">
-                <div class="text-center py-3">
-                  <small>© <a href="#" class="text-decoration-none" style="color: #ffccff;">2026 Arimala Hospital</a> -
-                    All Rights Reserved.</small>
-                </div>
-              </div>
-            </div>
-          </div>
+    <!-- Chatbox (separate, outside the floating wrap) -->
+    <div id="chatBox">
+        <div class="chat-header">
+            <span>Chatbot</span>
+            <button id="closeChat">✖</button>
         </div>
-      </div>
-    </div>
-  </footer>
 
-  <!-- Scroll Top -->
-  <a href="#!" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+        <div id="chatMessages" class="chat-body"></div>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <div id="chatFloatingWrap">
-
-    <!-- Social Icons FIRST (so they appear above the chat button) -->
-    <div class="social-icons">
-      <a href="https://wa.me/919XXXXXXXXX" target="_blank" class="whatsapp">
-        <i class="fa-brands fa-whatsapp"></i>
-      </a>
-
-      <a href="https://instagram.com/your_instagram" target="_blank" class="instagram">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type your message..." />
+            <button id="sendBtn" aria-label="Send message">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
     </div>
 
-    <!-- Lottie Chat Button -->
-    <div id="lottieChatBtn">
-      <iframe src="https://lottie.host/embed/7ed012d7-ed41-492b-8ac8-82c35cc06a6e/oBxttvF3cs.lottie"></iframe>
-    </div>
-
-  </div>
-
-  <!-- Chatbox (separate, outside the floating wrap) -->
-  <div id="chatBox">
-    <div class="chat-header">
-      <span>Chatbot</span>
-      <button id="closeChat">✖</button>
-    </div>
-
-    <div id="chatMessages" class="chat-body"></div>
-
-    <div class="chat-input">
-      <input type="text" id="userInput" placeholder="Type your message..." />
-      <button id="sendBtn" aria-label="Send message">
-        <i class="fa-solid fa-paper-plane"></i>
-      </button>
-    </div>
-  </div>
-
-  <!-- Vendor JS Files -->
-  <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
-  <script src="{{ asset('vendor/aos/aos.js') }}"></script>
-  <script src="{{ asset('vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ asset('vendor/purecounter/purecounter_vanilla.js') }}"></script>
-  <script src="{{ asset('vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <!-- Vendor JS Files -->
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
+    <script src="{{ asset('vendor/aos/aos.js') }}"></script>
+    <script src="{{ asset('vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ asset('vendor/purecounter/purecounter_vanilla.js') }}"></script>
+    <script src="{{ asset('vendor/swiper/swiper-bundle.min.js') }}"></script>
 
 
-  <!-- Main JS File -->
-  <script src="{{ asset('js/main.js') }}"></script>
-  <script src="{{ asset('js/chatbot.js') }}"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const slides = document.querySelectorAll(".image-slider .slide");
-      let currentIndex = 0;
+    <!-- Main JS File -->
+    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/chatbot.js') }}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const slides = document.querySelectorAll(".image-slider .slide");
+            let currentIndex = 0;
 
-      setInterval(() => {
-        slides[currentIndex].classList.remove("active");
-        currentIndex = (currentIndex + 1) % slides.length;
-        slides[currentIndex].classList.add("active");
-      }, 4000);
-    });
-  </script>
+            setInterval(() => {
+                slides[currentIndex].classList.remove("active");
+                currentIndex = (currentIndex + 1) % slides.length;
+                slides[currentIndex].classList.add("active");
+            }, 4000);
+        });
+    </script>
 
 </body>
 

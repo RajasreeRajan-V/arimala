@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\AboutUs;
-use App\Http\Requests\StoreAboutUsRequest;
-use App\Http\Requests\UpdateAboutUsRequest;
+use App\Models\ChairMan;
 use Illuminate\Http\Request;
 
 class AboutUsController  
@@ -15,7 +14,8 @@ class AboutUsController
     public function index()
     {
         $aboutUs = AboutUs::latest()->first();
-        return view('admin.admin_about_us', compact('aboutUs'));
+        $chairperson = ChairMan::first();
+        return view('admin.admin_about_us', compact('aboutUs','chairperson'));
     }
 
     /**

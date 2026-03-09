@@ -89,7 +89,7 @@
 
                 <nav id="navmenu" class="navmenu">
                     <ul>
-                        <li><a href="{{ route('dashboard') }}" class="active">Home</a></li>
+                        <li><a href="{{ route('dashboard') }}">Home</a></li>
                         <li><a href="{{ route('about') }}">About</a></li>
                         <li><a href="{{ route('service') }}">Services</a></li>
                         <li><a href="{{ route('career') }}">Career</a></li>
@@ -121,25 +121,14 @@
                                         <span>Blog</span>
                                     </a>
                                 </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown"><a href="#"><span>Dropdown</span> <i
-                                    class="bi bi-chevron-down toggle-dropdown"></i></a>
-                            <ul>
-                                <li><a href="#">Dropdown 1</a></li>
-                                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                                            class="bi bi-chevron-down toggle-dropdown"></i></a>
-                                    <ul>
-                                        <li><a href="#">Deep Dropdown 1</a></li>
-                                        <li><a href="#">Deep Dropdown 2</a></li>
-                                        <li><a href="#">Deep Dropdown 3</a></li>
-                                        <li><a href="#">Deep Dropdown 4</a></li>
-                                        <li><a href="#">Deep Dropdown 5</a></li>
-                                    </ul>
+                                <li>
+                                    <a href="{{ route('faq') }}" class="dropdown-dept-link active">
+                                        <span class="dept-icon">
+                                            <img src="{{ asset('img/background/faqq.png') }}" alt="Departments">
+                                        </span>
+                                        <span>FAQ</span>
+                                    </a>
                                 </li>
-                                <li><a href="#">Dropdown 2</a></li>
-                                <li><a href="#">Dropdown 3</a></li>
-                                <li><a href="#">Dropdown 4</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ route('ContactUs.index') }}">Contact</a></li>

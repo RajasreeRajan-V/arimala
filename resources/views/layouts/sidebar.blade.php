@@ -13,10 +13,7 @@
         <div class="p-4 border-bottom">
             <img src="{{ asset('img/back-logo.png') }}" style="width: 200px; height: auto;"
                 class="mb-2 bg-white p-2 rounded">
-
-            <h5 class="mb-0 fw-semibold text-heading">
-                Admin Panel
-            </h5>
+            <h5 class="mb-0 fw-semibold text-heading">Admin Panel</h5>
         </div>
 
         <ul class="nav flex-column p-3">
@@ -26,55 +23,66 @@
                     Dashboard
                 </a>
             </li>
-
             <li class="nav-item mb-2">
-                <a href="{{ route('admin.about-us.index') }}" class="nav-link">
+                <a href="{{ route('admin.about-us.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.about-us.*') ? 'active' : '' }}">
                     Manage About Us
                 </a>
             </li>
-
             <li class="nav-item mb-2">
-                <a href="{{ route('admin.services.index') }}" class="nav-link">
+                <a href="{{ route('admin.services.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.services.*') ? 'active' : '' }}">
                     Manage Services
                 </a>
             </li>
             <li class="nav-item mb-2">
-                <a href="{{ route('admin.gallery.index') }}" class="nav-link">
+                <a href="{{ route('admin.gallery.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
                     Manage Gallery
                 </a>
             </li>
-
-             <li class="nav-item mb-2">
-                <a href="{{ route('admin.contactus.index') }}" class="nav-link">
+            <li class="nav-item mb-2">
+                <a href="{{ route('admin.contactus.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.contactus.*') ? 'active' : '' }}">
                     Manage Contact Us
                 </a>
             </li>
-
-             <li class="nav-item mb-2">
-                <a href="{{ route('admin.departments.index') }}" class="nav-link">
+            <li class="nav-item mb-2">
+                <a href="{{ route('admin.departments.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.departments.*') ? 'active' : '' }}">
                     Manage Departments
                 </a>
             </li>
-                <li class="nav-item mb-2">
-                    <a href="{{ route('admin.doctors.index') }}" class="nav-link">
-                        Manage Doctors
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a href="{{ route('admin.careers.index') }}" class="nav-link">
-                        Manage Careers
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a href="{{ route('admin.reviews.index') }}" class="nav-link">
-                        Manage Reviews
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a href="{{ route('admin.blogs.index') }}" class="nav-link">
-                        Manage Blogs
-                    </a>
-                </li>
+            <li class="nav-item mb-2">
+                <a href="{{ route('admin.doctors.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.doctors.*') ? 'active' : '' }}">
+                    Manage Doctors
+                </a>
+            </li>
+            <li class="nav-item mb-2">
+                <a href="{{ route('admin.careers.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.careers.*') ? 'active' : '' }}">
+                    Manage Careers
+                </a>
+            </li>
+            <li class="nav-item mb-2">
+                <a href="{{ route('admin.reviews.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.reviews.*') ? 'active' : '' }}">
+                    Manage Reviews
+                </a>
+            </li>
+            <li class="nav-item mb-2">
+                <a href="{{ route('admin.blogs.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}">
+                    Manage Blogs
+                </a>
+            </li>
+             <li class="nav-item mb-2">
+                <a href="{{ route('admin.applications.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.applications.*') ? 'active' : '' }}">
+                    Job Applications
+                </a>
+             </li>
             <li class="nav-item mt-4">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -85,7 +93,6 @@
             </li>
         </ul>
     </aside>
-
     <!-- Offcanvas Sidebar for Mobile -->
     <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="sidebarOffcanvas"
         aria-labelledby="sidebarOffcanvasLabel">
@@ -224,27 +231,28 @@
             margin-left: 0 !important;
         }
     }
-    
- /* Sidebar scroll */
-.sidebar {
-    max-height: 100vh; /* Full viewport height */
-    overflow-y: auto; /* Enable vertical scrolling */
-}
 
-/* Optional: styled scrollbar */
-.sidebar::-webkit-scrollbar {
-    width: 6px;
-}
+    /* Sidebar scroll */
+    .sidebar {
+        max-height: 100vh;
+        /* Full viewport height */
+        overflow-y: auto;
+        /* Enable vertical scrolling */
+    }
 
-.sidebar::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 3px;
-}
+    /* Optional: styled scrollbar */
+    .sidebar::-webkit-scrollbar {
+        width: 6px;
+    }
 
-.sidebar::-webkit-scrollbar-track {
-    background: transparent;
-}
+    .sidebar::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+    }
 
+    .sidebar::-webkit-scrollbar-track {
+        background: transparent;
+    }
 </style>
 
 <script>

@@ -56,15 +56,16 @@
                     </i>
 
                     <i class="bi bi-phone d-flex align-items-center ms-4">
-                        <span>+91 8281 240 560</span>
+                        <span>+91 8281 240 560</span></i>
+                    <i class="bi bi-telephone d-flex align-items-center ms-4"><span>0467 220 4560</span>
                     </i>
                 </div>
-
                 <div class="social-links d-none d-md-flex align-items-center">
-                    <a href="#!" class="twitter"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#!" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#!" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
                     <a href="#!" class="instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#!" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                    <a href="#!" class="youtube"><i class="bi bi-youtube"></i></a>
+                    <a href="#!" class="mail"><i class="bi bi-envelope"></i></a>
+                    <a href="#!" class="location"><i class="bi bi-geo-alt"></i></a>
                 </div>
             </div>
         </div><!-- End Top Bar -->
@@ -79,45 +80,48 @@
                     </span> --}}
                 </a>
 
-
                 <nav id="navmenu" class="navmenu">
                     <ul>
                         <li><a href="{{ route('dashboard') }}">Home</a></li>
                         <li><a href="{{ route('about') }}">About</a></li>
-                        <li><a href="{{ route('departments') }}">Departments</a></li>
                         <li><a href="{{ route('service') }}">Services</a></li>
+                        <li><a href="{{ route('career') }}">Career</a></li>
                         <li><a href="{{ route('doctors') }}">Doctors</a></li>
-                        <li class="dropdown"><a href="#"><span>More Pages</span> <i
+                        <li class="dropdown"><a href="#"><span>Departments</span> <i
                                     class="bi bi-chevron-down toggle-dropdown"></i></a>
                             <ul>
-                                <li><a href="department-details.html">Department Details</a></li>
-                                <li><a href="service-details.html">Service Details</a></li>
-                                <li><a href="appointment.html">Appointment</a></li>
-                                <li><a href="testimonials.html">Testimonials</a></li>
-                                <li><a href="faq.html">Frequently Asked Questions</a></li>
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li><a href="terms.html">Terms</a></li>
-                                <li><a href="privacy.html">Privacy</a></li>
-                                <li><a href="404.html">404</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown"><a href="#"><span>Dropdown</span> <i
-                                    class="bi bi-chevron-down toggle-dropdown"></i></a>
-                            <ul>
-                                <li><a href="#">Dropdown 1</a></li>
-                                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                                            class="bi bi-chevron-down toggle-dropdown"></i></a>
-                                    <ul>
-                                        <li><a href="#">Deep Dropdown 1</a></li>
-                                        <li><a href="#">Deep Dropdown 2</a></li>
-                                        <li><a href="#">Deep Dropdown 3</a></li>
-                                        <li><a href="#">Deep Dropdown 4</a></li>
-                                        <li><a href="#">Deep Dropdown 5</a></li>
-                                    </ul>
+                                <li>
+                                    <a href="{{ route('departments') }}" class="dropdown-dept-link">
+                                        <span class="dept-icon">
+                                            <img src="{{ asset('img/background/SKETCH.jpg') }}" alt="Departments">
+                                        </span>
+                                        <span>Departments</span>
+                                    </a>
                                 </li>
-                                <li><a href="#">Dropdown 2</a></li>
-                                <li><a href="#">Dropdown 3</a></li>
-                                <li><a href="#">Dropdown 4</a></li>
+                                <li>
+                                    <a href="{{ route('gallery') }}" class="dropdown-dept-link">
+                                        <span class="dept-icon">
+                                            <img src="{{ asset('img/background/Blog.jpg') }}" alt="Departments">
+                                        </span>
+                                        <span>Gallery</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('blog') }}" class="dropdown-dept-link active">
+                                        <span class="dept-icon">
+                                            <img src="{{ asset('img/background/NURSE.jpg') }}" alt="Departments">
+                                        </span>
+                                        <span>Blog</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('faq') }}" class="dropdown-dept-link">
+                                        <span class="dept-icon">
+                                            <img src="{{ asset('img/background/faqq.png') }}" alt="Departments">
+                                        </span>
+                                        <span>FAQ</span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li><a href="{{ route('ContactUs.index') }}">Contact</a></li>
@@ -174,7 +178,7 @@
 
                 <div class="row gy-4 justify-content-center">
 
-                    @foreach($blogs as $blog)
+                    @foreach ($blogs as $blog)
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="blog-item h-100">
 
@@ -223,7 +227,8 @@
                                 <img src="{{ asset('img/logo1.jpg') }}" class="footer-logo" alt="Logo">
                             </a>
 
-                            <p class="brand-description">Committed to delivering trusted healthcare services with modern
+                            <p class="brand-description">Committed to delivering trusted healthcare services with
+                                modern
                                 facilities,
                                 experienced doctors, and a patient-first approach at Arimala Hospital.</p>
 
@@ -319,7 +324,8 @@
                         <div class="col-lg-6">
                             <div class="copyright">
                                 <div class="text-center py-3">
-                                    <small>© <a href="#" class="text-decoration-none" style="color: #ffccff;">2026
+                                    <small>© <a href="#" class="text-decoration-none"
+                                            style="color: #ffccff;">2026
                                             Arimala Hospital</a> -
                                         All Rights Reserved.</small>
                                 </div>

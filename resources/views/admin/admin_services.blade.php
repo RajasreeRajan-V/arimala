@@ -72,7 +72,6 @@
         </div>
     </div>
 </div>
-
 {{-- Edit Modal --}}
 @foreach($services as $service)
 <div class="modal fade" id="editModal{{ $service->id }}" tabindex="-1" aria-hidden="true">

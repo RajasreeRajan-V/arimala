@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('chair_men', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('designation');
+            $table->text('about');
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

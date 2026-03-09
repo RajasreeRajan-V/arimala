@@ -11,6 +11,7 @@ use App\Models\Departments;
 use App\Models\Doctor;
 use App\Models\Gallery;
 use App\Models\Blog;
+use App\Models\ChairMan;
 
 class UserController extends Controller
 {
@@ -19,10 +20,12 @@ class UserController extends Controller
         return view('customer.index');
     }
     public function about()
-    {
-        $abouts = AboutUs::latest()->get();
-        return view('customer.about', compact('abouts'));
-    }
+{
+    $abouts = AboutUs::latest()->get();
+    $chairpersons = ChairMan::latest()->get();
+
+    return view('customer.about', compact('abouts', 'chairpersons'));
+}
     public function service()
     {
         $services = Services::all();

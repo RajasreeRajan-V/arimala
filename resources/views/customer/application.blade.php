@@ -42,9 +42,9 @@
             <div class="page-logo">
                 <img src="{{ asset('img/back-logo.png') }}" alt="Hospital Logo">
             </div>
-            {{-- <h2 class="mb-0">Employment Application</h2> --}}
+            {{-- <h2 class="mb-0">Employment Application</h2>   {{ url()->previous() }}  --}}
 
-            <a href="{{ url()->previous() }}" class="btn-back-home">
+            <a href="{{ route('career') }}" class="btn-back-home">
                 <i class="bi bi-arrow-left"></i>
                 Back
             </a>
@@ -60,7 +60,7 @@
                         <p class="form-subtitle">Fill out the form below and we'll get back to you soon</p>
                     </div>
 
-                    @if(session('success'))
+                    @if (session('success'))
                         <div class="alert alert-success alert-modern">
                             <i class="bi bi-check-circle me-2"></i>
                             {{ session('success') }}
@@ -80,8 +80,8 @@
                                         <i class="bi bi-person-fill label-icon"></i>
                                         Full Name
                                     </label>
-                                    <input type="text" name="name" class="form-control-modern" placeholder="John Doe"
-                                        required>
+                                    <input type="text" name="name" class="form-control-modern"
+                                        placeholder="John Doe" required>
                                     @error('name')
                                         <span class="error-text">{{ $message }}</span>
                                     @enderror
@@ -183,8 +183,8 @@
                                         Upload Resume (PDF, optional)
                                     </label>
                                     <div class="file-upload-wrapper">
-                                        <input type="file" name="resume" id="resume" class="file-input-modern"
-                                            accept=".pdf,.doc,.docx">
+                                        <input type="file" name="resume" id="resume"
+                                            class="file-input-modern" accept=".pdf,.doc,.docx">
                                         <label for="resume" class="file-label-modern">
                                             <i class="bi bi-cloud-upload me-2"></i>
                                             <span class="file-text">Choose File</span>
@@ -229,13 +229,13 @@
 
         <script>
             // File input handler
-            document.addEventListener('DOMContentLoaded', function () {
+            document.addEventListener('DOMContentLoaded', function() {
                 const fileInput = document.getElementById('resume');
                 const fileLabel = document.querySelector('.file-label-modern');
                 const fileName = fileLabel.querySelector('.file-name');
 
                 if (fileInput) {
-                    fileInput.addEventListener('change', function (e) {
+                    fileInput.addEventListener('change', function(e) {
                         if (this.files && this.files.length > 0) {
                             fileName.textContent = this.files[0].name;
                             fileLabel.classList.add('file-selected');
