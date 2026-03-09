@@ -33,6 +33,7 @@ Route::name('admin.')->group(function () {
         Route::get('/applications/read', [ApplicationController::class, 'readApplications'])->name('applications.read');
 
         Route::resource('applications', ApplicationController::class);        
+        Route::resource('GetInTouch', GetInTouchController::class);        
        
 });
 });

@@ -40,7 +40,7 @@
     <link href="{{ asset('css/chatbot.css') }}" rel="stylesheet">
 
 </head>
-<!-- MODAL HTML -->
+
 <!-- ===== MODAL ===== -->
 <div class="modal-overlay" id="modal">
     <div class="custom-modal">
@@ -52,27 +52,28 @@
                 Arimala Hospital is committed to delivering compassionate,
                 patient-centered healthcare with advanced medical facilities
                 and experienced specialists you can trust.
-            </p>
+            </p> 
         </div>
 
-        <h2>Get in Touch</h2>
-        <p class="modal-subtitle">We’d love to hear from you</p>
+        <h3>Contact Us</h3>
 
-        <form id="contactModalForm">
+        <form id="contactModalForm" action="{{ route('ContactUs.store') }}" method="POST">
+            @csrf
+
             <div class="form-group">
                 <input type="text" name="name" placeholder="Your Name" required>
             </div>
-
+            <input type="hidden" name="subject" value="Get In Touch">
             <div class="form-group">
-                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <input type="email" name="email" placeholder="Email Address" required>
             </div>
 
             <div class="form-group">
-                <input type="text" name="subject" placeholder="Subject" required>
+                <input type="tel" name="phone" placeholder="Phone">
             </div>
 
             <div class="form-group">
-                <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                <textarea name="message" rows="3" placeholder="Your Message" required></textarea>
             </div>
 
             <button type="submit" class="submit-btn">Send Message</button>

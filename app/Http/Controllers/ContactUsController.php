@@ -41,10 +41,11 @@ class ContactUsController extends Controller
     ],[
             'email.unique' => 'This email has already sent a message.',
         ]);
+    
     ContactUs::create($data);
 
      Mail::to($data['email'])->send(new ContactThankYouMail($data));
-     Mail::to('rajasreev553@gmail.com')->send(new ContactAdminNotificationMail($data));
+     Mail::to('rajasreev553@gmail.com')->send(new ContactAdminNotificationMail($data));//recei
 
    return redirect()
         ->back()

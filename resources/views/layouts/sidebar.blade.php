@@ -30,6 +30,12 @@
                 </a>
             </li>
             <li class="nav-item mb-2">
+                <a href="{{ route('admin.GetInTouch.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.GetInTouch.*') ? 'active' : '' }}">
+                    View Get In Touch Users
+                </a>
+            </li>
+            <li class="nav-item mb-2">
                 <a href="{{ route('admin.services.index') }}"
                     class="nav-link {{ request()->routeIs('admin.services.*') ? 'active' : '' }}">
                     Manage Services

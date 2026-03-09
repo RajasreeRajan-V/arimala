@@ -164,12 +164,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
  
-window.addEventListener('load', function () {
+window.addEventListener("load", function () {
+
   const modal = document.getElementById("modal");
   const closeBtn = document.getElementById("closeModal");
-  const form = document.getElementById("contactModalForm");
 
-  if (!modal || !closeBtn || !form) return;
+  if (!modal || !closeBtn) return;
 
   function openModal() {
     modal.classList.add("active");
@@ -181,32 +181,26 @@ window.addEventListener('load', function () {
     document.body.style.overflow = "";
   }
 
-
+  /* open modal after 5 seconds */
   setTimeout(openModal, 5000);
 
- 
+  /* close button */
   closeBtn.addEventListener("click", closeModal);
 
-
+  /* click outside modal */
   modal.addEventListener("click", function (e) {
     if (e.target === modal) closeModal();
   });
 
-
+  /* ESC key close */
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && modal.classList.contains("active")) {
       closeModal();
     }
   });
 
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    alert("Thank you for your message! We'll get back to you soon.");
-    closeModal();
-    form.reset();
-  });
 });
+
 
 
 
