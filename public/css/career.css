@@ -1,8 +1,23 @@
 
 
+/* overlay for readability */
+.careers-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(16, 122, 124, 0.15);
+  z-index: 1;
+}
+
+/* keep content above overlay */
+.careers-bg .container {
+  position: relative;
+  z-index: 2;
+}
 .careers.section {
     background: linear-gradient(135deg, #f8fafc 0%, #eef6fa 100%);
     position: relative;
+    background: url("/img/bg/career1.jpg") center center / cover no-repeat;
 }
 
 .career-card-modern {
@@ -323,7 +338,7 @@
     }
 }
 #careers .row > div {
-    border: 1px solid #dbe5ef;
+    border: 1px solid #107A7C;
     border-radius: 16px;
     padding: 12px;
     transition: all 0.3s ease;
@@ -333,5 +348,30 @@
     border-color: #0e4968;
     box-shadow: 0 8px 24px rgba(14, 73, 104, 0.08);
 }
+.career-search-box {
+  position: relative;
+}
 
+.career-search-box input {
+  padding: 12px 45px 12px 18px;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.career-search-box i {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+  font-size: 18px;
+}
+.search-highlight {
+  background: #fff3a0;
+  color: #000;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
 

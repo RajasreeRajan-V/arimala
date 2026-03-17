@@ -1,0 +1,198 @@
+/* ── Reviews Section ── */
+.reviews-section {
+    padding: 80px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.reviews-carousel-wrapper {
+    position: relative;
+    padding: 0 56px;
+}
+
+.reviews-track-container {
+    overflow: hidden;
+}
+
+.reviews-track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+}
+
+/* ── Review Card ── */
+.review-card {
+    /* 3 cards: subtract total gap (2 gaps × 24px = 48px) divided by 3 */
+    min-width: calc((100% - 48px) / 3);
+    max-width: calc((100% - 48px) / 3);
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 28px 24px;
+    box-shadow: 0 4px 24px rgba(0, 114, 187, 0.08);
+    border: 1px solid rgba(0, 114, 187, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    /* Ensure equal height cards */
+    display: flex;
+    flex-direction: column;
+}
+
+.review-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0, 114, 187, 0.15);
+}
+
+.review-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.quote-icon i {
+    font-size: 2.5rem;
+    color: #107a7c;
+    opacity: 0.25;
+    line-height: 1;
+}
+
+.stars i {
+    color: #f5a623;
+    font-size: 0.85rem;
+    margin-right: 2px;
+}
+.stars .bi-star { color: #d1d5db; }
+
+/* Push reviewer-info to bottom of card */
+.review-text {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 0;
+    font-style: italic;
+    flex: 1;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 18px;
+    margin-top: 18px;
+    border-top: 1px solid #eef3f8;
+}
+
+.reviewer-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #107a7c, #5dd8da);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(16, 122, 124, 0.3);
+}
+
+.reviewer-avatar span {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.reviewer-details h5 {
+    margin: 0 0 2px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #1a2e44;
+}
+
+.reviewer-details span {
+    font-size: 0.78rem;
+    color: #107a7c;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* ── Navigation Arrows ── */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid #107a7c;
+    color: #107a7c;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 4px 14px rgba(16, 122, 124, 0.2);
+}
+
+.carousel-nav:hover {
+    background: #107a7c;
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(16, 122, 124, 0.4);
+}
+
+.carousel-nav.prev { left: 0; }
+.carousel-nav.next { right: 0; }
+
+.carousel-nav:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* ── Dots ── */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+}
+
+.carousel-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(16, 122, 124, 0.25);
+    border: none;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    padding: 0;
+}
+
+.carousel-dot.active {
+    background: #107a7c;
+    width: 28px;
+    border-radius: 5px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+    /* 2 cards: subtract 1 gap (24px) divided by 2 */
+    .review-card {
+        min-width: calc((100% - 24px) / 2);
+        max-width: calc((100% - 24px) / 2);
+    }
+}
+
+@media (max-width: 575px) {
+    /* 1 card: full width */
+    .review-card {
+        min-width: 100%;
+        max-width: 100%;
+    }
+    .reviews-carousel-wrapper {
+        padding: 0 44px;
+    }
+}

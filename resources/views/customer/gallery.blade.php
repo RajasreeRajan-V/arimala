@@ -83,7 +83,7 @@
 
                 <nav id="navmenu" class="navmenu">
                     <ul>
-                        <li><a href="{{ route('dashboard') }}" class="active">Home</a></li>
+                        <li><a href="{{ route('dashboard') }}">Home</a></li>
                         <li><a href="{{ route('about') }}">About</a></li>
                         <li><a href="{{ route('service') }}">Services</a></li>
                         <li><a href="{{ route('career') }}">Career</a></li>
@@ -102,7 +102,8 @@
                                 <li>
                                     <a href="{{ route('gallery') }}" class="dropdown-dept-link active">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/Blog.jpg') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/doctor-patien.png') }}"
+                                                alt="Departments">
                                         </span>
                                         <span>Gallery</span>
                                     </a>
@@ -110,7 +111,8 @@
                                 <li>
                                     <a href="{{ route('blog') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/NURSE.jpg') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/patient-nurse.png') }}"
+                                                alt="Departments">
                                         </span>
                                         <span>Blog</span>
                                     </a>
@@ -118,7 +120,7 @@
                                 <li>
                                     <a href="{{ route('faq') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/faqq.png') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/question.png') }}" alt="Departments">
                                         </span>
                                         <span>FAQ</span>
                                     </a>
@@ -173,6 +175,7 @@
         <!-- Gallery Section -->
         <section id="gallery" class="gallery section">
 
+
             <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
 
                 <div class="row gy-4 justify-content-center">
@@ -205,6 +208,7 @@
                 </div>
             </div>
         </section>
+        
     </main>
     <footer id="footer" class="footer-16 footer position-relative">
 

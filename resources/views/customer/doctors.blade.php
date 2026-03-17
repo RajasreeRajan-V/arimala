@@ -141,7 +141,8 @@
                                 <li>
                                     <a href="{{ route('gallery') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/Blog.jpg') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/doctor-patien.png') }}"
+                                                alt="Departments">
                                         </span>
                                         <span>Gallery</span>
                                     </a>
@@ -149,7 +150,8 @@
                                 <li>
                                     <a href="{{ route('blog') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/NURSE.jpg') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/patient-nurse.png') }}"
+                                                alt="Departments">
                                         </span>
                                         <span>Blog</span>
                                     </a>
@@ -157,7 +159,7 @@
                                 <li>
                                     <a href="{{ route('faq') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/faqq.png') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/question.png') }}" alt="Departments">
                                         </span>
                                         <span>FAQ</span>
                                     </a>
@@ -205,7 +207,6 @@
 
         <!-- Doctors Section -->
         <section id="doctors" class="doctors section">
-
             <div class="container" data-aos="fade-up" data-aos-delay="100">
                 <div class="row gy-4">
 
@@ -218,28 +219,31 @@
                                     <img src="{{ $doctor->image ? asset('storage/' . $doctor->image) : asset('/img/DOCTORS/dpmale.jpg') }}"
                                         alt="{{ $doctor->name }}" class="img-fluid">
 
-                                    <div class="doctor-overlay">
+                                    {{-- <div class="doctor-overlay">
                                         <div class="social-links">
                                             <a href="#"><i class="bi bi-linkedin"></i></a>
                                             <a href="#"><i class="bi bi-envelope"></i></a>
                                             <a href="#"><i class="bi bi-phone"></i></a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
 
-                                <div class="doctor-content">
-                                    <h4>{{ $doctor->name }}</h4>
-                                    <span class="specialty">{{ $doctor->specialization }}</span>
+                                <div class="glass-doctor-card">
+                                    <div class="glass-doctor-body">
+                                        <h4 class="glass-doctor-name">{{ $doctor->name }}</h4>
+                                        <span class="glass-doctor-specialty">{{ $doctor->specialization }}</span>
 
-                                    <p>{{ $doctor->qualification }}</p>
+                                        <p class="glass-doctor-qualification">{{ $doctor->qualification }}</p>
 
-                                    <div class="doctor-meta">
-                                        <div class="department">
-                                            <i class="bi bi-building"></i>
-                                            <span>{{ $doctor->department->title ?? 'Department' }}</span>
+                                        <div class="glass-doctor-meta">
+                                            <div class="glass-doctor-department">
+                                                <i class="bi bi-building"></i>
+                                                <span>{{ $doctor->department->title ?? 'Department' }}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
 
                             </div>
                         </div>
@@ -247,7 +251,6 @@
 
                 </div>
             </div>
-
         </section>
         <!-- /Doctors Section -->
 

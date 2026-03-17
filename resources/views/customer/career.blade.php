@@ -153,7 +153,8 @@
                                 <li>
                                     <a href="{{ route('gallery') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/Blog.jpg') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/doctor-patien.png') }}"
+                                                alt="Departments">
                                         </span>
                                         <span>Gallery</span>
                                     </a>
@@ -161,7 +162,8 @@
                                 <li>
                                     <a href="{{ route('blog') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/NURSE.jpg') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/patient-nurse.png') }}"
+                                                alt="Departments">
                                         </span>
                                         <span>Blog</span>
                                     </a>
@@ -169,7 +171,7 @@
                                 <li>
                                     <a href="{{ route('faq') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/faqq.png') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/question.png') }}" alt="Departments">
                                         </span>
                                         <span>FAQ</span>
                                     </a>
@@ -222,6 +224,15 @@
         <section id="careers" class="careers section py-5">
             <div class="careers-bg">
                 <div class="container" data-aos="fade-up" data-aos-delay="100">
+                    <div class="row mb-4">
+                        <div class="col-lg-6 mx-auto">
+                            <div class="career-search-box">
+                                <input type="text" id="careerSearch" class="form-control"
+                                    placeholder="Search job title, position, qualification...">
+                                <i class="bi bi-search"></i>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="section-title text-center mb-5">
                         <h2 class="fw-bold">Current Openings</h2>
@@ -230,7 +241,7 @@
 
                     <div class="row g-5 gy-5">
                         @foreach ($careers as $career)
-                            <div class="col-lg-6 col-12">
+                            <div class="col-lg-6 col-12 career-item">
                                 <div class="career-card-modern">
 
                                     <!-- Header -->
@@ -464,6 +475,78 @@
 
     <!-- Main JS File -->
     <script src="{{ asset('js/main.js') }}"></script>
+   <script>
+const searchInput = document.getElementById("careerSearch");
+
+searchInput.addEventListener("keyup", function () {
+
+    let search = this.value.toLowerCase();
+    let items = document.querySelectorAll(".career-item");
+
+    items.forEach(function(item){
+
+        let text = item.innerText.toLowerCase();
+
+        // reset highlights
+        item.querySelectorAll(".search-highlight").forEach(el=>{
+            el.outerHTML = el.innerText;
+        });
+
+        if(search === ""){
+            item.style.display = "";
+            return;
+        }
+
+        if(text.includes(search)){
+
+            item.style.display = "";
+
+            highlightText(item, search);
+
+        } else {
+
+            item.style.display = "none";
+
+        }
+
+    });
+
+});
+
+
+function highlightText(element, search){
+
+    const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+    );
+
+    let node;
+
+    while(node = walker.nextNode()){
+
+        let value = node.nodeValue.toLowerCase();
+
+        if(value.includes(search)){
+
+            let span = document.createElement("span");
+            span.className = "search-highlight";
+
+            let regex = new RegExp(`(${search})`, "gi");
+            span.innerHTML = node.nodeValue.replace(regex,"<span class='search-highlight'>$1</span>");
+
+            let wrapper = document.createElement("span");
+            wrapper.innerHTML = span.innerHTML;
+
+            node.parentNode.replaceChild(wrapper,node);
+        }
+    }
+}
+</script>
+
+
 
 </body>
 

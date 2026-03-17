@@ -202,6 +202,93 @@ window.addEventListener("load", function () {
 });
 
 
+(function () {
+    const track    = document.getElementById('reviewsTrack');
+    const prevBtn  = document.getElementById('reviewsPrev');
+    const nextBtn  = document.getElementById('reviewsNext');
+    const dotsWrap = document.getElementById('reviewsDots');
+
+    if (!track) return;
+
+    const cards         = track.querySelectorAll('.review-card');
+    let currentIndex    = 0;
+    let autoSlideTimer  = null;
+
+    // Determine how many cards are visible based on screen width
+    function visibleCount() {
+        if (window.innerWidth < 576)  return 1;
+        if (window.innerWidth < 992)  return 2;
+        return 3;
+    }
+
+    function totalSlides() {
+        return Math.ceil(cards.length / visibleCount());
+    }
+
+    // Build dots
+    function buildDots() {
+        dotsWrap.innerHTML = '';
+        for (let i = 0; i < totalSlides(); i++) {
+            const dot = document.createElement('button');
+            dot.classList.add('carousel-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+            dot.addEventListener('click', () => goTo(i));
+            dotsWrap.appendChild(dot);
+        }
+    }
+
+    function updateDots() {
+        dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === currentIndex);
+        });
+    }
+
+    function goTo(index) {
+        const visible   = visibleCount();
+        const maxIndex  = totalSlides() - 1;
+        currentIndex    = Math.max(0, Math.min(index, maxIndex));
+
+        // Calculate card width including gap
+        const cardWidth = cards[0].offsetWidth + 24; // 24 = gap
+        track.style.transform = `translateX(-${currentIndex * visible * cardWidth}px)`;
+
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === maxIndex;
+        updateDots();
+    }
+
+    prevBtn.addEventListener('click', () => { resetAuto(); goTo(currentIndex - 1); });
+    nextBtn.addEventListener('click', () => { resetAuto(); goTo(currentIndex + 1); });
+
+    // Auto-slide every 4 seconds
+    function startAuto() {
+        autoSlideTimer = setInterval(() => {
+            const next = currentIndex + 1 >= totalSlides() ? 0 : currentIndex + 1;
+            goTo(next);
+        }, 4000);
+    }
+
+    function resetAuto() {
+        clearInterval(autoSlideTimer);
+        startAuto();
+    }
+
+    // Rebuild on resize
+    window.addEventListener('resize', () => {
+        buildDots();
+        goTo(0);
+    });
+
+    // Init
+    buildDots();
+    goTo(0);
+    startAuto();
+})();
+
+document.getElementById("locationMapBtn").addEventListener("click", () => {
+  window.open("https://maps.google.com/?q=Arimala Hospital", "_blank");
+});
 
 
 })();

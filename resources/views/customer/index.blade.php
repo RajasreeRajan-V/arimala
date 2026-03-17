@@ -22,8 +22,6 @@
     <!-- Make sure Font Awesome is loaded -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-
-
     <!-- Vendor CSS Files -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -38,6 +36,27 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/get_in_touch.css') }}" rel="stylesheet">
     <link href="{{ asset('css/chatbot.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/review.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/map.css') }}" rel="stylesheet"> --}}
+
+    <style>
+        /* Force dropdown background to black only on index page */
+        #index-page #navmenu .dropdown ul {
+            background-color: rgba(16, 122, 124, 0.12) !important;
+        }
+
+        #index-page #navmenu .dropdown ul li a {
+            color: black !important;
+            background-color: rgba(16, 122, 124, 0.12) !important;
+        }
+
+        /* Hover */
+        #index-page #navmenu .dropdown ul li a:hover {
+            background-color: #107A7C !important;
+            color: white !important;
+        }
+    </style>
+
 
 </head>
 
@@ -52,10 +71,10 @@
                 Arimala Hospital is committed to delivering compassionate,
                 patient-centered healthcare with advanced medical facilities
                 and experienced specialists you can trust.
-            </p> 
+            </p>
         </div>
 
-        <h3>Contact Us</h3>
+        <h3>Get In Touch</h3>
 
         <form id="contactModalForm" action="{{ route('ContactUs.store') }}" method="POST">
             @csrf
@@ -81,7 +100,7 @@
     </div>
 </div>
 
-<body class="index-page">
+<body class="index-page" id="index-page">
     <header id="header" class="header fixed-top">
 
         <div class="topbar d-flex align-items-center dark-background">
@@ -141,7 +160,8 @@
                                 <li>
                                     <a href="{{ route('gallery') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/Blog.jpg') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/doctor-patien.png') }}"
+                                                alt="Departments">
                                         </span>
                                         <span>Gallery</span>
                                     </a>
@@ -149,7 +169,8 @@
                                 <li>
                                     <a href="{{ route('blog') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/NURSE.jpg') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/patient-nurse.png') }}"
+                                                alt="Departments">
                                         </span>
                                         <span>Blog</span>
                                     </a>
@@ -157,7 +178,7 @@
                                 <li>
                                     <a href="{{ route('faq') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/faqq.png') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/question.png') }}" alt="Departments">
                                         </span>
                                         <span>FAQ</span>
                                     </a>
@@ -288,7 +309,7 @@
             style="
   position: relative;
   background-image:
-    url('{{ asset('img/background/BACKG.png') }}');
+    url('{{ asset('img/background/hospital.jpg') }}');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -297,8 +318,11 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-delay="200">
                         <div class="about-content">
-                            <h2 class="section-heading">Compassionate Care, Advanced Medicine</h2>
-                            <p class="lead-text">
+                            <h2>Compassionate Care, Advanced Medicine</h2>
+
+                            {{-- class="section-heading" --}}
+                            <p>
+                                {{-- class="lead-text" --}}
                                 For more than two decades, Arimala Hospital has been dedicated to providing trusted
                                 healthcare by
                                 combining
@@ -334,7 +358,7 @@
                             </div>
 
                             <div class="cta-section">
-                                <a href="about.html" class="btn-primary">Learn More About Us</a>
+                                <a href="{{ route('about') }}" class="btn-primary">Learn More About Us</a>
                             </div>
                         </div>
                     </div>
@@ -374,162 +398,111 @@
         <!-- Featured Departments Section -->
         <section id="featured-departments" class="featured-departments section"
             style="
-  position: relative;
-  background-image:
-    linear-gradient(rgba(16, 122, 124, 0.35), rgba(16, 122, 124, 0.35)),
+    position: relative;
+    background-image:
+    linear-gradient(rgba(16,122,124,0.35), rgba(16,122,124,0.35)),
     url('{{ asset('img/background/heart-doc.png') }}');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 ">
+
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>Featured Departments</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-            </div><!-- End Section Title -->
+                <p>Explore our specialized medical departments</p>
+            </div>
 
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="container glassy-box" data-aos="fade-up" data-aos-delay="100">
 
                 <div class="row g-5">
 
-                    <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="specialty-card">
-                            <div class="specialty-content">
-                                <div class="specialty-meta">
-                                    <span class="specialty-label">Specialized Care</span>
+                    @php
+                        $icons = [
+                            'bi-shield-plus',
+                            'bi-people',
+                            'bi-activity',
+                            'bi-heart-pulse',
+                            'bi-cpu',
+                            'bi-lungs',
+                            'bi-eye',
+                            'bi-bandaid',
+                        ];
+                    @endphp
+
+                    @foreach ($departments as $department)
+                        @php
+                            $iconIndex = $loop->index % count($icons);
+                        @endphp
+
+                        <div class="col-lg-4 doctor-card" data-aos="fade-up">
+                            <div class="department-highlight">
+
+                                <div class="highlight-icon">
+                                    <i class="bi {{ $icons[$iconIndex] }}"></i>
                                 </div>
-                                <h3>Cardiovascular Medicine</h3>
-                                <p>Advanced diagnostic imaging and interventional procedures for comprehensive heart
-                                    health management
-                                    with personalized treatment protocols.</p>
-                                <div class="specialty-features">
-                                    <span><i class="bi bi-check-circle-fill"></i>24/7 Emergency Cardiac Care</span>
-                                    <span><i class="bi bi-check-circle-fill"></i>Minimally Invasive Procedures</span>
-                                </div>
-                                <a href="department-details.html" class="specialty-link">
-                                    Explore Cardiology <i class="bi bi-arrow-right"></i>
+
+                                <h4>{{ $department->title }}</h4>
+
+                                <p>
+                                    {{ $department->description }}
+                                </p>
+
+                                @if ($department->image)
+                                    <div class="dept-img-wrap">
+                                        <img src="{{ asset('storage/' . $department->image) }}"
+                                            alt="{{ $department->title }}">
+                                    </div>
+                                @endif
+                                <a href="{{ route('departments') }}" class="highlight-cta">
+                                    Learn More
                                 </a>
-                            </div>
-                            <div class="specialty-visual">
-                                <img src="{{ asset('img/Arimala-img1.png') }}" alt="Cardiovascular Medicine"
-                                    class="img-fluid">
-                                <div class="visual-overlay">
-                                    <i class="bi bi-heart-pulse"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End Specialty Card -->
 
-                    <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="specialty-card">
-                            <div class="specialty-content">
-                                <div class="specialty-meta">
-                                    <span class="specialty-label">Expert Care</span>
-                                </div>
-                                <h3>Neurological Sciences</h3>
-                                <p>Cutting-edge neuroimaging and neurosurgical expertise for complex brain and spinal
-                                    cord conditions
-                                    with innovative treatment approaches.</p>
-                                <div class="specialty-features">
-                                    <span><i class="bi bi-check-circle-fill"></i>Advanced Brain Imaging</span>
-                                    <span><i class="bi bi-check-circle-fill"></i>Robotic Surgery</span>
-                                </div>
-                                <a href="department-details.html" class="specialty-link">
-                                    Explore Neurology <i class="bi bi-arrow-right"></i>
-                                </a>
-                            </div>
-                            <div class="specialty-visual">
-                                <img src="{{ asset('img/health/neurology-4.webp') }}" alt="Neurological Sciences"
-                                    class="img-fluid">
-                                <div class="visual-overlay">
-                                    <i class="bi bi-cpu"></i>
-                                </div>
                             </div>
                         </div>
-                    </div><!-- End Specialty Card -->
-
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="department-highlight">
-                            <div class="highlight-icon">
-                                <i class="bi bi-shield-plus"></i>
-                            </div>
-                            <h4>Orthopedic Surgery</h4>
-                            <p>Comprehensive musculoskeletal care utilizing advanced arthroscopic techniques and joint
-                                replacement
-                                procedures.</p>
-                            <ul class="highlight-list">
-                                <li>Sports Medicine</li>
-                                <li>Joint Replacement</li>
-                                <li>Spine Surgery</li>
-                            </ul>
-                            <a href="department-details.html" class="highlight-cta">Learn More</a>
-                        </div>
-                    </div><!-- End Department Highlight -->
-
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="department-highlight">
-                            <div class="highlight-icon">
-                                <i class="bi bi-people"></i>
-                            </div>
-                            <h4>Pediatric Care</h4>
-                            <p>Child-centered healthcare services from newborn to adolescence with family-focused
-                                treatment
-                                approaches.</p>
-                            <ul class="highlight-list">
-                                <li>Neonatal Intensive Care</li>
-                                <li>Developmental Pediatrics</li>
-                                <li>Pediatric Surgery</li>
-                            </ul>
-                            <a href="department-details.html" class="highlight-cta">Learn More</a>
-                        </div>
-                    </div><!-- End Department Highlight -->
-
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="department-highlight">
-                            <div class="highlight-icon">
-                                <i class="bi bi-activity"></i>
-                            </div>
-                            <h4>Cancer Treatment</h4>
-                            <p>Multidisciplinary oncology program offering personalized cancer care with latest
-                                therapeutic
-                                innovations.</p>
-                            <ul class="highlight-list">
-                                <li>Precision Medicine</li>
-                                <li>Immunotherapy</li>
-                                <li>Radiation Oncology</li>
-                            </ul>
-                            <a href="department-details.html" class="highlight-cta">Learn More</a>
-                        </div>
-                    </div><!-- End Department Highlight -->
+                    @endforeach
 
                 </div>
 
-                <div class="emergency-banner" data-aos="fade-up" data-aos-delay="400">
+
+                <!-- Emergency Banner -->
+                <div class="emergency-banner mt-5" data-aos="fade-up">
                     <div class="row align-items-center">
+
                         <div class="col-lg-8">
                             <div class="emergency-content">
                                 <h3>Emergency Services Available 24/7</h3>
-                                <p>Our emergency department is equipped with state-of-the-art technology and staffed by
-                                    board-certified
-                                    emergency physicians ready to provide immediate care.</p>
+                                <p>
+                                    Our emergency department is equipped with advanced
+                                    medical technology and experienced doctors ready
+                                    to provide immediate care.
+                                </p>
                             </div>
                         </div>
+
                         <div class="col-lg-4 text-lg-end">
                             <a href="tel:918281240560" class="emergency-btn">
                                 <i class="bi bi-telephone-fill"></i>
                                 Call Emergency: +91 8281 240 560
                             </a>
                         </div>
+
                     </div>
                 </div>
 
             </div>
 
-        </section><!-- /Featured Departments Section -->
+        </section>
 
         <!-- Featured Services Section -->
-        <section id="featured-services" class="featured-services section">
-
+        <section id="featured-services" class="featured-services section"
+            style="
+    position: relative;
+    background-image: url('{{ asset('img/bg/career1.jpg') }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  ">
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>Our Featured Services</h2>
@@ -557,129 +530,189 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="service-details">
-                                <h2>Comprehensive Healthcare Excellence</h2>
-                                <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ante ipsum
-                                    primis in faucibus
-                                    orci luctus et ultrices posuere cubilia curae donec velit neque.</p>
-                                <a href="#!" class="main-cta">Explore Our Services</a>
+                            <div class="frost-service-panel">
+                                <div class="frost-service-inner">
+                                    <h2 class="frost-title">Comprehensive Healthcare at Arimala Hospital</h2>
+
+                                    <p class="frost-description">
+                                        Arimala Hospital is committed to delivering high-quality healthcare with
+                                        compassion
+                                        and professionalism. Our experienced doctors, modern medical facilities, and
+                                        patient-focused approach ensure reliable diagnosis, effective treatment, and
+                                        continuous care for every patient.
+                                    </p>
+
+                                    <a href="{{ route('service') }}" class="frost-btn">Explore Our Services</a>
+                                </div>
                             </div>
+
                         </div>
                     </div>
 
                     <div class="col-lg-4" data-aos="fade-left" data-aos-delay="300">
                         <div class="services-sidebar">
 
-                            <div class="service-item" data-aos="fade-up" data-aos-delay="400">
-                                <div class="service-icon-wrapper">
-                                    <i class="bi bi-capsule"></i>
-                                </div>
-                                <div class="service-info">
-                                    <h4>Dermatology Clinic</h4>
-                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-                                        turpis egestas.</p>
-                                    <a href="#!" class="service-link">Learn More</a>
-                                </div>
-                            </div>
+                            @php
+                                $icons = ['bi-capsule', 'bi-bandaid', 'bi-activity', 'bi-heart-pulse', 'bi-hospital'];
+                            @endphp
 
-                            <div class="service-item" data-aos="fade-up" data-aos-delay="500">
-                                <div class="service-icon-wrapper">
-                                    <i class="bi bi-bandaid"></i>
-                                </div>
-                                <div class="service-info">
-                                    <h4>Surgery Center</h4>
-                                    <p>Donec rutrum congue leo eget malesuada curabitur arcu erat accumsan id imperdiet
-                                        et porttitor at
-                                        sem.</p>
-                                    <a href="#!" class="service-link">Learn More</a>
-                                </div>
-                            </div>
+                            @foreach ($services->take(3) as $service)
+                                @php
+                                    $iconIndex = $loop->index % count($icons);
+                                @endphp
 
-                            <div class="service-item" data-aos="fade-up" data-aos-delay="600">
-                                <div class="service-icon-wrapper">
-                                    <i class="bi bi-activity"></i>
+                                <div class="service-item service-card" data-aos="fade-up"
+                                    data-aos-delay="{{ 400 + $loop->index * 100 }}">
+
+                                    <div class="service-icon-wrapper">
+                                        <i class="bi {{ $icons[$iconIndex] }}"></i>
+                                    </div>
+
+                                    <div class="service-info">
+                                        <h4>{{ $service->title }}</h4>
+
+                                        <p>
+                                            {{ $service->description }}
+                                        </p>
+
+                                        <a href="{{ route('service') }}" class="service-link">
+                                            Learn More
+                                        </a>
+                                    </div>
+
                                 </div>
-                                <div class="service-info">
-                                    <h4>Diagnostics Lab</h4>
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui cras
-                                        ultricies ligula sed
-                                        magna.</p>
-                                    <a href="#!" class="service-link">Learn More</a>
-                                </div>
-                            </div>
+                            @endforeach
 
                         </div>
                     </div>
 
+
                 </div>
 
                 <div class="specialties-grid" data-aos="fade-up" data-aos-delay="300">
-                    <div class="row align-items-center">
+                    <div class="swiper specialties-swiper">
+                        <div class="swiper-wrapper">
 
-                        <div class="col-lg-3 col-md-6">
-                            <div class="specialty-card">
-                                <div class="specialty-image">
-                                    <img src="{{ asset('img/health/maternal-2.webp') }}" alt="Maternal Care"
-                                        class="img-fluid" loading="lazy">
+                            @foreach ($services as $service)
+                                <div class="swiper-slide">
+                                    <div class="specialty-card">
+
+                                        <div class="specialty-image">
+                                            @if ($service->image)
+                                                <img src="{{ asset('storage/' . $service->image) }}"
+                                                    alt="{{ $service->title }}" loading="lazy">
+                                            @else
+                                                <img src="{{ asset('img/health/emergency-1.webp') }}" alt="Service"
+                                                    loading="lazy">
+                                            @endif
+                                        </div>
+
+                                        <div class="specialty-content">
+                                            <h4>{{ $service->title }}</h4>
+                                            <span style="color: black">{{ $service->description }}</span>
+                                        </div>
+
+                                    </div>
                                 </div>
-                                <div class="specialty-content">
-                                    <h5>Maternal Care</h5>
-                                    <span>Expert pregnancy &amp; delivery support</span>
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
 
-                        <div class="col-lg-3 col-md-6">
-                            <div class="specialty-card">
-                                <div class="specialty-image">
-                                    <img src="{{ asset('img/health/vaccination-3.webp') }}" alt="Vaccination"
-                                        class="img-fluid" loading="lazy">
-                                </div>
-                                <div class="specialty-content">
-                                    <h5>Vaccination</h5>
-                                    <span>Complete immunization programs</span>
-                                </div>
-                            </div>
-                        </div>
+                        {{-- Navigation arrows --}}
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
 
-                        <div class="col-lg-3 col-md-6">
-                            <div class="specialty-card">
-                                <div class="specialty-image">
-                                    <img src="{{ asset('img/health/emergency-1.webp') }}" alt="Emergency Care"
-                                        class="img-fluid" loading="lazy">
-                                </div>
-                                <div class="specialty-content">
-                                    <h5>Emergency Care</h5>
-                                    <span>24/7 critical care services</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6">
-                            <div class="specialty-card">
-                                <div class="specialty-image">
-                                    <img src="{{ asset('img/health/facilities-6.webp') }}" alt="Advanced Tech"
-                                        class="img-fluid" loading="lazy">
-                                </div>
-                                <div class="specialty-content">
-                                    <h5>Advanced Technology</h5>
-                                    <span>State-of-the-art medical equipment</span>
-                                </div>
-                            </div>
-                        </div>
-
+                        {{-- Pagination dots --}}
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
 
             </div>
 
         </section><!-- /Featured Services Section -->
+<!-- Reviews Section -->
 
-        <!-- Find A Doctor Section -->
+<section id="reviews" class="reviews-section section"  style="
+    position: relative;
+    background-image: url('{{ asset('img/bg/for-review.png') }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  ">
+
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Patient Reviews</h2>
+        <p>What our patients say about their experience with our doctors and services</p>
+    </div>
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="reviews-carousel-wrapper">
+
+            <!-- Carousel Track -->
+<div class="reviews-track-container">
+    <div class="reviews-track" id="reviewsTrack">
+
+        @foreach($reviews as $review)
+        <div class="review-card">
+            <div class="review-top">
+                <div class="quote-icon">
+                    <i class="bi bi-quote"></i>
+                </div>
+
+                <div class="stars">
+                    @for($i = 1; $i <= 5; $i++)
+                        @if($i <= $review->rating)
+                            <i class="bi bi-star-fill"></i>
+                        @else
+                            <i class="bi bi-star"></i>
+                        @endif
+                    @endfor
+                </div>
+            </div>
+
+            <p class="review-text">
+                "{{ $review->description }}"
+            </p>
+
+            <div class="reviewer-info">
+                <div class="reviewer-avatar">
+                    <span>{{ strtoupper(substr($review->name,0,1)) }}</span>
+                </div>
+
+                <div class="reviewer-details">
+                    <h5>{{ $review->name }}</h5>
+                    <span>{{ $review->department ?? 'Patient' }}</span>
+                </div>
+            </div>
+        </div>
+        @endforeach
+
+    </div>
+</div>
+
+            <!-- Navigation Arrows -->
+            <button class="carousel-nav prev" id="reviewsPrev" aria-label="Previous">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="carousel-nav next" id="reviewsNext" aria-label="Next">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+
+        </div>
+
+        <!-- Dots -->
+        <div class="carousel-dots" id="reviewsDots"></div>
+
+    </div>
+
+</section><!-- /Reviews Section -->
+       
+<!-- Find A Doctor Section -->
         <section id="find-a-doctor" class="find-a-doctor section"
             style="
     position: relative;
-    background-image: url('{{ asset('img/background/bluely1.jpg') }}');
+    background-image: url('{{ asset('img/bg/abstract-bg-4.png') }}');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -700,238 +733,88 @@
                             <p class="search-subtitle">Search through our comprehensive directory of experienced
                                 medical professionals
                             </p>
-                            <form class="search-form" action="#!" method="#">
+                            <form class="search-form" action="{{ route('dashboard') }}" method="GET">
+                                <input type="hidden" name="searched" value="1">
                                 <div class="search-input-group">
+
                                     <div class="input-wrapper">
                                         <i class="bi bi-person"></i>
                                         <input type="text" class="form-control" name="doctor_name"
-                                            placeholder="Enter doctor name">
+                                            placeholder="Enter doctor name" value="{{ request('doctor_name') }}">
                                     </div>
+
                                     <div class="select-wrapper">
                                         <i class="bi bi-heart-pulse"></i>
                                         <select class="form-select" name="specialty">
                                             <option value="">All Specialties</option>
-                                            <option value="cardiology">Cardiology</option>
-                                            <option value="neurology">Neurology</option>
-                                            <option value="orthopedics">Orthopedics</option>
-                                            <option value="pediatrics">Pediatrics</option>
-                                            <option value="dermatology">Dermatology</option>
-                                            <option value="oncology">Oncology</option>
+
+                                            @foreach ($departments as $department)
+                                                <option value="{{ $department->id }}"
+                                                    {{ request('specialty') == $department->id ? 'selected' : '' }}>
+                                                    {{ $department->title }}
+                                                </option>
+                                            @endforeach
+
                                         </select>
                                     </div>
+
                                     <button type="submit" class="search-btn">
                                         <i class="bi bi-search"></i>
                                         Find Doctors
                                     </button>
+
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </div>
 
                 <div class="doctors-grid" data-aos="fade-up" data-aos-delay="300">
-                    <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="profile-header">
-                            <div class="doctor-avatar">
-                                <img src="{{ asset('img/health/staff-2.webp') }}" alt="Dr. Amanda Foster"
-                                    class="img-fluid">
-                                <div class="status-indicator available"></div>
-                            </div>
-                            <div class="doctor-details">
-                                <h4>Dr. Amanda Foster</h4>
-                                <span class="specialty-tag">Cardiology Specialist</span>
-                                <div class="experience-info">
-                                    <i class="bi bi-award"></i>
-                                    <span>14 years experience</span>
+
+                    @foreach ($doctors as $doctor)
+                        <div class="doctor-profile" data-aos="zoom-in">
+
+                            <div class="profile-header">
+                                <div class="doctor-avatar">
+                                    <img src="{{ asset('storage/' . $doctor->image) }}" alt="{{ $doctor->name }}"
+                                        class="img-fluid">
+
+                                    <div class="status-indicator available"></div>
+                                </div>
+
+                                <div class="doctor-details">
+                                    <h4>{{ $doctor->name }}</h4>
+
+                                    <span class="specialty-tag">
+                                        {{ $doctor->specialization }}
+                                    </span>
+
+                                    <div class="experience-info">
+                                        <i class="bi bi-mortarboard"></i>
+                                        <span>{{ $doctor->qualification }}</span>
+                                    </div>
+
+                                    <div class="department-info">
+                                        <i class="bi bi-hospital"></i>
+                                        <span>{{ $doctor->department->title ?? 'Department' }}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="rating-section">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
+
+                            <div class="action-buttons">
+                                <a href="{{ route('doctors') }}" class="btn-secondary">
+                                    View Details
+                                </a>
                             </div>
-                            <span class="rating-score">4.9</span>
-                            <span class="review-count">(127 reviews)</span>
-                        </div>
-                        <div class="action-buttons">
-                            <a href="#!" class="btn-secondary">View Details</a>
 
                         </div>
-                    </div><!-- End Doctor Profile -->
-
-                    <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="profile-header">
-                            <div class="doctor-avatar">
-                                <img src="{{ asset('img/health/staff-6.webp') }}" alt="Dr. Marcus Johnson"
-                                    class="img-fluid">
-                                <div class="status-indicator busy"></div>
-                            </div>
-                            <div class="doctor-details">
-                                <h4>Dr. Marcus Johnson</h4>
-                                <span class="specialty-tag">Neurology Expert</span>
-                                <div class="experience-info">
-                                    <i class="bi bi-award"></i>
-                                    <span>16 years experience</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rating-section">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-half"></i>
-                            </div>
-                            <span class="rating-score">4.8</span>
-                            <span class="review-count">(89 reviews)</span>
-                        </div>
-                        <div class="action-buttons">
-                            <a href="#!" class="btn-secondary">View Details</a>
-
-                        </div>
-                    </div><!-- End Doctor Profile -->
-
-                    <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="profile-header">
-                            <div class="doctor-avatar">
-                                <img src="{{ asset('img/health/staff-4.webp') }}" alt="Dr. Rachel Williams"
-                                    class="img-fluid">
-                                <div class="status-indicator available"></div>
-                            </div>
-                            <div class="doctor-details">
-                                <h4>Dr. Rachel Williams</h4>
-                                <span class="specialty-tag">Pediatrics Care</span>
-                                <div class="experience-info">
-                                    <i class="bi bi-award"></i>
-                                    <span>11 years experience</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rating-section">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                            </div>
-                            <span class="rating-score">5.0</span>
-                            <span class="review-count">(203 reviews)</span>
-                        </div>
-                        <div class="action-buttons">
-                            <a href="#!" class="btn-secondary">View Details</a>
-
-                        </div>
-                    </div><!-- End Doctor Profile -->
-
-                    <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="400">
-                        <div class="profile-header">
-                            <div class="doctor-avatar">
-                                <img src="{{ asset('img/health/staff-8.webp') }}" alt="Dr. David Chen"
-                                    class="img-fluid">
-                                <div class="status-indicator offline"></div>
-                            </div>
-                            <div class="doctor-details">
-                                <h4>Dr. David Chen</h4>
-                                <span class="specialty-tag">Orthopedic Surgery</span>
-                                <div class="experience-info">
-                                    <i class="bi bi-award"></i>
-                                    <span>22 years experience</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rating-section">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-half"></i>
-                            </div>
-                            <span class="rating-score">4.7</span>
-                            <span class="review-count">(156 reviews)</span>
-                        </div>
-                        <div class="action-buttons">
-                            <a href="#!" class="btn-secondary">View Details</a>
-
-                        </div>
-                    </div><!-- End Doctor Profile -->
-
-                    <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="500">
-                        <div class="profile-header">
-                            <div class="doctor-avatar">
-                                <img src="assets/img/health/staff-11.webp" alt="Dr. Victoria Torres"
-                                    class="img-fluid">
-                                <div class="status-indicator available"></div>
-                            </div>
-                            <div class="doctor-details">
-                                <h4>Dr. Victoria Torres</h4>
-                                <span class="specialty-tag">Dermatology Care</span>
-                                <div class="experience-info">
-                                    <i class="bi bi-award"></i>
-                                    <span>9 years experience</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rating-section">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star"></i>
-                            </div>
-                            <span class="rating-score">4.5</span>
-                            <span class="review-count">(74 reviews)</span>
-                        </div>
-                        <div class="action-buttons">
-                            <a href="#!" class="btn-secondary">View Details</a>
-
-                        </div>
-                    </div><!-- End Doctor Profile -->
-
-                    <div class="doctor-profile" data-aos="zoom-in" data-aos-delay="600">
-                        <div class="profile-header">
-                            <div class="doctor-avatar">
-                                <img src="{{ asset('img/health/staff-14.webp') }}" alt="Dr. Benjamin Lee"
-                                    class="img-fluid">
-                                <div class="status-indicator available"></div>
-                            </div>
-                            <div class="doctor-details">
-                                <h4>Dr. Benjamin Lee</h4>
-                                <span class="specialty-tag">Oncology Treatment</span>
-                                <div class="experience-info">
-                                    <i class="bi bi-award"></i>
-                                    <span>19 years experience</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rating-section">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                            </div>
-                            <span class="rating-score">4.9</span>
-                            <span class="review-count">(194 reviews)</span>
-                        </div>
-                        <div class="action-buttons">
-                            <a href="#!" class="btn-secondary">View Details</a>
-
-                        </div>
-                    </div><!-- End Doctor Profile -->
+                    @endforeach
 
                 </div>
 
                 <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="700">
-                    <a href="doctors.html" class="btn-view-all">
+                    <a href="{{ route('doctors') }}" class="btn-view-all">
                         View All Doctors
                         <i class="bi bi-arrow-right"></i>
                     </a>
@@ -942,12 +825,19 @@
         </section><!-- /Find A Doctor Section -->
 
         <!-- Call To Action Section -->
-        <section id="call-to-action" class="call-to-action section light-background">
+        <section id="call-to-action" class="call-to-action section"
+            style="
+    position: relative;
+    background-image: url('{{ asset('img/bg/career2.jpg') }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  ">
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
-
+                {{-- <div class="medical-glass-card"> --}}
                 <div class="hero-content">
-                    <div class="row align-items-center">
+                    <div class="row align-items-center medical-glass-card">
 
                         <div class="col-lg-6">
                             <div class="content-wrapper" data-aos="fade-up" data-aos-delay="200">
@@ -964,11 +854,11 @@
 
 
                                 <div class="cta-wrapper">
-                                    <a href="appointment.html" class="primary-cta">
-                                        <span>Schedule Consultation</span>
+                                    <a href="{{ route('ContactUs.index') }}" class="primary-cta">
+                                        <span>Contact us</span>
                                         <i class="bi bi-arrow-right"></i>
                                     </a>
-                                    <a href="services.html" class="secondary-cta">
+                                    <a href="{{ route('service') }}" class="secondary-cta">
                                         <span>Explore Services</span>
                                         <i class="bi bi-arrow-right"></i>
                                     </a>
@@ -991,14 +881,14 @@
                     <div class="row g-0">
 
                         <div class="col-lg-4">
+                            {{-- feature-card-gap --}}
                             <div class="feature-block" data-aos="fade-up" data-aos-delay="200">
                                 <div class="feature-icon">
                                     <i class="bi bi-shield-check"></i>
                                 </div>
-                                <h3>Advanced Technology</h3>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                    mollit anim id est
-                                    laborum.</p>
+                                <h4>Advanced Medical Care</h4>
+                                <p>Arimala Hospital provides modern medical facilities with advanced diagnostic and
+                                    treatment technologies to ensure accurate care and better patient outcomes.</p>
                             </div>
                         </div>
 
@@ -1007,10 +897,9 @@
                                 <div class="feature-icon">
                                     <i class="bi bi-clock"></i>
                                 </div>
-                                <h3>24/7 Availability</h3>
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                    fugiat nulla pariatur
-                                    excepteur.</p>
+                                <h4>24/7 Emergency Services</h4>
+                                <p>Our hospital is equipped to provide round-the-clock emergency care with dedicated
+                                    doctors, nurses, and support staff ready to serve patients anytime.</p>
                             </div>
                         </div>
 
@@ -1019,10 +908,9 @@
                                 <div class="feature-icon">
                                     <i class="bi bi-people"></i>
                                 </div>
-                                <h3>Expert Team</h3>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                                    laudantium
-                                    totam rem.</p>
+                                <h4>Experienced Medical Team</h4>
+                                <p>Arimala Hospital is supported by a team of skilled doctors, nurses, and healthcare
+                                    professionals committed to providing compassionate and quality healthcare.</p>
                             </div>
                         </div>
 
@@ -1030,13 +918,14 @@
 
                 </div>
 
-                <div class="contact-block">
+                <div class="contact-block" style="border:2px solid #000; padding:30px; border-radius:10px;">
                     <div class="row">
 
                         <div class="col-lg-8">
                             <div class="contact-content" data-aos="fade-up" data-aos-delay="200">
-                                <h2>Need Immediate Medical Assistance?</h2>
-                                <p>Our emergency response team is available around the clock to provide immediate
+                                <h4>Need Immediate Medical Assistance?</h4>
+                                <p style="color: #000 !important;">Our emergency response team is available around the
+                                    clock to provide immediate
                                     medical support when
                                     you need it most.</p>
                             </div>
@@ -1048,15 +937,38 @@
                                     <i class="bi bi-telephone"></i>
                                     <span>+91 8281 240 560</span>
                                 </a>
-                                <a href="contact.html" class="contact-link">Find Location</a>
+                                <a href="{{ route('ContactUs.index') }}" class="contact-link">Find Location</a>
                             </div>
                         </div>
 
                     </div>
                 </div>
-
+                {{-- </div> --}}
             </div>
         </section>
+     <section class="location-section" style="
+    position: relative;
+    background-image: url('{{ asset('img/bg/for-review.png') }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  ">
+  <div class="location-container">
+
+    <div class="location-map-box">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3897.943989537925!2d75.0832076748299!3d12.319556887939084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba47c6ac0074653%3A0x775bf502fbe100e!2sArimala%20Hospital!5e0!3m2!1sen!2sin!4v1773735447267!5m2!1sen!2sin"
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+
+  </div>
+</section>
+
     </main>
 
     <footer id="footer" class="footer-16 footer position-relative">
@@ -1068,7 +980,7 @@
 
                     <div class="col-lg-5">
                         <div class="brand-section">
-                            <a href="index.html" class="logo footer-logo d-flex align-items-center mb-4">
+                            <a href="{{ route('dashboard') }}" class="logo footer-logo d-flex align-items-center mb-4">
                                 <img src="{{ asset('img/logo1.jpg') }}" class="footer-logo" alt="Logo">
                             </a>
                             <p class="brand-description">Committed to delivering trusted healthcare services with
@@ -1249,7 +1161,59 @@
             }, 4000);
         });
     </script>
+    <!-- Include Swiper JS (add in <head> or before </body>) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new Swiper('.specialties-swiper', {
+                slidesPerView: 4, // Show 4 cards
+                spaceBetween: 24, // Gap between cards
+                loop: true, // Infinite loop
+                autoplay: {
+                    delay: 3000, // Auto-swipe every 3 seconds
+                    disableOnInteraction: false, // Resume after user swipes
+                },
+                navigation: {
+                    prevEl: '.swiper-button-prev',
+                    nextEl: '.swiper-button-next',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                // Responsive breakpoints
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                    },
+                    576: {
+                        slidesPerView: 2,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                    },
+                    992: {
+                        slidesPerView: 4,
+                    },
+                },
+            });
+        });
+    </script>
+    @if (request('searched'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                setTimeout(function() {
+                    document.getElementById('find-a-doctor')
+                        .scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                }, 300);
+            });
+        </script>
+    @endif
 </body>
 
 </html>

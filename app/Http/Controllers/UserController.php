@@ -12,13 +12,27 @@ use App\Models\Doctor;
 use App\Models\Gallery;
 use App\Models\Blog;
 use App\Models\ChairMan;
+use App\Models\Review;
+
 
 class UserController extends Controller
 {
-     public function dashboard()
-    {
-        return view('customer.index');
-    }
+    public function dashboard(Request $request)
+{
+    $departments = Departments::orderBy('id', 'asc')->take(6)->get();
+    $services = Services::all();
+
+    $doctors = Doctor::with('department')
+        ->when($request->doctor_name, function ($query, $name) {
+            $query->where('name', 'like', '%' . $name . '%');
+        })
+        ->when($request->specialty, function ($query, $specialty) {
+            $query->where('department_id', $specialty);
+        })
+        ->get();
+    $reviews = Review::all();
+    return view('customer.index', compact('departments', 'services', 'doctors', 'reviews'));
+}
     public function about()
 {
     $abouts = AboutUs::latest()->get();

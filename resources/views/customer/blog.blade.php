@@ -101,7 +101,8 @@
                                 <li>
                                     <a href="{{ route('gallery') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/Blog.jpg') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/doctor-patien.png') }}"
+                                                alt="Departments">
                                         </span>
                                         <span>Gallery</span>
                                     </a>
@@ -109,7 +110,8 @@
                                 <li>
                                     <a href="{{ route('blog') }}" class="dropdown-dept-link active">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/NURSE.jpg') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/patient-nurse.png') }}"
+                                                alt="Departments">
                                         </span>
                                         <span>Blog</span>
                                     </a>
@@ -117,7 +119,7 @@
                                 <li>
                                     <a href="{{ route('faq') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/faqq.png') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/question.png') }}" alt="Departments">
                                         </span>
                                         <span>FAQ</span>
                                     </a>
@@ -172,46 +174,53 @@
         </div><!-- End Page Title -->
 
         <!-- Blogs Section -->
-        <section id="blogs" class="blogs section">
+       <!-- Blogs Section -->
+    <section id="blogs" class="blogs section">
+        <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+            <div class="row gy-4 justify-content-center">
 
-            <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="row gy-4 justify-content-center">
-
-                    @foreach ($blogs as $blog)
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="blog-item h-100">
-
-                                <!-- Blog Image -->
-                                <img src="{{ asset('storage/' . $blog->image) }}" class="img-fluid"
-                                    alt="{{ $blog->title }}">
-
-                                <div class="blog-content p-4">
-
-                                    <!-- Blog Title -->
-                                    <h5>{{ $blog->title }}</h5>
-
-                                    <!-- Blog Short Description -->
-                                    <p>
-                                        {{ $blog->description }}
-                                    </p>
-
-                                    <!-- Read More Link -->
-                                    <a href="#" class="read-more-btn">
-                                        Read More
-                                    </a>
-
-                                </div>
+                @foreach ($blogs as $blog)
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="blog-item h-100">
+                            <img src="{{ asset('storage/' . $blog->image) }}" class="img-fluid"
+                                alt="{{ $blog->title }}">
+                            <div class="blog-content p-4">
+                                <h5>{{ $blog->title }}</h5>
+                                <p>{{ $blog->description }}</p>
+                                <a href="#" class="read-more-btn" data-bs-toggle="modal"
+                                    data-bs-target="#blogModal{{ $blog->id }}">
+                                    Read More
+                                </a>
                             </div>
                         </div>
-                    @endforeach
-
-                </div>
+                    </div>
+                @endforeach
 
             </div>
+        </div>
+    </section>
 
-        </section>
-
+    {{--Modals are NOW OUTSIDE the section — no stacking context issues --}}
+    @foreach ($blogs as $blog)
+        <div class="modal fade" id="blogModal{{ $blog->id }}" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{ $blog->title }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+    <img src="{{ asset('storage/' . $blog->image) }}" 
+         class="img-fluid mb-3"
+         alt="{{ $blog->heading }}"
+         style="width: 100%; height: 350px; object-fit: cover; border-radius: 10px;">
+    <p>{{ $blog->content }}</p>
+</div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+    </main>
     </main>
 
     <footer id="footer" class="footer-16 footer position-relative">

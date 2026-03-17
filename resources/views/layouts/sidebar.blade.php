@@ -24,15 +24,15 @@
                 </a>
             </li>
             <li class="nav-item mb-2">
-                <a href="{{ route('admin.about-us.index') }}"
-                    class="nav-link {{ request()->routeIs('admin.about-us.*') ? 'active' : '' }}">
-                    Manage About Us
-                </a>
-            </li>
-            <li class="nav-item mb-2">
                 <a href="{{ route('admin.GetInTouch.index') }}"
                     class="nav-link {{ request()->routeIs('admin.GetInTouch.*') ? 'active' : '' }}">
                     View Get In Touch Users
+                </a>
+            </li>
+            <li class="nav-item mb-2">
+                <a href="{{ route('admin.about-us.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.about-us.*') ? 'active' : '' }}">
+                    Manage About Us
                 </a>
             </li>
             <li class="nav-item mb-2">
@@ -83,12 +83,12 @@
                     Manage Blogs
                 </a>
             </li>
-             <li class="nav-item mb-2">
+            <li class="nav-item mb-2">
                 <a href="{{ route('admin.applications.index') }}"
                     class="nav-link {{ request()->routeIs('admin.applications.*') ? 'active' : '' }}">
                     Job Applications
                 </a>
-             </li>
+            </li>
             <li class="nav-item mt-4">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -99,11 +99,13 @@
             </li>
         </ul>
     </aside>
+
     <!-- Offcanvas Sidebar for Mobile -->
     <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="sidebarOffcanvas"
         aria-labelledby="sidebarOffcanvasLabel">
         <div class="offcanvas-header border-bottom">
-            <h5 class="offcanvas-title fw-semibold text-heading" id="sidebarOffcanvasLabel">Admin Panel</h5>
+            <img src="{{ asset('img/back-logo.png') }}" style="width: 140px; height: auto;"
+                class="bg-white p-2 rounded">
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body p-0">
@@ -114,20 +116,72 @@
                         Dashboard
                     </a>
                 </li>
-
-
                 <li class="nav-item mb-2">
-                    <a href="#" class="nav-link">
-                        Users
+                    <a href="{{ route('admin.GetInTouch.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.GetInTouch.*') ? 'active' : '' }}">
+                        View Get In Touch Users
                     </a>
                 </li>
-
                 <li class="nav-item mb-2">
-                    <a href="#" class="nav-link">
-                        Careers
+                    <a href="{{ route('admin.about-us.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.about-us.*') ? 'active' : '' }}">
+                        Manage About Us
                     </a>
                 </li>
-
+                <li class="nav-item mb-2">
+                    <a href="{{ route('admin.services.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.services.*') ? 'active' : '' }}">
+                        Manage Services
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="{{ route('admin.gallery.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
+                        Manage Gallery
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="{{ route('admin.contactus.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.contactus.*') ? 'active' : '' }}">
+                        Manage Contact Us
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="{{ route('admin.departments.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.departments.*') ? 'active' : '' }}">
+                        Manage Departments
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="{{ route('admin.doctors.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.doctors.*') ? 'active' : '' }}">
+                        Manage Doctors
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="{{ route('admin.careers.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.careers.*') ? 'active' : '' }}">
+                        Manage Careers
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="{{ route('admin.reviews.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.reviews.*') ? 'active' : '' }}">
+                        Manage Reviews
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="{{ route('admin.blogs.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}">
+                        Manage Blogs
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="{{ route('admin.applications.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.applications.*') ? 'active' : '' }}">
+                        Job Applications
+                    </a>
+                </li>
                 <li class="nav-item mt-4">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
@@ -241,22 +295,28 @@
     /* Sidebar scroll */
     .sidebar {
         max-height: 100vh;
-        /* Full viewport height */
         overflow-y: auto;
-        /* Enable vertical scrolling */
+    }
+
+    /* Offcanvas body scroll for long nav lists */
+    .offcanvas-body {
+        overflow-y: auto;
     }
 
     /* Optional: styled scrollbar */
-    .sidebar::-webkit-scrollbar {
+    .sidebar::-webkit-scrollbar,
+    .offcanvas-body::-webkit-scrollbar {
         width: 6px;
     }
 
-    .sidebar::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.3);
+    .sidebar::-webkit-scrollbar-thumb,
+    .offcanvas-body::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.2);
         border-radius: 3px;
     }
 
-    .sidebar::-webkit-scrollbar-track {
+    .sidebar::-webkit-scrollbar-track,
+    .offcanvas-body::-webkit-scrollbar-track {
         background: transparent;
     }
 </style>

@@ -10,9 +10,9 @@ use App\Http\Controllers\CareerAapplicationController;
 //     return view('customer.index');
 // });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboardS');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboardS');
 
 
 
@@ -36,5 +36,6 @@ Route::resource('apply', CareerAapplicationController::class);
 Route::get("/career", [UserController::class, 'career'])->name('career');
 
 Route::get("/faq", [UserController::class, 'faq'])->name('faq');
+
 
 require __DIR__.'/auth.php';

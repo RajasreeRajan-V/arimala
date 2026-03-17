@@ -128,7 +128,7 @@
                                 <li>
                                     <a href="{{ route('gallery') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/Blog.jpg') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/doctor-patien.png') }}" alt="Departments">
                                         </span>
                                         <span>Gallery</span>
                                     </a>
@@ -136,7 +136,7 @@
                                 <li>
                                     <a href="{{ route('blog') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/NURSE.jpg') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/patient-nurse.png') }}" alt="Departments">
                                         </span>
                                         <span>Blog</span>
                                     </a>
@@ -144,7 +144,7 @@
                                 <li>
                                     <a href="{{ route('faq') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/faqq.png') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/question.png') }}" alt="Departments">
                                         </span>
                                         <span>FAQ</span>
                                     </a>

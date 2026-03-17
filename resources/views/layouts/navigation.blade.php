@@ -32,7 +32,7 @@
 
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="{{ route('admin.contactus.index') }}">
                         {{ Auth::user()->name }}
                     </a>
 
