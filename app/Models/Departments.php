@@ -1,31 +1,33 @@
 <?php
 
-namespace App\Models;
+    namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Model;
 
-class Departments extends Model
-{
-    /** @use HasFactory<\Database\Factories\DepartmentsFactory> */
-    use HasFactory;
+    class Departments extends Model
+    {
+        /** @use HasFactory<\Database\Factories\DepartmentsFactory> */
+        use HasFactory;
     protected $fillable = [
-        'title',
-        'description',
-        'image',
-        'subtagline1_title',
-        'subtagline1_description',
-        'subtagline2_title',
-        'subtagline2_description',
-        'subtagline3_title',
-        'subtagline3_description',
-        'subtagline4_title',
-        'subtagline4_description',
-    ];
+            'title',
+            'description',
+            'image',
+            'head_name',
+            'head_photo',
+            'subtagline1_title',
+            'subtagline1_description',
+            'subtagline2_title',
+            'subtagline2_description',
+            'subtagline3_title',
+            'subtagline3_description',
+            'subtagline4_title',
+            'subtagline4_description',
+        ];
 
-    public function doctors()
-{
-    return $this->hasMany(Doctor::class);
-}
+        public function doctors()
+    {
+        return $this->hasMany(Doctor::class);
+    }
 
-}
+    }

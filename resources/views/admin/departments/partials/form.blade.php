@@ -6,9 +6,7 @@
 
 <div class="mb-3">
     <label class="form-label">Description *</label>
-    <textarea name="description" class="form-control" rows="3" required>
-        {{ $department->description ?? '' }}
-    </textarea>
+    <textarea name="description" class="form-control" rows="3" required>{{ $department->description ?? '' }}</textarea>
 </div>
 
 <div class="mb-3">
@@ -16,8 +14,29 @@
     <input type="file" name="image" class="form-control">
     @isset($department)
         <img src="{{ asset('storage/'.$department->image) }}"
-             class="img-thumbnail mt-2"
-             width="120">
+             class="img-thumbnail mt-2" width="120">
+    @endisset
+</div>
+
+<hr>
+
+{{-- Department Head --}}
+<h6 class="fw-bold mb-3">Department Head</h6>
+
+<div class="mb-3">
+    <label class="form-label">Head Name</label>
+    <input type="text" name="head_name" class="form-control"
+           value="{{ $department->head_name ?? '' }}">
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Head Photo</label>
+    <input type="file" name="head_photo" class="form-control">
+    @isset($department)
+        @if($department->head_photo)
+            <img src="{{ asset('storage/'.$department->head_photo) }}"
+                 class="img-thumbnail mt-2" width="120">
+        @endif
     @endisset
 </div>
 

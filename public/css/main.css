@@ -505,6 +505,301 @@ h6 {
   .mobile-nav-active .navmenu>ul {
     display: block;
   }
+  /*--------------------------------------------------------------
+# Navigation Menu - Premium UI
+--------------------------------------------------------------*/
+
+/* ===== Desktop Navigation ===== */
+@media (min-width: 1200px) {
+
+  .navmenu {
+    padding: 0;
+  }
+
+  .navmenu ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .navmenu li {
+    position: relative;
+  }
+
+  .navmenu > ul > li {
+    padding: 12px 10px;
+  }
+
+  /* Links */
+  .navmenu a {
+    color: var(--nav-color);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  /* Hover underline animation */
+  .navmenu > ul > li > a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #107A7C, #18bfc2);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+
+  .navmenu a:hover::after,
+  .navmenu .active::after {
+    width: 100%;
+  }
+
+  /* Hover color */
+  .navmenu li:hover > a,
+  .navmenu .active {
+    color: #107A7C;
+  }
+
+  /* Icon */
+  .navmenu a i {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+  }
+
+  .navmenu li:hover > a i {
+    transform: rotate(180deg);
+  }
+
+  /* ===== Dropdown ===== */
+  .navmenu .dropdown ul {
+    position: absolute;
+    top: 120%;
+    left: 0;
+    min-width: 220px;
+
+    padding: 12px 0;
+    border-radius: 10px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+
+    transition: all 0.3s ease;
+
+    /* Glass effect */
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+
+  .navmenu .dropdown:hover > ul {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Dropdown items */
+  .navmenu .dropdown ul li {
+    padding: 0;
+  }
+
+  .navmenu .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #222;
+    transition: all 0.25s ease;
+  }
+
+  .navmenu .dropdown ul a:hover {
+    background: linear-gradient(90deg, #107A7C, #18bfc2);
+    color: #fff;
+    padding-left: 25px;
+  }
+
+  /* Sub-dropdown */
+  .navmenu .dropdown .dropdown ul {
+    left: 100%;
+    top: 0;
+  }
+
+  .navmenu .dropdown .dropdown:hover > ul {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+/* ===== Mobile & Tablet ===== */
+@media (max-width: 1199px) {
+  .mobile-nav-toggle {
+    font-size: 28px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: var(--nav-color);
+  }
+
+  /* ===== NAV CONTAINER ===== */
+  .navmenu ul {
+    display: none;
+    position: absolute;
+    inset: 60px 15px 15px 15px;
+
+    padding: 15px;
+    border-radius: 12px;
+
+    /* Clean background */
+background: linear-gradient(
+  135deg,
+  #ffffff 0%,
+  rgba(16, 122, 124, 0.35) 100%
+);
+
+    /* 🔥 Border highlight */
+    border: 2px solid #107A7C;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+
+    overflow-y: auto;
+  }
+
+  /* ===== LOGO INSIDE MENU ===== */
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+
+    border-bottom: 1px solid rgba(16, 122, 124, 0.2);
+  }
+
+  .mobile-nav-header img {
+    height: 35px;
+  }
+
+  .mobile-nav-header h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #107A7C;
+    font-weight: 600;
+  }
+
+  /* ===== LINKS ===== */
+  .navmenu a {
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .navmenu a:hover {
+    background: rgba(16, 122, 124, 0.08);
+    color: #107A7C;
+    transform: translateX(4px);
+  }
+
+  /* ===== ICON STYLE ===== */
+  .navmenu a i {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(16, 122, 124, 0.1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navmenu .active i {
+    background: #107A7C;
+    color: #fff;
+  }
+
+  /* ===== DROPDOWN ===== */
+  .navmenu .dropdown ul {
+    display: none;
+    margin: 8px 10px;
+    padding: 10px;
+    border-radius: 8px;
+
+    background: #f9f9f9;
+
+    /* subtle border */
+    border-left: 3px solid #107A7C;
+  }
+
+  .navmenu .dropdown > .dropdown-active {
+    display: block;
+  }
+
+  /* ===== OVERLAY ===== */
+  .mobile-nav-active {
+    overflow: hidden;
+  }
+
+  .mobile-nav-active .navmenu {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+  }
+
+  .mobile-nav-active .navmenu > ul {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+}
+/* Hide logo header by default (desktop) */
+.mobile-nav-header {
+  display: none;
+}
+
+/* Show ONLY in mobile */
+@media (max-width: 1199px) {
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+
+    border-bottom: 1px solid rgba(16, 122, 124, 0.2);
+    list-style: none;
+  }
+
+  .mobile-nav-header img {
+    height: 35px;
+  }
+
+  .mobile-nav-header h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #107A7C;
+    font-weight: 600;
+  }
 }
 
 /* Active state for dropdown dept links */
@@ -539,6 +834,7 @@ h6 {
 
 .footer-16 .brand-section .logo {
   text-decoration: none;
+  margin-left: 28px; 
 }
 
 .footer-16 .brand-section .logo .sitename {
@@ -556,6 +852,7 @@ h6 {
   font-weight: 300;
   max-width: 380px;
   margin: 0;
+  margin-left: 28px;
 }
 
 .footer-16 .brand-section .contact-info .contact-item {
@@ -1616,6 +1913,7 @@ section,
 
 .home-about .about-visual {
   position: relative;
+  overflow: visible;
 }
 
 .home-about .about-visual .main-image {
@@ -1636,8 +1934,8 @@ section,
 
 .home-about .about-visual .floating-card {
   position: absolute;
-  bottom: -30px;
-  left: -30px;
+  bottom: 30px;
+  left: 30px;
   background-color: var(--surface-color);
   padding: 1.5rem;
   border-radius: 8px;
@@ -2169,15 +2467,16 @@ section,
 .featured-departments .emergency-btn {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     background: var(--contrast-color);
     color: var(--accent-color);
-    padding: 16px 30px;
+    padding: 18px 6px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     font-size: 16px;
     transition: all 0.3s ease;
+    white-space: nowrap;  
 }
 
 .featured-departments .emergency-btn:hover {
@@ -7789,4 +8088,75 @@ section,
 .feature-card-gap {
     padding-left: 15px;
     padding-right: 15px;
+}
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.contact-text span {
+    display: block;
+    margin-bottom: 6px;
+}
+
+/* ---------------------------------------- */
+/* FIX FOOTER CONTACT ALIGNMENT */
+.footer-16 .brand-section .contact-info {
+  margin-top: 20px;
+}
+
+.footer-16 .brand-section .contact-info .contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+/* Make text block clean */
+.footer-16 .brand-section .contact-info .contact-item span {
+  display: block;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+/* Fix inline phone/email spacing */
+.footer-16 .brand-section .contact-info .contact-item span a {
+  display: inline-block;
+  margin-right: 15px;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Mobile alignment fix */
+@media (max-width: 768px) {
+  .footer-16 .brand-section .contact-info {
+    display: block;
+    text-align: left;
+  }
+
+  .footer-16 .brand-section .contact-info .contact-item {
+    justify-content: flex-start;
+  }
+}
+.error-message {
+    display: block;
+    color: #e53e3e;
+    font-size: 0.813rem;
+    margin-top: 4px;
+}
+
+.input-error {
+    border-color: #e53e3e !important;
+    outline-color: #e53e3e;
+}
+
+.alert-success {
+    background-color: #f0fff4;
+    color: #276749;
+    border: 1px solid #9ae6b4;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 14px;
+    font-size: 0.9rem;
 }

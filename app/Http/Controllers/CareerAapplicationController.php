@@ -57,7 +57,7 @@ class CareerAapplicationController extends Controller
             'position'    => 'required|string',
             'qualification' => 'required|string',
             'experience'  => 'required|string',
-            'resume' => 'nullable|mimes:pdf,doc,docx|max:5120',
+            'resume' => 'required|file|mimes:pdf,doc,docx|max:5120',
             'cover_letter'=> 'nullable',
         ]);
         $resumePath = null;

@@ -13,8 +13,13 @@ class Doctor extends Model
         'name',
         'image',
         'qualification',
-        'specialization',
+        'is_specialized',
+        'sub_specialization',
         'department_id',
+    ];
+
+    protected $casts = [
+        'is_specialized' => 'boolean',
     ];
 
     public function department()

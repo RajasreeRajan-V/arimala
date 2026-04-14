@@ -76,33 +76,75 @@
 
         <h3>Get In Touch</h3>
 
-        <form id="contactModalForm" action="{{ route('ContactUs.store') }}" method="POST">
-            @csrf
+{{-- Success Message --}}
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 
-            <div class="form-group">
-                <input type="text" name="name" placeholder="Your Name" required>
-            </div>
-            <input type="hidden" name="subject" value="Get In Touch">
-            <div class="form-group">
-                <input type="email" name="email" placeholder="Email Address" required>
-            </div>
+<form id="contactModalForm" action="{{ route('ContactUs.store') }}" method="POST">
+    @csrf
 
-            <div class="form-group">
-                <input type="tel" name="phone" placeholder="Phone">
-            </div>
+    <div class="form-group">
+        <input 
+            type="text" 
+            name="name" 
+            placeholder="Your Name" 
+            value="{{ old('name') }}"
+            class="{{ $errors->has('name') ? 'input-error' : '' }}"
+            required
+        >
+        @error('name')
+            <span class="error-message">{{ $message }}</span>
+        @enderror
+    </div>
 
-            <div class="form-group">
-                <textarea name="message" rows="3" placeholder="Your Message" required></textarea>
-            </div>
+    <input type="hidden" name="subject" value="Get In Touch">
 
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
+    <div class="form-group">
+        <input 
+            type="email" 
+            name="email" 
+            placeholder="Email Address" 
+            value="{{ old('email') }}"
+            class="{{ $errors->has('email') ? 'input-error' : '' }}"
+            required
+        >
+        @error('email')
+            <span class="error-message">{{ $message }}</span>
+        @enderror
+    </div>
+
+    <div class="form-group">
+        <input 
+            type="tel" 
+            name="phone" 
+            placeholder="Phone"
+            value="{{ old('phone') }}"
+        >
+    </div>
+
+    <div class="form-group">
+        <textarea 
+            name="message" 
+            rows="3" 
+            placeholder="Your Message"
+            class="{{ $errors->has('message') ? 'input-error' : '' }}"
+            required
+        >{{ old('message') }}</textarea>
+        @error('message')
+            <span class="error-message">{{ $message }}</span>
+        @enderror
+    </div>
+
+    <button type="submit" class="submit-btn">Send Message</button>
+</form>
     </div>
 </div>
 
 <body class="index-page" id="index-page">
     <header id="header" class="header fixed-top">
-
         <div class="topbar d-flex align-items-center dark-background">
             <div class="container d-flex justify-content-center justify-content-md-between">
                 <div class="contact-info d-flex align-items-center">
@@ -114,45 +156,64 @@
                         <a href="mailto:hrarimala@gmail.com">hrarimala@gmail.com</a>
                     </i>
 
-                    <i class="bi bi-phone d-flex align-items-center ms-4">
-                        <span>+91 8281 240 560</span></i>
-                    <i class="bi bi-telephone d-flex align-items-center ms-4"><span>0467 220 4560</span>
-                    </i>
+                    <a href="tel:+918281240560">
+                        <i class="bi bi-phone d-flex align-items-center ms-4">
+                            <span>+91 8281 240 560</span>
+                        </i>
+                    </a>
+
+                    <a href="tel:04672204560">
+                        <i class="bi bi-telephone d-flex align-items-center ms-4">
+                            <span>0467 220 4560</span>
+                        </i>
+                    </a>
+
                 </div>
                 <div class="social-links d-none d-md-flex align-items-center">
-                    <a href="#!" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
-                    <a href="#!" class="instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#!" class="youtube"><i class="bi bi-youtube"></i></a>
-                    <a href="#!" class="mail"><i class="bi bi-envelope"></i></a>
-                    <a href="#!" class="location"><i class="bi bi-geo-alt"></i></a>
+                    <a href="https://wa.me/918281240560" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/arimala_hospital" class="instagram"><i
+                            class="bi bi-instagram"></i></a>
+                    <a href="https://www.facebook.com/arimalahospital.kgd" class="mail" target="_blank">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@ArimalaHospital" class="youtube"><i
+                            class="bi bi-youtube"></i></a>
+                    <a href="mailto:arimalahospital@gmail.com" class="mail"><i class="bi bi-envelope"></i></a>
+                    <a href="https://maps.app.goo.gl/9EqkKZXV4ahtfeqh7" class="location"><i
+                            class="bi bi-geo-alt"></i></a>
                 </div>
             </div>
         </div><!-- End Top Bar -->
 
-        <div class="branding d-flex align-items-cente">
+        <div class="branding d-flex align-items-center">
 
             <div class="container position-relative d-flex align-items-center justify-content-between">
                 <a href="{{ route('dashboard') }}" class="logo d-flex align-items-center gap-2">
                     <img src="{{ asset('img/back-logo.png') }}" alt="Arimala Hospital" class="logo-img">
-                    {{-- <span class="logo-title">
-            Arimala Hospital
-          </span> --}}
                 </a>
 
                 <nav id="navmenu" class="navmenu">
                     <ul>
+                        <li class="mobile-nav-header">
+                            <img src="{{ asset('img/back-logo.png') }}" alt="Logo">
+                            <h4>Arimala Hospital</h4>
+                        </li>
                         <li><a href="{{ route('dashboard') }}" class="active">Home</a></li>
                         <li><a href="{{ route('about') }}">About</a></li>
                         <li><a href="{{ route('service') }}">Services</a></li>
                         <li><a href="{{ route('career') }}">Career</a></li>
                         <li><a href="{{ route('doctors') }}">Doctors</a></li>
-                        <li class="dropdown"><a href="#"><span>Departments</span> <i
-                                    class="bi bi-chevron-down toggle-dropdown"></i></a>
+
+                        <li class="dropdown">
+                            <a href="#">
+                                <span>Departments</span>
+                                <i class="bi bi-chevron-down toggle-dropdown"></i>
+                            </a>
                             <ul>
                                 <li>
                                     <a href="{{ route('departments') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/SKETCH.jpg') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/doctdepart.jpg') }}">
                                         </span>
                                         <span>Departments</span>
                                     </a>
@@ -160,8 +221,7 @@
                                 <li>
                                     <a href="{{ route('gallery') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/doctor-patien.png') }}"
-                                                alt="Departments">
+                                            <img src="{{ asset('img/background/doctor-patien.png') }}">
                                         </span>
                                         <span>Gallery</span>
                                     </a>
@@ -169,8 +229,7 @@
                                 <li>
                                     <a href="{{ route('blog') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/patient-nurse.png') }}"
-                                                alt="Departments">
+                                            <img src="{{ asset('img/background/patient-nurse.png') }}">
                                         </span>
                                         <span>Blog</span>
                                     </a>
@@ -178,17 +237,21 @@
                                 <li>
                                     <a href="{{ route('faq') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/question.png') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/question.png') }}">
                                         </span>
                                         <span>FAQ</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
+
                         <li><a href="{{ route('ContactUs.index') }}">Contact</a></li>
+
                     </ul>
+
                     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
                 </nav>
+
 
             </div>
 
@@ -321,23 +384,32 @@
                             <h2>Compassionate Care, Advanced Medicine</h2>
 
                             {{-- class="section-heading" --}}
+
+                            {{-- class="lead-text" --}}
                             <p>
                                 {{-- class="lead-text" --}}
-                                For more than two decades, Arimala Hospital has been dedicated to providing trusted
-                                healthcare by
-                                combining
-                                advanced medical technology with compassionate, personalized patient care.
+                                For over six decades, Arimala Hospital has stood as a symbol of trust, care, and medical
+                                excellence. Established in 1959, the hospital has grown from a humble healthcare center
+                                into a respected institution, dedicated to serving generations with unwavering
+                                commitment and compassion.
                             </p>
                             <p>
-                                Our team of experienced doctors, nurses, and healthcare professionals work together to
-                                deliver complete,
-                                patient-centered care. From preventive health services to advanced treatments, we are
-                                committed to
-                                maintaining
-                                the highest standards of medical excellence while ensuring comfort, safety, and trust at
-                                every step of
-                                care.
+                                At Arimala Hospital, we believe that healing goes beyond treatment - it begins with
+                                understanding, empathy, and personalized care. Our team of highly skilled doctors,
+                                dedicated nurses, and experienced healthcare professionals work together to deliver
+                                complete, patient-centered care tailored to each individual.
                             </p>
+                            <p>
+                                By combining advanced medical technology with a human touch, we offer a wide range of
+                                services - from preventive healthcare and early diagnosis to specialized treatments and
+                                recovery support - ensuring comfort, safety, and trust at every step of care.
+                            </p>
+                            <p>
+                                Guided by a legacy of excellence and a vision for the future, Arimala Hospital continues
+                                to uphold the highest standards in healthcare, striving to improve lives and build
+                                healthier communities.
+                            </p>
+
 
                             <div class="stats-grid">
                                 <div class="stat-item">
@@ -350,11 +422,7 @@
                                         data-purecounter-end="25" data-purecounter-duration="1"></div>
                                     <div class="stat-label">Years of Excellence</div>
                                 </div>
-                                <div class="stat-item">
-                                    <div class="stat-number purecounter" data-purecounter-start="0"
-                                        data-purecounter-end="15" data-purecounter-duration="1"></div>
-                                    <div class="stat-label">Medical Specialists</div>
-                                </div>
+
                             </div>
 
                             <div class="cta-section">
@@ -630,9 +698,10 @@
             </div>
 
         </section><!-- /Featured Services Section -->
-<!-- Reviews Section -->
+        <!-- Reviews Section -->
 
-<section id="reviews" class="reviews-section section"  style="
+        <section id="reviews" class="reviews-section section"
+            style="
     position: relative;
     background-image: url('{{ asset('img/bg/for-review.png') }}');
     background-size: cover;
@@ -640,75 +709,75 @@
     background-repeat: no-repeat;
   ">
 
-    <div class="container section-title" data-aos="fade-up">
-        <h2>Patient Reviews</h2>
-        <p>What our patients say about their experience with our doctors and services</p>
-    </div>
-
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="reviews-carousel-wrapper">
-
-            <!-- Carousel Track -->
-<div class="reviews-track-container">
-    <div class="reviews-track" id="reviewsTrack">
-
-        @foreach($reviews as $review)
-        <div class="review-card">
-            <div class="review-top">
-                <div class="quote-icon">
-                    <i class="bi bi-quote"></i>
-                </div>
-
-                <div class="stars">
-                    @for($i = 1; $i <= 5; $i++)
-                        @if($i <= $review->rating)
-                            <i class="bi bi-star-fill"></i>
-                        @else
-                            <i class="bi bi-star"></i>
-                        @endif
-                    @endfor
-                </div>
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Patient Reviews</h2>
+                <p>What our patients say about their experience with our doctors and services</p>
             </div>
 
-            <p class="review-text">
-                "{{ $review->description }}"
-            </p>
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-            <div class="reviewer-info">
-                <div class="reviewer-avatar">
-                    <span>{{ strtoupper(substr($review->name,0,1)) }}</span>
+                <div class="reviews-carousel-wrapper">
+
+                    <!-- Carousel Track -->
+                    <div class="reviews-track-container">
+                        <div class="reviews-track" id="reviewsTrack">
+
+                            @foreach ($reviews as $review)
+                                <div class="review-card">
+                                    <div class="review-top">
+                                        <div class="quote-icon">
+                                            <i class="bi bi-quote"></i>
+                                        </div>
+
+                                        <div class="stars">
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                @if ($i <= $review->rating)
+                                                    <i class="bi bi-star-fill"></i>
+                                                @else
+                                                    <i class="bi bi-star"></i>
+                                                @endif
+                                            @endfor
+                                        </div>
+                                    </div>
+
+                                    <p class="review-text">
+                                        "{{ $review->description }}"
+                                    </p>
+
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">
+                                            <span>{{ strtoupper(substr($review->name, 0, 1)) }}</span>
+                                        </div>
+
+                                        <div class="reviewer-details">
+                                            <h5>{{ $review->name }}</h5>
+                                            <span>{{ $review->department ?? 'Patient' }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                        </div>
+                    </div>
+
+                    <!-- Navigation Arrows -->
+                    <button class="carousel-nav prev" id="reviewsPrev" aria-label="Previous">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button class="carousel-nav next" id="reviewsNext" aria-label="Next">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+
                 </div>
 
-                <div class="reviewer-details">
-                    <h5>{{ $review->name }}</h5>
-                    <span>{{ $review->department ?? 'Patient' }}</span>
-                </div>
+                <!-- Dots -->
+                <div class="carousel-dots" id="reviewsDots"></div>
+
             </div>
-        </div>
-        @endforeach
 
-    </div>
-</div>
+        </section><!-- /Reviews Section -->
 
-            <!-- Navigation Arrows -->
-            <button class="carousel-nav prev" id="reviewsPrev" aria-label="Previous">
-                <i class="bi bi-chevron-left"></i>
-            </button>
-            <button class="carousel-nav next" id="reviewsNext" aria-label="Next">
-                <i class="bi bi-chevron-right"></i>
-            </button>
-
-        </div>
-
-        <!-- Dots -->
-        <div class="carousel-dots" id="reviewsDots"></div>
-
-    </div>
-
-</section><!-- /Reviews Section -->
-       
-<!-- Find A Doctor Section -->
+        <!-- Find A Doctor Section -->
         <section id="find-a-doctor" class="find-a-doctor section"
             style="
     position: relative;
@@ -946,28 +1015,25 @@
                 {{-- </div> --}}
             </div>
         </section>
-     <section class="location-section" style="
+        <section class="location-section"
+            style="
     position: relative;
     background-image: url('{{ asset('img/bg/for-review.png') }}');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   ">
-  <div class="location-container">
+            <div class="location-container">
 
-    <div class="location-map-box">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3897.943989537925!2d75.0832076748299!3d12.319556887939084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba47c6ac0074653%3A0x775bf502fbe100e!2sArimala%20Hospital!5e0!3m2!1sen!2sin!4v1773735447267!5m2!1sen!2sin"
-        width="100%"
-        height="450"
-        style="border:0;"
-        allowfullscreen
-        loading="lazy">
-      </iframe>
-    </div>
+                <div class="location-map-box">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3897.943989537925!2d75.0832076748299!3d12.319556887939084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba47c6ac0074653%3A0x775bf502fbe100e!2sArimala%20Hospital!5e0!3m2!1sen!2sin!4v1773735447267!5m2!1sen!2sin"
+                        width="100%" height="450" style="border:0;" allowfullscreen loading="lazy">
+                    </iframe>
+                </div>
 
-  </div>
-</section>
+            </div>
+        </section>
 
     </main>
 
@@ -980,31 +1046,42 @@
 
                     <div class="col-lg-5">
                         <div class="brand-section">
-                            <a href="{{ route('dashboard') }}" class="logo footer-logo d-flex align-items-center mb-4">
+                            <a href="{{ route('dashboard') }}"
+                                class="logo footer-logo d-flex align-items-center mb-4">
                                 <img src="{{ asset('img/logo1.jpg') }}" class="footer-logo" alt="Logo">
                             </a>
                             <p class="brand-description">Committed to delivering trusted healthcare services with
                                 modern facilities,
                                 experienced doctors, and a patient-first approach at Arimala Hospital.</p>
 
-                            <div class="contact-info mt-5">
+                            <div class="contact-info">
+
                                 <div class="contact-item">
                                     <i class="bi bi-geo-alt"></i>
-                                    <span>Arimala Hospital, Near Railway Station, Kanhangad, Kerala 671315</span>
+                                    <span>
+                                        Arimala Hospital, Near Railway Station,<br>
+                                        Kanhangad, Kerala 671315
+                                    </span>
                                 </div>
-                                <div class="contact-item">
-                                    <i class="fa-solid fa-phone"></i>
-                                    <span>+91 8281 240 560</span>
 
-                                    <i class="fa-solid fa-phone"></i>
-                                    <span>0467 220 4560</span>
+                                <div class="contact-item">
+                                    <i class="bi bi-telephone"></i>
+                                    <span>
+                                        <a href="tel:+918281240560">+91 8281 240 560</a>
+                                        <a href="tel:04672204560">0467 220 4560</a>
+                                    </span>
                                 </div>
+
                                 <div class="contact-item">
                                     <i class="bi bi-envelope"></i>
-                                    <span>arimalahospital@gmail.com</span>
-                                    <span>hrarimala@gmail.com</span>
+                                    <span>
+                                        <a href="mailto:arimalahospital@gmail.com">arimalahospital@gmail.com</a>
+                                        <a href="mailto:hrarimala@gmail.com">hrarimala@gmail.com</a>
+                                    </span>
                                 </div>
+
                             </div>
+
                         </div>
                     </div>
 
@@ -1014,13 +1091,13 @@
 
                                 <div class="col-6 col-lg-3">
                                     <div class="nav-column">
-                                        <h6>Studio</h6>
+                                        <h6>Hospital</h6>
                                         <nav class="footer-nav">
-                                            <a href="#!">Our Story</a>
-                                            <a href="#!">Design Process</a>
-                                            <a href="#!">Portfolio</a>
-                                            <a href="#!">Case Studies</a>
-                                            <a href="#!">Awards</a>
+                                            <a href="{{ route('about') }}">About Us</a>
+                                            <a href="{{ route('doctors') }}">Our Doctors</a>
+                                            <a href="{{ route('departments') }}">Departments</a>
+                                            <a href="{{ route('about') }}">Facilities</a>
+                                            <a href="{{ route('service') }}">Patient Care</a>
                                         </nav>
                                     </div>
                                 </div>
@@ -1029,37 +1106,39 @@
                                     <div class="nav-column">
                                         <h6>Services</h6>
                                         <nav class="footer-nav">
-                                            <a href="#!">Brand Identity</a>
-                                            <a href="#!">Web Design</a>
-                                            <a href="#!">Mobile Apps</a>
-                                            <a href="#!">Digital Strategy</a>
-                                            <a href="#!">Consultation</a>
+                                            <a href="#!">Emergency Care</a>
+                                            <a href="#!">Outpatient Services</a>
+                                            <a href="#!">Inpatient Care</a>
+                                            <a href="#!">Laboratory Services</a>
+                                            <a href="#!">Pharmacy</a>
                                         </nav>
                                     </div>
                                 </div>
+
 
                                 <div class="col-6 col-lg-3">
                                     <div class="nav-column">
                                         <h6>Resources</h6>
                                         <nav class="footer-nav">
-                                            <a href="#!">Design Blog</a>
-                                            <a href="#!">Style Guide</a>
-                                            <a href="#!">Free Assets</a>
-                                            <a href="#!">Tutorials</a>
-                                            <a href="#!">Inspiration</a>
+                                            <a href="{{ route('service') }}">Health Tips</a>
+                                            <a href="{{ route('about') }}">Patient Care</a>
+                                            <a href="{{ route('blog') }}">Medical Articles</a>
+                                            <a href="{{ route('faq') }}">FAQs</a>
+
                                         </nav>
                                     </div>
                                 </div>
+
 
                                 <div class="col-6 col-lg-3">
                                     <div class="nav-column">
                                         <h6>Connect</h6>
                                         <nav class="footer-nav">
-                                            <a href="#!">Start Project</a>
-                                            <a href="#!">Schedule Call</a>
-                                            <a href="#!">Join Newsletter</a>
-                                            <a href="#!">Follow Updates</a>
-                                            <a href="#!">Partnership</a>
+                                            <a href="{{ route('ContactUs.index') }}">Contact Us</a>
+                                            <a href="{{ route('ContactUs.index') }}">Emergency Contact</a>
+                                            <a href="{{ route('doctors') }}">Find a Doctor</a>
+                                            <a href="{{ route('ContactUs.index') }}">Get Directions</a>
+                                            <a href="{{ route('ContactUs.index') }}">Help Desk</a>
                                         </nav>
                                     </div>
                                 </div>
@@ -1104,11 +1183,11 @@
 
         <!-- Social Icons FIRST (so they appear above the chat button) -->
         <div class="social-icons">
-            <a href="https://wa.me/919XXXXXXXXX" target="_blank" class="whatsapp">
+            <a href="https://wa.me/918281240560" target="_blank" class="whatsapp">
                 <i class="fa-brands fa-whatsapp"></i>
             </a>
 
-            <a href="https://instagram.com/your_instagram" target="_blank" class="instagram">
+            <a href="https://www.instagram.com/arimala_hospital" target="_blank" class="instagram">
                 <i class="fa-brands fa-instagram"></i>
             </a>
         </div>
@@ -1214,6 +1293,11 @@
             });
         </script>
     @endif
+    {{-- At the bottom of your page, outside the modal --}}
+<script>
+    window.reopenContactModal = {{ $errors->any() || session('success') ? 'true' : 'false' }};
+    window.formSubmittedSuccess = {{ session('success') ? 'true' : 'false' }};
+</script>
 </body>
 
 </html>

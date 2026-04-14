@@ -274,13 +274,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function getContactLinks() {
         return `
-            <a href="https://wa.me/919XXXXXXXXX" target="_blank" style="color: #25D366; text-decoration: none;">
+            <a href="https://wa.me/918281240560" target="_blank" style="color: #25D366; text-decoration: none;">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a><br>
-            <a href="https://instagram.com/your_instagram" target="_blank" style="color: #E4405F; text-decoration: none;">
+            <a href="https://www.instagram.com/arimala_hospital" target="_blank" style="color: #E4405F; text-decoration: none;">
                 <i class="fa-brands fa-instagram"></i> Instagram
             </a><br>
-            <a href="mailto:youremail@gmail.com" style="color: #EA4335; text-decoration: none;">
+            <a href="mailto:arimalahospital@gmail.com" style="color: #EA4335; text-decoration: none;">
                 <i class="fa fa-envelope"></i> Email
             </a>
         `;

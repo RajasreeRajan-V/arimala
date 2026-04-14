@@ -166,10 +166,13 @@ document.addEventListener("DOMContentLoaded", function () {
  
 window.addEventListener("load", function () {
 
-  const modal = document.getElementById("modal");
+  const modal    = document.getElementById("modal");
   const closeBtn = document.getElementById("closeModal");
 
   if (!modal || !closeBtn) return;
+
+  const SESSION_KEY = "contactModalDismissed";   // tab-level: closes after validation
+  const PERMANENT_KEY = "contactModalSubmitted";  // permanent: never show after success
 
   function openModal() {
     modal.classList.add("active");
@@ -181,21 +184,43 @@ window.addEventListener("load", function () {
     document.body.style.overflow = "";
   }
 
-  /* open modal after 5 seconds */
-  setTimeout(openModal, 5000);
+  function sessionDismiss() {
+    sessionStorage.setItem(SESSION_KEY, "true");
+    closeModal();
+  }
 
-  /* close button */
-  closeBtn.addEventListener("click", closeModal);
+  function permanentDismiss() {
+    localStorage.setItem(PERMANENT_KEY, "true");
+    sessionStorage.setItem(SESSION_KEY, "true");
+    closeModal();
+  }
 
-  /* click outside modal */
+  // ── Never show again if successfully submitted before ──
+  if (localStorage.getItem(PERMANENT_KEY)) return;
+
+  // ── Reopen immediately if there are errors or a success flash ──
+  if (window.reopenContactModal) {
+    openModal();
+
+    if (window.formSubmittedSuccess) {
+      permanentDismiss(); // mark as done — hides immediately after success redirect
+    }
+  } else {
+    // ── Normal visit: show after 5s unless already dismissed this session ──
+    if (!sessionStorage.getItem(SESSION_KEY)) {
+      setTimeout(openModal, 5000);
+    }
+  }
+
+  closeBtn.addEventListener("click", sessionDismiss);
+
   modal.addEventListener("click", function (e) {
-    if (e.target === modal) closeModal();
+    if (e.target === modal) sessionDismiss();
   });
 
-  /* ESC key close */
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && modal.classList.contains("active")) {
-      closeModal();
+      sessionDismiss();
     }
   });
 
@@ -290,5 +315,32 @@ document.getElementById("locationMapBtn").addEventListener("click", () => {
   window.open("https://maps.google.com/?q=Arimala Hospital", "_blank");
 });
 
+const toggle = document.querySelector('.mobile-nav-toggle');
+const nav = document.querySelector('.navmenu');
+const closeBtn = document.querySelector('.close-btn');
+const dropdowns = document.querySelectorAll('.dropdown > a');
+
+toggle.addEventListener('click', () => {
+  document.body.classList.toggle('mobile-nav-active');
+});
+
+closeBtn.addEventListener('click', () => {
+  document.body.classList.remove('mobile-nav-active');
+});
+
+/* Close when clicking outside */
+nav.addEventListener('click', (e) => {
+  if (e.target === nav) {
+    document.body.classList.remove('mobile-nav-active');
+  }
+});
+
+/* Dropdown toggle */
+dropdowns.forEach(item => {
+  item.addEventListener('click', (e) => {
+    e.preventDefault();
+    item.nextElementSibling.classList.toggle('dropdown-active');
+  });
+});
 
 })();

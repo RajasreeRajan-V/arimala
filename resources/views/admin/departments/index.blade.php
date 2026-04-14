@@ -14,7 +14,7 @@
         </div>
 
         {{-- Success Message --}}
-        @if(session('success'))
+        @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show">
                 {{ session('success') }}
                 <button class="btn-close" data-bs-dismiss="alert"></button>
@@ -24,63 +24,75 @@
         {{-- Departments Table --}}
         <div class="card">
             <div class="card-body">
-                <table class="table table-bordered table-striped align-middle">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Image</th>
-                            <th>Sub Taglines</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse($departments as $department)
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped align-middle text-nowrap">
+                        <thead class="table-dark">
                             <tr>
-                                <td>{{ $departments->firstItem() + $loop->index }}</td>
-                                <td>{{ $department->title }}</td>
-                                <td>{{ $department->description }}</td>
-                                <td>
-                                    <img src="{{ asset('storage/' . $department->image) }}" class="img-thumbnail" width="100">
-                                </td>
-                                <td>
-                                    <ul class="mb-0">
-                                        @for($i = 1; $i <= 4; $i++)
-                                            @php
-                                                $title = 'subtagline' . $i . '_title';
-                                                $desc = 'subtagline' . $i . '_description';
-                                            @endphp
-                                            @if($department->$title)
-                                                <li><strong>{{ $department->$title }}</strong></li>
-                                            @endif
-                                        @endfor
-                                    </ul>
-                                </td>
-                                <td>
-                                    <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
-                                        data-bs-target="#editModal{{ $department->id }}">
-                                        Edit
-                                    </button>
+                                <th>#</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Head of Department</th>
+                                <th>Sub Taglines</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($departments as $department)
+                                <tr>
+                                    <td>{{ $departments->firstItem() + $loop->index }}</td>
+                                    <td>{{ $department->title }}</td>
+                                    <td style="max-width: 200px; white-space: normal;">
+                                        {{ Str::limit($department->description, 80) }}
+                                    </td>
+                                    <td>
+                                        <img src="{{ asset('storage/' . $department->image) }}" class="img-thumbnail"
+                                            width="80">
+                                    </td>
+                                    <td>
+                                        @if ($department->head_photo)
+                                            <img src="{{ asset('storage/' . $department->head_photo) }}"
+                                                class="img-thumbnail mb-1 d-block" width="60">
+                                        @endif
+                                        <span>{{ $department->head_name ?? '—' }}</span>
+                                    </td>
+                                    <td style="max-width: 180px; white-space: normal;">
+                                        <ul class="mb-0 ps-3">
+                                            @for ($i = 1; $i <= 4; $i++)
+                                                @php $title = 'subtagline' . $i . '_title'; @endphp
+                                                @if ($department->$title)
+                                                    <li><strong>{{ $department->$title }}</strong></li>
+                                                @endif
+                                            @endfor
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex flex-wrap gap-1">
+                                            <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
+                                                data-bs-target="#editModal{{ $department->id }}">
+                                                Edit
+                                            </button>
+                                            <form action="{{ route('admin.departments.destroy', $department->id) }}"
+                                                method="POST" class="d-inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-sm btn-danger"
+                                                    onclick="return confirm('Delete this department?')">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="7" class="text-center">No departments found.</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
 
-                                    <form action="{{ route('admin.departments.destroy', $department->id) }}" method="POST"
-                                        class="d-inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-sm btn-danger"
-                                            onclick="return confirm('Delete this department?')">
-                                            Delete
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="6" class="text-center">No departments found.</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
                 {{-- Pagination --}}
                 <div class="d-flex justify-content-center mt-3">
                     {{ $departments->links() }}
@@ -90,7 +102,7 @@
     </div>
 
     {{-- Edit Modal --}}
-    @foreach($departments as $department)
+    @foreach ($departments as $department)
         <div class="modal fade" id="editModal{{ $department->id }}" tabindex="-1">
             <div class="modal-dialog modal-lg">
                 <form action="{{ route('admin.departments.update', $department->id) }}" method="POST"
@@ -156,7 +168,22 @@
 
                         <hr>
 
-                        @for($i = 1; $i <= 4; $i++)
+                        {{-- Department Head --}}
+                        <h6 class="fw-bold mb-3">Department Head</h6>
+
+                        <div class="mb-3">
+                            <label class="form-label">Head Name</label>
+                            <input type="text" name="head_name" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Head Photo</label>
+                            <input type="file" name="head_photo" class="form-control">
+                        </div>
+
+                        <hr>
+
+                        @for ($i = 1; $i <= 4; $i++)
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Subtagline {{ $i }} Title</label>

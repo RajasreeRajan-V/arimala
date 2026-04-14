@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\ContactusController;
 use App\Http\Controllers\Admin\ApplicationController;
 
 use Illuminate\Support\Facades\Route;
@@ -19,7 +19,7 @@ Route::name('admin.')->group(function () {
         Route::resource('gallery', GalleryController::class);
         Route::resource('contactus', ContactusController::class);
 
-        Route::post('/contact-us/{id}/reply',  [ContactUsController::class, 'reply'] )->name('contactus.reply');
+        Route::post('/contact-us/{id}/reply',  [ContactusController::class, 'reply'] )->name('contactus.reply');
 
         Route::resource('departments', DepartmentsController::class);
         Route::resource('doctors', DoctorController::class);

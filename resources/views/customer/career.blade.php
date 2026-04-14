@@ -106,17 +106,30 @@
                         <a href="mailto:hrarimala@gmail.com">hrarimala@gmail.com</a>
                     </i>
 
-                    <i class="bi bi-phone d-flex align-items-center ms-4">
-                        <span>+91 8281 240 560</span></i>
-                    <i class="bi bi-telephone d-flex align-items-center ms-4"><span>0467 220 4560</span>
-                    </i>
+                    <a href="tel:+918281240560">
+                        <i class="bi bi-phone d-flex align-items-center ms-4">
+                            <span>+91 8281 240 560</span>
+                        </i>
+                    </a>
+
+                    <a href="tel:04672204560">
+                        <i class="bi bi-telephone d-flex align-items-center ms-4">
+                            <span>0467 220 4560</span>
+                        </i>
+                    </a>
+
                 </div>
                 <div class="social-links d-none d-md-flex align-items-center">
-                    <a href="#!" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
-                    <a href="#!" class="instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#!" class="youtube"><i class="bi bi-youtube"></i></a>
-                    <a href="#!" class="mail"><i class="bi bi-envelope"></i></a>
-                    <a href="#!" class="location"><i class="bi bi-geo-alt"></i></a>
+                    <a href="https://wa.me/918281240560" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/arimala_hospital" class="instagram"><i
+                            class="bi bi-instagram"></i></a>
+                    <a href="https://www.facebook.com/arimalahospital.kgd" class="mail" target="_blank">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@ArimalaHospital" class="youtube"><i class="bi bi-youtube"></i></a>
+                    <a href="mailto:arimalahospital@gmail.com" class="mail"><i class="bi bi-envelope"></i></a>
+                    <a href="https://maps.app.goo.gl/9EqkKZXV4ahtfeqh7" class="location"><i
+                            class="bi bi-geo-alt"></i></a>
                 </div>
             </div>
         </div><!-- End Top Bar -->
@@ -145,7 +158,7 @@
                                 <li>
                                     <a href="{{ route('departments') }}" class="dropdown-dept-link">
                                         <span class="dept-icon">
-                                            <img src="{{ asset('img/background/SKETCH.jpg') }}" alt="Departments">
+                                            <img src="{{ asset('img/background/doctdepart.jpg') }}" alt="Departments">
                                         </span>
                                         <span>Departments</span>
                                     </a>
@@ -215,7 +228,7 @@
             <nav class="breadcrumbs">
                 <div class="container">
                     <ol>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="{{ route('dashboard') }}">Home</a></li>
                         <li class="current">Career</li>
                     </ol>
                 </div>
@@ -240,7 +253,7 @@
                     </div>
 
                     <div class="row g-5 gy-5">
-                        @foreach ($careers as $career)
+                        @forelse ($careers as $career)
                             <div class="col-lg-6 col-12 career-item">
                                 <div class="career-card-modern">
 
@@ -256,18 +269,9 @@
                                                 </span>
                                             </div>
                                         </div>
-
-                                        {{-- <div class="career-status">
-                                            @if ($career->due_date->lt(now()->startOfDay()))
-                                                <button class="btn-apply bg-secondary text-white" disabled>
-                                                    Applications Closed
-                                                </button>
-                                            @endif
-                                        </div> --}}
-
                                     </div>
 
-                                    <!-- Image (Optional) -->
+                                    <!-- Image -->
                                     @if (!empty($career->imge) && file_exists(public_path('storage/' . $career->imge)))
                                         <img src="{{ asset('storage/' . $career->imge) }}" class="img-fluid w-100"
                                             style="max-height:200px; object-fit:cover;"
@@ -321,14 +325,28 @@
                                                 Applications Closed
                                             </button>
                                         @endif
-
                                     </div>
-
 
                                 </div>
                             </div>
-                        @endforeach
+
+                        @empty
+                            <div class="col-12 text-center py-5">
+                                <div style="padding: 40px; border-radius: 12px; background: #f4f9f9;">
+                                    <i class="bi bi-briefcase" style="font-size: 40px; color: #107A7C;"></i>
+
+                                    <h4 style="margin-top: 15px; color: #107A7C;">
+                                        No job openings available
+                                    </h4>
+
+                                    <p style="color: #6c757d;">
+                                        Currently, there are no vacancies. Please check back later.
+                                    </p>
+                                </div>
+                            </div>
+                        @endforelse
                     </div>
+
 
                 </div>
             </div>
@@ -343,13 +361,12 @@
 
                     <div class="col-lg-5">
                         <div class="brand-section">
-                            <a href="index.html" class="logo footer-logo d-flex align-items-center mb-4">
+                            <a href="{{ route('dashboard') }}"
+                                class="logo footer-logo d-flex align-items-center mb-4">
                                 <img src="{{ asset('img/logo1.jpg') }}" class="footer-logo" alt="Logo">
                             </a>
-
                             <p class="brand-description">Committed to delivering trusted healthcare services with
-                                modern
-                                facilities,
+                                modern facilities,
                                 experienced doctors, and a patient-first approach at Arimala Hospital.</p>
 
                             <div class="contact-info mt-5">
@@ -358,8 +375,10 @@
                                     <span>Arimala Hospital, Near Railway Station, Kanhangad, Kerala 671315</span>
                                 </div>
                                 <div class="contact-item">
-                                    <i class="bi bi-telephone"></i>
+                                    <i class="fa-solid fa-phone"></i>
                                     <span>+91 8281 240 560</span>
+
+                                    <i class="fa-solid fa-phone"></i>
                                     <span>0467 220 4560</span>
                                 </div>
                                 <div class="contact-item">
@@ -377,13 +396,13 @@
 
                                 <div class="col-6 col-lg-3">
                                     <div class="nav-column">
-                                        <h6>Studio</h6>
+                                        <h6>Hospital</h6>
                                         <nav class="footer-nav">
-                                            <a href="#!">Our Story</a>
-                                            <a href="#!">Design Process</a>
-                                            <a href="#!">Portfolio</a>
-                                            <a href="#!">Case Studies</a>
-                                            <a href="#!">Awards</a>
+                                            <a href="{{ route('about') }}">About Us</a>
+                                            <a href="{{ route('doctors') }}">Our Doctors</a>
+                                            <a href="{{ route('departments') }}">Departments</a>
+                                            <a href="{{ route('about') }}">Facilities</a>
+                                            <a href="{{ route('service') }}">Patient Care</a>
                                         </nav>
                                     </div>
                                 </div>
@@ -392,37 +411,39 @@
                                     <div class="nav-column">
                                         <h6>Services</h6>
                                         <nav class="footer-nav">
-                                            <a href="#!">Brand Identity</a>
-                                            <a href="#!">Web Design</a>
-                                            <a href="#!">Mobile Apps</a>
-                                            <a href="#!">Digital Strategy</a>
-                                            <a href="#!">Consultation</a>
+                                            <a href="#!">Emergency Care</a>
+                                            <a href="#!">Outpatient Services</a>
+                                            <a href="#!">Inpatient Care</a>
+                                            <a href="#!">Laboratory Services</a>
+                                            <a href="#!">Pharmacy</a>
                                         </nav>
                                     </div>
                                 </div>
+
 
                                 <div class="col-6 col-lg-3">
                                     <div class="nav-column">
                                         <h6>Resources</h6>
                                         <nav class="footer-nav">
-                                            <a href="#!">Design Blog</a>
-                                            <a href="#!">Style Guide</a>
-                                            <a href="#!">Free Assets</a>
-                                            <a href="#!">Tutorials</a>
-                                            <a href="#!">Inspiration</a>
+                                            <a href="{{ route('service') }}">Health Tips</a>
+                                            <a href="{{ route('about') }}">Patient Care</a>
+                                            <a href="{{ route('blog') }}">Medical Articles</a>
+                                            <a href="{{ route('faq') }}">FAQs</a>
+
                                         </nav>
                                     </div>
                                 </div>
+
 
                                 <div class="col-6 col-lg-3">
                                     <div class="nav-column">
                                         <h6>Connect</h6>
                                         <nav class="footer-nav">
-                                            <a href="#!">Start Project</a>
-                                            <a href="#!">Schedule Call</a>
-                                            <a href="#!">Join Newsletter</a>
-                                            <a href="#!">Follow Updates</a>
-                                            <a href="#!">Partnership</a>
+                                            <a href="{{ route('ContactUs.index') }}">Contact Us</a>
+                                            <a href="{{ route('ContactUs.index') }}">Emergency Contact</a>
+                                            <a href="{{ route('doctors') }}">Find a Doctor</a>
+                                            <a href="{{ route('ContactUs.index') }}">Get Directions</a>
+                                            <a href="{{ route('ContactUs.index') }}">Help Desk</a>
                                         </nav>
                                     </div>
                                 </div>
@@ -445,8 +466,7 @@
                             <div class="copyright">
                                 <div class="text-center py-3">
                                     <small>© <a href="#" class="text-decoration-none"
-                                            style="color: #ffccff;">2026
-                                            Arimala Hospital</a> -
+                                            style="color: #ffccff;">2026 Arimala Hospital</a> -
                                         All Rights Reserved.</small>
                                 </div>
                             </div>
@@ -455,7 +475,6 @@
                 </div>
             </div>
         </div>
-
     </footer>
 
     <!-- Scroll Top -->
@@ -475,76 +494,76 @@
 
     <!-- Main JS File -->
     <script src="{{ asset('js/main.js') }}"></script>
-   <script>
-const searchInput = document.getElementById("careerSearch");
+    <script>
+        const searchInput = document.getElementById("careerSearch");
 
-searchInput.addEventListener("keyup", function () {
+        searchInput.addEventListener("keyup", function() {
 
-    let search = this.value.toLowerCase();
-    let items = document.querySelectorAll(".career-item");
+            let search = this.value.toLowerCase();
+            let items = document.querySelectorAll(".career-item");
 
-    items.forEach(function(item){
+            items.forEach(function(item) {
 
-        let text = item.innerText.toLowerCase();
+                let text = item.innerText.toLowerCase();
 
-        // reset highlights
-        item.querySelectorAll(".search-highlight").forEach(el=>{
-            el.outerHTML = el.innerText;
+                // reset highlights
+                item.querySelectorAll(".search-highlight").forEach(el => {
+                    el.outerHTML = el.innerText;
+                });
+
+                if (search === "") {
+                    item.style.display = "";
+                    return;
+                }
+
+                if (text.includes(search)) {
+
+                    item.style.display = "";
+
+                    highlightText(item, search);
+
+                } else {
+
+                    item.style.display = "none";
+
+                }
+
+            });
+
         });
 
-        if(search === ""){
-            item.style.display = "";
-            return;
+
+        function highlightText(element, search) {
+
+            const walker = document.createTreeWalker(
+                element,
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+
+            let node;
+
+            while (node = walker.nextNode()) {
+
+                let value = node.nodeValue.toLowerCase();
+
+                if (value.includes(search)) {
+
+                    let span = document.createElement("span");
+                    span.className = "search-highlight";
+
+                    let regex = new RegExp(`(${search})`, "gi");
+                    span.innerHTML = node.nodeValue.replace(regex, "<span class='search-highlight'>$1</span>");
+
+                    let wrapper = document.createElement("span");
+                    wrapper.innerHTML = span.innerHTML;
+
+                    node.parentNode.replaceChild(wrapper, node);
+                }
+            }
         }
-
-        if(text.includes(search)){
-
-            item.style.display = "";
-
-            highlightText(item, search);
-
-        } else {
-
-            item.style.display = "none";
-
-        }
-
-    });
-
-});
-
-
-function highlightText(element, search){
-
-    const walker = document.createTreeWalker(
-        element,
-        NodeFilter.SHOW_TEXT,
-        null,
-        false
-    );
-
-    let node;
-
-    while(node = walker.nextNode()){
-
-        let value = node.nodeValue.toLowerCase();
-
-        if(value.includes(search)){
-
-            let span = document.createElement("span");
-            span.className = "search-highlight";
-
-            let regex = new RegExp(`(${search})`, "gi");
-            span.innerHTML = node.nodeValue.replace(regex,"<span class='search-highlight'>$1</span>");
-
-            let wrapper = document.createElement("span");
-            wrapper.innerHTML = span.innerHTML;
-
-            node.parentNode.replaceChild(wrapper,node);
-        }
-    }
-}
-</script>
+    </script>
 
 
 
